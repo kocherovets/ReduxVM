@@ -13,7 +13,7 @@ open class VC<Props: Properties, PresenterType: PresenterProtocol>: UIViewContro
 
     private var presenter: PresenterType!
     private var _props: Props?
-    final var props: Props? {
+    public final var props: Props? {
         return _props
     }
     private var renderOnViewWillAppear = true

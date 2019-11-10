@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import RedSwift
+import ReduxVM
 import DeclarativeTVC
+import RedSwift
 
 struct Props: Properties, Equatable {
     let counterText: String

@@ -19,7 +19,7 @@ class HVC<Props: TableProperties, PresenterType: PresenterProtocol>: Declarative
 
     private var presenter: PresenterType!
     private var _props: Props?
-    final var props: Props? {
+    public final var props: Props? {
         return _props
     }
 
