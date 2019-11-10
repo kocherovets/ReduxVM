@@ -143,7 +143,7 @@
 		C3DFBA6223787B2F003259FF = {
 			isa = PBXGroup;
 			children = (
-				C3DFBAA1237881EC003259FF /* Source */,
+				C3DFBAA1237881EC003259FF /* Sources */,
 				C3DFBA6D23787B2F003259FF /* ReduxVM */,
 				C3DFBA8723787B32003259FF /* ReduxVMTests */,
 				C3DFBA9223787B32003259FF /* ReduxVMUITests */,
@@ -198,7 +198,7 @@
 			path = ReduxVMUITests;
 			sourceTree = "<group>";
 		};
-		C3DFBAA1237881EC003259FF /* Source */ = {
+		C3DFBAA1237881EC003259FF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				C3DFBAA22378851A003259FF /* Store.swift */,
@@ -206,7 +206,7 @@
 				C3DFBAAA23788A08003259FF /* VC.swift */,
 				C3DFBAAE23788A31003259FF /* TVC.swift */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
