@@ -1,0 +1,6 @@
+framework module Pods_ReduxVMUITests {
+  umbrella header "Pods-ReduxVMUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zug-HD-ngJ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tCn-5P-ElY">
+            <objects>
+                <viewController id="Zug-HD-ngJ" customClass="ViewController" customModule="ReduxVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WQ5-Bb-XAN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDx-P2-O9Z">
+                                <rect key="frame" x="186" y="114" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-Du-nPV">
+                                <rect key="frame" x="156.5" y="259" width="101" height="30"/>
+                                <state key="normal" title="Add 1 instantly"/>
+                                <connections>
+                                    <action selector="addAction1" destination="Zug-HD-ngJ" eventType="touchUpInside" id="Egn-Hr-buL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mos-gD-3vq">
+                                <rect key="frame" x="142" y="309" width="130" height="30"/>
+                                <state key="normal" title="Add 150 with delay"/>
+                                <connections>
+                                    <action selector="addAction150" destination="Zug-HD-ngJ" eventType="touchUpInside" id="6Sk-Ir-hwg"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="v5G-Ek-PrR">
+                                <rect key="frame" x="197" y="288" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Mos-gD-3vq" firstAttribute="top" secondItem="JgI-Du-nPV" secondAttribute="bottom" constant="20" id="0dL-ba-axe"/>
+                            <constraint firstItem="JDx-P2-O9Z" firstAttribute="top" secondItem="WJk-ie-Myg" secondAttribute="top" constant="70" id="4Y3-gk-Azv"/>
+                            <constraint firstItem="v5G-Ek-PrR" firstAttribute="centerX" secondItem="WQ5-Bb-XAN" secondAttribute="centerX" id="CUe-Q0-ECU"/>
+                            <constraint firstItem="JgI-Du-nPV" firstAttribute="centerX" secondItem="WQ5-Bb-XAN" secondAttribute="centerX" id="PGT-NF-IN4"/>
+                            <constraint firstItem="v5G-Ek-PrR" firstAttribute="top" secondItem="JDx-P2-O9Z" secondAttribute="bottom" constant="153" id="WHa-gJ-vSf"/>
+                            <constraint firstItem="JgI-Du-nPV" firstAttribute="top" secondItem="JDx-P2-O9Z" secondAttribute="bottom" constant="124" id="Xr3-Wm-aBH"/>
+                            <constraint firstItem="Mos-gD-3vq" firstAttribute="centerX" secondItem="WQ5-Bb-XAN" secondAttribute="centerX" id="YVM-hR-br5"/>
+                            <constraint firstItem="JDx-P2-O9Z" firstAttribute="centerX" secondItem="WQ5-Bb-XAN" secondAttribute="centerX" id="bcQ-JS-lyP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WJk-ie-Myg"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicatorV" destination="v5G-Ek-PrR" id="85x-uP-QDB"/>
+                        <outlet property="add150Button" destination="Mos-gD-3vq" id="nIX-zz-dz2"/>
+                        <outlet property="add1Button" destination="JgI-Du-nPV" id="jZ3-SY-SrQ"/>
+                        <outlet property="companyNameLabel" destination="JDx-P2-O9Z" id="743-2G-2bR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q2J-Q3-gPO" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="138"/>
+        </scene>
+    </scenes>
+</document>

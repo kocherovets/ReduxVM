@@ -1,0 +1,29 @@
+PODS:
+  - DeclarativeTVC (1.0.6):
+    - DifferenceKit
+  - DifferenceKit (1.1.3):
+    - DifferenceKit/Core (= 1.1.3)
+    - DifferenceKit/UIKitExtension (= 1.1.3)
+  - DifferenceKit/Core (1.1.3)
+  - DifferenceKit/UIKitExtension (1.1.3):
+    - DifferenceKit/Core
+  - RedSwift (1.0.2)
+
+DEPENDENCIES:
+  - DeclarativeTVC
+  - RedSwift
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - DeclarativeTVC
+    - DifferenceKit
+    - RedSwift
+
+SPEC CHECKSUMS:
+  DeclarativeTVC: 7baf25125f2f984bf6b7f0e49ab83c44db8cb44c
+  DifferenceKit: 5018791b6c1fc839921a3c171a0a539ace6ea60c
+  RedSwift: b5438ccbd85efcc908ffa2bed6977fb2cbf01723
+
+PODFILE CHECKSUM: bf8000da0b734e8b37c7ee9291009020c2d7c7b7
+
+COCOAPODS: 1.8.4

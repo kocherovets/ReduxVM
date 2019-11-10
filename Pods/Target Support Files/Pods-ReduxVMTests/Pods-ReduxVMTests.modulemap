@@ -1,0 +1,6 @@
+framework module Pods_ReduxVMTests {
+  umbrella header "Pods-ReduxVMTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
