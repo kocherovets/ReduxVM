@@ -10,14 +10,19 @@ import UIKit
 import DeclarativeTVC
 import RedSwift
 
-public protocol TableProperties: Properties, Equatable {
-
-    var tableModel: TableModel { get }
-}
 
 public struct TableProps: TableProperties {
 
     public var tableModel: TableModel
+
+    public init(tableModel: TableModel) {
+        self.tableModel = tableModel
+    }
+}
+
+public protocol TableProperties: Properties, Equatable {
+
+    var tableModel: TableModel { get }
 }
 
 open class TVC<Props: TableProperties, PresenterType: PresenterProtocol>: DeclarativeTVC, PropsReceiver {
