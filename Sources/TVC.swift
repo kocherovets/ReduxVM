@@ -10,12 +10,17 @@ import UIKit
 import DeclarativeTVC
 import RedSwift
 
-protocol TableProperties: Properties, Equatable {
+public protocol TableProperties: Properties, Equatable {
 
     var tableModel: TableModel { get }
 }
 
-class HVC<Props: TableProperties, PresenterType: PresenterProtocol>: DeclarativeTVC, PropsReceiver {
+public struct TableProps: TableProperties {
+
+    public var tableModel: TableModel
+}
+
+open class TVC<Props: TableProperties, PresenterType: PresenterProtocol>: DeclarativeTVC, PropsReceiver {
 
     private var presenter: PresenterType!
     private var _props: Props?
@@ -23,15 +28,15 @@ class HVC<Props: TableProperties, PresenterType: PresenterProtocol>: Declarative
         return _props
     }
 
-    var rowAnimation: UITableView.RowAnimation?
+    open var rowAnimation: UITableView.RowAnimation?
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
         setup()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         setup()
@@ -42,7 +47,7 @@ class HVC<Props: TableProperties, PresenterType: PresenterProtocol>: Declarative
         presenter = PresenterType.init(propsReceiver: self)
     }
 
-    final func set(props: Properties?) {
+    final public func set(props: Properties?) {
 
         if props == nil {
             return
@@ -75,27 +80,27 @@ class HVC<Props: TableProperties, PresenterType: PresenterProtocol>: Declarative
         }
     }
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         presenter.initCommand()?.perform()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         print("subscribe presenter \(type(of: self))")
         presenter.subscribe()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         print("unsubscribe presenter \(type(of: self))")
         presenter.unsubscribe()
     }
 
-    func render() {
+    open func render() {
 
         if let props = props {
             set(model: props.tableModel)
