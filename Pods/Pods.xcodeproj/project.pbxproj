@@ -173,7 +173,7 @@
 		47CF922DF35420277F7F3C31DBAC8A89 /* RedSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RedSwift-umbrella.h"; sourceTree = "<group>"; };
 		4E5B3B8A2CFAC139CD453E6A0EB35CF6 /* Pods-ReduxVM-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReduxVM-acknowledgements.plist"; sourceTree = "<group>"; };
 		4F25926624B65E1D81EDF263155B7064 /* UIKitExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIKitExtension.swift; path = Sources/Extensions/UIKitExtension.swift; sourceTree = "<group>"; };
-		5AB9D3A52ECCFDD44140223F40A212AA /* Pods_ReduxVMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxVMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AB9D3A52ECCFDD44140223F40A212AA /* Pods_ReduxVMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ReduxVMTests.framework; path = "Pods-ReduxVMTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B510F3086902E2438175B61AAA89E42 /* StateBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StateBox.swift; path = Sources/StateBox.swift; sourceTree = "<group>"; };
 		5F432578FDE89CC14E048A25B7EEA1A9 /* Pods-ReduxVMTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ReduxVMTests.modulemap"; sourceTree = "<group>"; };
 		5FC0DC74A63A9451C9A61CBF9EC6C75C /* DifferenceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DifferenceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,8 +183,8 @@
 		6DD7513083E652487999F22D39D994D2 /* DeclarativeTVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeclarativeTVC.swift; path = Sources/Tables/DeclarativeTVC.swift; sourceTree = "<group>"; };
 		7136505B30EF16F3A4132AC687D7433D /* TableHeaderModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableHeaderModel.swift; path = Sources/Tables/TableHeaderModel.swift; sourceTree = "<group>"; };
 		713CBCA78451B033EEFDF5E22346A330 /* Middleware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Sources/Middleware.swift; sourceTree = "<group>"; };
-		772A11C5B83B3399BB5D0393D73D05E2 /* Pods_ReduxVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		797B1BBC3E03CD39B8CB79D79BCFF843 /* DifferenceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DifferenceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		772A11C5B83B3399BB5D0393D73D05E2 /* Pods_ReduxVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ReduxVM.framework; path = "Pods-ReduxVM.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		797B1BBC3E03CD39B8CB79D79BCFF843 /* DifferenceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DifferenceKit.framework; path = DifferenceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AEF71F26DD23ED1F15E500FA1015D1 /* TableFooterModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableFooterModel.swift; path = Sources/Tables/TableFooterModel.swift; sourceTree = "<group>"; };
 		79B5AB764931C62DB4E7F95BDAE46783 /* DeclarativeTVC+Animations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DeclarativeTVC+Animations.swift"; path = "Sources/Tables/DeclarativeTVC+Animations.swift"; sourceTree = "<group>"; };
 		7C72DC5F436C837BF75A81DF5EDFCBE2 /* CollectionModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionModel.swift; path = Sources/Collections/CollectionModel.swift; sourceTree = "<group>"; };
@@ -202,22 +202,22 @@
 		9B585DFB4C43DD1D1B9908CEB35299F4 /* Pods-ReduxVMTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReduxVMTests-umbrella.h"; sourceTree = "<group>"; };
 		9BDA6C7475C3AFC45BB44217E10614F6 /* Pods-ReduxVMTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReduxVMTests-dummy.m"; sourceTree = "<group>"; };
 		9D0AC3B79F501D3845E58CE7D43EB94B /* SelectableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableCell.swift; path = Sources/Cells/SelectableCell.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A3C2A2F92F9AF4D7ED78F99AF4F617EB /* StoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreType.swift; path = Sources/StoreType.swift; sourceTree = "<group>"; };
 		A71BDB8F6F8D49619166BA0BDF8E269E /* TypeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypeHelper.swift; path = Sources/Utils/TypeHelper.swift; sourceTree = "<group>"; };
 		A88DBA539966A2CBA407EC3727F2A60E /* Command.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Command.swift; path = Sources/Cells/Command.swift; sourceTree = "<group>"; };
-		A998EC8F617ECA106CF0B48B494EA948 /* Pods_ReduxVMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxVMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A998EC8F617ECA106CF0B48B494EA948 /* Pods_ReduxVMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ReduxVMUITests.framework; path = "Pods-ReduxVMUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA6F6E8B316A0BBE304AA414DF1B196 /* DeclarativeTVC-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeclarativeTVC-umbrella.h"; sourceTree = "<group>"; };
 		ACE887E11AF888D35082CE79415001CD /* Coding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = Sources/Utils/Coding.swift; sourceTree = "<group>"; };
 		AF5B10D5C3221332505077125E021FC8 /* RedSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RedSwift-prefix.pch"; sourceTree = "<group>"; };
 		B199C825B6A755CFA759A45DBF21C4F5 /* Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = Sources/Subscription.swift; sourceTree = "<group>"; };
-		B2D8593FA09443B4BF9859C5D8EAC9CC /* DeclarativeTVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeclarativeTVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2D8593FA09443B4BF9859C5D8EAC9CC /* DeclarativeTVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DeclarativeTVC.framework; path = DeclarativeTVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49AE28E2CFEE61A23794930C229A6BB /* DeclarativeTVC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeclarativeTVC-prefix.pch"; sourceTree = "<group>"; };
 		B5CFA289CCA7D05788CBF6890099162B /* Pods-ReduxVMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReduxVMTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8A4FD674F49547529C64F8882D28589 /* DeclarativeTVC.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DeclarativeTVC.modulemap; sourceTree = "<group>"; };
 		BB6CA36B95C920E0B49B93D4C84025A5 /* StagedChangeset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StagedChangeset.swift; path = Sources/StagedChangeset.swift; sourceTree = "<group>"; };
 		C0628E1ECB9613176243F1A5F71422D9 /* DeclarativeCVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeclarativeCVC.swift; path = Sources/Collections/DeclarativeCVC.swift; sourceTree = "<group>"; };
-		CC7F3694C061D530CD69A897EC590710 /* RedSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RedSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC7F3694C061D530CD69A897EC590710 /* RedSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RedSwift.framework; path = RedSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2E2274DBF82F15387B96313201BA68 /* RedSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RedSwift-dummy.m"; sourceTree = "<group>"; };
 		D0870E77E3046503FA499A8C14F4DD2B /* DeclarativeTVC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeclarativeTVC.xcconfig; sourceTree = "<group>"; };
 		D19FCFF1F66D0BCD4F70477761F6570B /* RedSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RedSwift.xcconfig; sourceTree = "<group>"; };
@@ -322,6 +322,7 @@
 				A71BDB8F6F8D49619166BA0BDF8E269E /* TypeHelper.swift */,
 				993731093BE3A4172B350E4CE403C2D4 /* Support Files */,
 			);
+			name = RedSwift;
 			path = RedSwift;
 			sourceTree = "<group>";
 		};
@@ -332,6 +333,7 @@
 				C13A0EEB42C62B52B17B47B839B2E1FB /* Support Files */,
 				AC46C4C08B65A3100CDACB654A7A6304 /* UIKitExtension */,
 			);
+			name = DifferenceKit;
 			path = DifferenceKit;
 			sourceTree = "<group>";
 		};
@@ -513,6 +515,7 @@
 				81876856E67E81811B5D0FB4797AD394 /* TableModel.swift */,
 				2BBD4F380FB9D26921A065A86A53ADC6 /* Support Files */,
 			);
+			name = DeclarativeTVC;
 			path = DeclarativeTVC;
 			sourceTree = "<group>";
 		};
@@ -703,7 +706,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = D811C98D088AE4BED6EA3358D1313CDF /* Products */;

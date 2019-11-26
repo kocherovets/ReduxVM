@@ -41,12 +41,12 @@ public protocol StoreType: DispatchingStoreType {
        state, or to skip certain state updates.
      - note: Subscriptions are not ordered, so an order of state updates cannot be guaranteed.
      */
-    func subscribe<SelectedState, S: StoreSubscriber>
-    (
-        _ subscriber: S,
-        transform: ((Subscription<State>) -> Subscription<SelectedState>)?
-    )
-    where S.StoreSubscriberStateType == SelectedState
+//    func subscribe<SelectedState, S: StoreSubscriber>
+//    (
+//        _ subscriber: S,
+//        transform: ((Subscription<State>) -> Subscription<SelectedState>)?
+//    )
+//    where S.StoreSubscriberStateType == SelectedState
 
     /**
      Unsubscribes the provided subscriber. The subscriber will no longer

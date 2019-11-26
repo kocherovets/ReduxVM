@@ -27,7 +27,7 @@ public enum ReactionToState {
 }
 
 public protocol PresenterProtocol {
-    
+
     init(propsReceiver: PropsReceiver)
     func initCommand() -> Command?
     func deinitCommand() -> Command?
@@ -35,10 +35,8 @@ public protocol PresenterProtocol {
     func unsubscribe()
 }
 
-open class PresenterBase<Props: Properties, RootState: RootStateType, S: StateType>: StoreSubscriber, PresenterProtocol where S: Equatable {
-
-    open var keyPath: KeyPath<RootState, S>? { return nil }
-
+open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscriber, PresenterProtocol {
+    
     private weak var propsReceiver: PropsReceiver?
 
     open func initCommand() -> Command? { return nil }
@@ -48,10 +46,8 @@ open class PresenterBase<Props: Properties, RootState: RootStateType, S: StateTy
 
         self.propsReceiver = propsReceiver
 
-        guard let keyPath = keyPath else { fatalError() }
-
-        stateChanged(box: StateBox<S>(state: StoreDS.store.getState(keyPath: keyPath),
-                                      oldState: StoreDS.store.getState(keyPath: keyPath)))
+        stateChanged(box: StateBox<State>(state: StoreDS.store.getState(),
+                                          oldState: StoreDS.store.getState()))
     }
 
     deinit {
@@ -64,7 +60,7 @@ open class PresenterBase<Props: Properties, RootState: RootStateType, S: StateTy
 
             guard let self = self else { return }
 
-            StoreDS.store.subscribe(self, keyPath: self.keyPath)
+            StoreDS.store.subscribe(self)
         }
     }
 
@@ -78,7 +74,7 @@ open class PresenterBase<Props: Properties, RootState: RootStateType, S: StateTy
         }
     }
 
-    public final func stateChanged(box: StateBox<S>) {
+    public final func stateChanged(box: StateBox<State>) {
 
         switch reaction(for: box) {
         case .router(let command):
@@ -96,12 +92,12 @@ open class PresenterBase<Props: Properties, RootState: RootStateType, S: StateTy
         }
     }
 
-    open func reaction(for box: StateBox<S>) -> ReactionToState {
+    open func reaction(for box: StateBox<State>) -> ReactionToState {
 
         return .props
     }
 
-    open func props(for box: StateBox<S>) -> Props? {
+    open func props(for box: StateBox<State>) -> Props? {
 
         return nil
     }

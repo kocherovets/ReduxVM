@@ -11,19 +11,28 @@ PODS:
 
 DEPENDENCIES:
   - DeclarativeTVC
-  - RedSwift
+  - RedSwift (from `https://github.com/kocherovets/RedSwift.git`, branch `master`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - DeclarativeTVC
     - DifferenceKit
-    - RedSwift
+
+EXTERNAL SOURCES:
+  RedSwift:
+    :branch: master
+    :git: https://github.com/kocherovets/RedSwift.git
+
+CHECKOUT OPTIONS:
+  RedSwift:
+    :commit: a8c81a89ad699e4cbd3a2926c7c92a8d413c305f
+    :git: https://github.com/kocherovets/RedSwift.git
 
 SPEC CHECKSUMS:
   DeclarativeTVC: 7baf25125f2f984bf6b7f0e49ab83c44db8cb44c
   DifferenceKit: 5018791b6c1fc839921a3c171a0a539ace6ea60c
   RedSwift: b5438ccbd85efcc908ffa2bed6977fb2cbf01723
 
-PODFILE CHECKSUM: bf8000da0b734e8b37c7ee9291009020c2d7c7b7
+PODFILE CHECKSUM: b38e1a797caa385650132f8499542b3d093db0bf
 
 COCOAPODS: 1.8.4

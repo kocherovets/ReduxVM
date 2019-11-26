@@ -17,27 +17,23 @@ struct Props: Properties, Equatable {
     let showActivityIndicator: Bool
 }
 
-class Presenter: PresenterBase<Props, State, CounterState> {
+class Presenter: PresenterBase<Props, State> {
 
-    override var keyPath: KeyPath<State, CounterState> {
-        return \.counter
-    }
-
-    override func reaction(for box: StateBox<CounterState>) -> ReactionToState {
+    override func reaction(for box: StateBox<State>) -> ReactionToState {
         return .props
     }
 
-    override func props(for box: StateBox<CounterState>) -> Props? {
+    override func props(for box: StateBox<State>) -> Props? {
 
         return Props(
-            counterText: "\(box.state.counter)",
+            counterText: "\(box.state.counter.counter)",
             add1Command: Command {
                 store.dispatch(IncrementAction())
             },
             add150Command: Command {
                 store.dispatch(RequestIncrementSE())
             },
-            showActivityIndicator: box.state.incrementRequested
+            showActivityIndicator: box.state.counter.incrementRequested
         )
     }
 }

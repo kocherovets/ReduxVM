@@ -39,7 +39,7 @@ extension Trunk {
 }
 
 public struct SideEffectTrunk: Trunk {
-    
+
     public var storeTrunk: StoreTrunk
 }
 
@@ -47,15 +47,15 @@ public protocol SideEffectDependencyContainer: class { }
 
 public protocol AnySideEffect: Dispatchable {
 
-    func sideEffect<R: RootStateType>(state: R,
-                                      trunk: Trunk,
-                                      dependencies: SideEffectDependencyContainer)
+    func sideEffect<R: StateType>(state: R,
+                                  trunk: Trunk,
+                                  dependencies: SideEffectDependencyContainer)
 
 }
 
 public protocol SideEffect: AnySideEffect {
 
-    associatedtype State: RootStateType
+    associatedtype State: StateType
 
     associatedtype DependencyContainer: SideEffectDependencyContainer
 
@@ -66,9 +66,9 @@ public protocol SideEffect: AnySideEffect {
 
 public extension SideEffect {
 
-    func sideEffect<R: RootStateType>(state: R,
-                                      trunk: Trunk,
-                                      dependencies: SideEffectDependencyContainer) {
+    func sideEffect<R: StateType>(state: R,
+                                  trunk: Trunk,
+                                  dependencies: SideEffectDependencyContainer) {
 
         guard let typedState = state as? State else {
             fatalError("Side effect body invoked with the wrong state type")

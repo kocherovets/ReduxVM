@@ -21,8 +21,8 @@ extension StoreSubscriber {
     // swiftlint:disable:next identifier_name
     public func stateChanged(newState: Any, prevState: Any?)
     {
-        if let typedState = newState as? StoreSubscriberStateType
-            {
+        if let typedState = newState as? StoreSubscriberStateType {
+            
             stateChanged(box: StateBox<StoreSubscriberStateType>(state: typedState,
                                                                  oldState: prevState as? StoreSubscriberStateType))
         }
