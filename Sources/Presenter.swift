@@ -14,9 +14,19 @@ public protocol Properties {
 
 }
 
+public struct PropsWithDelay {
+    let props: Properties?
+    let delay: Double?
+    
+    init(props: Properties?, delay: TimeInterval? = 0) {
+        self.props = props
+        self.delay = delay
+    }
+}
+
 public protocol PropsReceiver: class {
 
-    func set(props: Properties?)
+    func set(propsWithDelay: PropsWithDelay?)
 }
 
 public enum ReactionToState {
@@ -29,8 +39,8 @@ public enum ReactionToState {
 public protocol PresenterProtocol {
 
     init(propsReceiver: PropsReceiver)
-    func initCommand() -> Command?
-    func deinitCommand() -> Command?
+    func onInit()
+    func onDeinit()
     func subscribe()
     func unsubscribe()
 }
@@ -39,8 +49,8 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
     
     private weak var propsReceiver: PropsReceiver?
 
-    open func initCommand() -> Command? { return nil }
-    open func deinitCommand() -> Command? { return nil }
+    open func onInit() {  }
+    open func onDeinit()  {  }
 
     required public init(propsReceiver: PropsReceiver) {
 
@@ -51,7 +61,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
     }
 
     deinit {
-        deinitCommand()?.perform()
+        onDeinit()
     }
 
     public final func subscribe() {
@@ -86,7 +96,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
         case .command(let command):
             command.perform()
         case .props:
-            propsReceiver?.set(props: props(for: box))
+            propsReceiver?.set(propsWithDelay: propsWithDelay(for: box))
         case .none:
             return
         }
@@ -96,8 +106,8 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
 
         return .props
     }
-
-    open func props(for box: StateBox<State>) -> Props? {
+    
+    open func propsWithDelay(for box: StateBox<State>) -> PropsWithDelay? {
 
         return nil
     }

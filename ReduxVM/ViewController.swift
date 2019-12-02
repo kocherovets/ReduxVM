@@ -23,17 +23,19 @@ class Presenter: PresenterBase<Props, State> {
         return .props
     }
 
-    override func props(for box: StateBox<State>) -> Props? {
+    override func propsWithDelay(for box: StateBox<State>) -> PropsWithDelay? {
 
-        return Props(
-            counterText: "\(box.state.counter.counter)",
-            add1Command: Command {
-                store.dispatch(IncrementAction())
-            },
-            add150Command: Command {
-                store.dispatch(RequestIncrementSE())
-            },
-            showActivityIndicator: box.state.counter.incrementRequested
+        return PropsWithDelay(
+            props: Props(
+                counterText: "\(box.state.counter.counter)",
+                add1Command: Command {
+                    store.dispatch(IncrementAction())
+                },
+                add150Command: Command {
+                    store.dispatch(RequestIncrementSE())
+                },
+                showActivityIndicator: box.state.counter.incrementRequested
+            )
         )
     }
 }
@@ -50,7 +52,7 @@ class ViewController: VC<Props, Presenter> {
         guard let props = props else { return }
 
         companyNameLabel.text = props.counterText
-        
+
         if props.showActivityIndicator {
             activityIndicatorV.startAnimating()
             add1Button.isHidden = true
