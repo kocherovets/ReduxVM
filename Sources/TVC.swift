@@ -55,7 +55,7 @@ open class TVC<Props: TableProperties, PresenterType: PresenterProtocol>: Declar
 
     final public func set(propsWithDelay: PropsWithDelay?) {
 
-        if props == nil {
+        if propsWithDelay?.props == nil {
             return
         }
 

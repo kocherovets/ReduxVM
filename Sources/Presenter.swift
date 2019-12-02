@@ -15,10 +15,10 @@ public protocol Properties {
 }
 
 public struct PropsWithDelay {
-    let props: Properties?
-    let delay: Double?
+    public let props: Properties?
+    public let delay: Double?
     
-    init(props: Properties?, delay: TimeInterval? = 0) {
+    public init(props: Properties?, delay: TimeInterval? = 0) {
         self.props = props
         self.delay = delay
     }
