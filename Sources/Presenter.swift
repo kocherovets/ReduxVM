@@ -47,6 +47,10 @@ public protocol PresenterProtocol {
 open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscriber, PresenterProtocol {
     
     private weak var propsReceiver: PropsReceiver?
+    
+    open var store: Store<State>! {
+        nil
+    }
 
     open func onInit() {  }
     open func onDeinit()  {  }
@@ -55,8 +59,8 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
 
         self.propsReceiver = propsReceiver
 
-        stateChanged(box: StateBox<State>(state: StoreDS.store.getState(),
-                                          oldState: StoreDS.store.getState()))
+        stateChanged(box: StateBox<State>(state: store.getState(),
+                                          oldState: store.getState()))
     }
 
     deinit {
@@ -69,7 +73,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
 
             guard let self = self else { return }
 
-            StoreDS.store.subscribe(self)
+            self.store.subscribe(self)
         }
     }
 
@@ -79,7 +83,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
 
             guard let self = self else { return }
 
-            StoreDS.store.unsubscribe(self)
+            self.store.unsubscribe(self)
         }
     }
 

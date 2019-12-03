@@ -19,6 +19,10 @@ struct Props: Properties, Equatable {
 
 class Presenter: PresenterBase<Props, State> {
 
+    override var store: Store<State>! {
+        return globalStore
+    }
+    
     override func reaction(for box: StateBox<State>) -> ReactionToState {
         return .props
     }
@@ -28,10 +32,10 @@ class Presenter: PresenterBase<Props, State> {
         return Props(
             counterText: "\(box.state.counter.counter)",
             add1Command: Command {
-                store.dispatch(IncrementAction())
+                self.store.dispatch(IncrementAction())
             },
             add150Command: Command {
-                store.dispatch(RequestIncrementSE())
+                self.store.dispatch(RequestIncrementSE())
             },
             showActivityIndicator: box.state.counter.incrementRequested
         )

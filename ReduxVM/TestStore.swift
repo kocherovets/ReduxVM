@@ -36,10 +36,10 @@ class DependencyContainer: SideEffectDependencyContainer {
     let api = APIManager()
 }
 
-var store = Store<State>(state: State(),
-                         queueTitle: "queueTitle",
-                         sideEffectDependencyContainer: DependencyContainer(),
-                         middleware: [])
+var globalStore = Store<State>(state: State(),
+                               queueTitle: "queueTitle",
+                               sideEffectDependencyContainer: DependencyContainer(),
+                               middleware: [])
 
 class TestStore: Store<State> {
 
