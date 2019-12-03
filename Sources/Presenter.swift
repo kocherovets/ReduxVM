@@ -13,20 +13,19 @@ import RedSwift
 public protocol Properties {
 
 }
-
-public struct PropsWithDelay {
-    public let props: Properties?
-    public let delay: Double?
-    
-    public init(props: Properties?, delay: TimeInterval? = 0) {
-        self.props = props
-        self.delay = delay
-    }
-}
+//public struct PropsWithDelay {
+//    public let props: Properties?
+//    public let delay: Double?
+//
+//    public init(props: Properties?, delay: TimeInterval? = 0) {
+//        self.props = props
+//        self.delay = delay
+//    }
+//}
 
 public protocol PropsReceiver: class {
 
-    func set(propsWithDelay: PropsWithDelay?)
+    func set(props: Properties?)
 }
 
 public enum ReactionToState {
@@ -96,7 +95,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
         case .command(let command):
             command.perform()
         case .props:
-            propsReceiver?.set(propsWithDelay: propsWithDelay(for: box))
+            propsReceiver?.set(props: props(for: box))
         case .none:
             return
         }
@@ -107,7 +106,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
         return .props
     }
     
-    open func propsWithDelay(for box: StateBox<State>) -> PropsWithDelay? {
+    open func props(for box: StateBox<State>) -> Props? {
 
         return nil
     }

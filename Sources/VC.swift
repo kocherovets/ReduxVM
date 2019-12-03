@@ -37,9 +37,9 @@ open class VC<Props: Properties, PresenterType: PresenterProtocol>: UIViewContro
         presenter = PresenterType.init(propsReceiver: self)
     }
 
-    final public func set(propsWithDelay: PropsWithDelay?) {
+    final public func set(props: Properties?) {
 
-        if let props = propsWithDelay?.props as? Props {
+        if let props = props as? Props {
             if let currentProps = self._props, currentProps == props {
                 print("skip render \(type(of: self))")
                 return
@@ -51,29 +51,31 @@ open class VC<Props: Properties, PresenterType: PresenterProtocol>: UIViewContro
             }
         }
 
-        workItem?.cancel()
+       let applyProps = { [weak self] in
 
-        workItem = DispatchWorkItem {
-            DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
 
-                guard let self = self else { return }
+            self.renderOnViewWillAppear = true
 
-                self.renderOnViewWillAppear = true
+            if let props = props as? Props {
+                self._props = props
+            } else {
+                self._props = nil
+            }
 
-                if let props = propsWithDelay?.props as? Props {
-                    self._props = props
-                } else {
-                    self._props = nil
-                }
-
-                if self.uiIsReady {
-                    print("render \(type(of: self))")
-                    self.render()
-                }
+            if self.uiIsReady {
+                print("render \(type(of: self))")
+                self.render()
             }
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + (propsWithDelay?.delay ?? 0), execute: workItem!)
+        if Thread.isMainThread {
+            applyProps()
+        } else {
+            DispatchQueue.main.async {
+                applyProps()
+            }
+        }
     }
 
     override open func viewDidLoad() {

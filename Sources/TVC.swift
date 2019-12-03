@@ -14,9 +14,11 @@ import RedSwift
 public struct TableProps: TableProperties {
 
     public var tableModel: TableModel
+    public var animations: DeclarativeTVC.Animations?
 
-    public init(tableModel: TableModel) {
+    public init(tableModel: TableModel, animations: DeclarativeTVC.Animations? = nil) {
         self.tableModel = tableModel
+        self.animations = animations
     }
 }
 
@@ -53,13 +55,13 @@ open class TVC<Props: TableProperties, PresenterType: PresenterProtocol>: Declar
         presenter = PresenterType.init(propsReceiver: self)
     }
 
-    final public func set(propsWithDelay: PropsWithDelay?) {
+    final public func set(props: Properties?) {
 
-        if propsWithDelay?.props == nil {
+        if props == nil {
             return
         }
 
-        if let props = propsWithDelay?.props as? Props {
+        if let props = props as? Props {
             if let currentProps = self._props, currentProps == props {
                 print("skip render \(type(of: self))")
                 return
@@ -71,25 +73,19 @@ open class TVC<Props: TableProperties, PresenterType: PresenterProtocol>: Declar
             }
         }
 
-        workItem?.cancel()
+        DispatchQueue.main.async { [weak self] in
 
-        workItem = DispatchWorkItem {
-            DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
 
-                guard let self = self else { return }
-
-                if let props = propsWithDelay?.props as? Props {
-                    self._props = props
-                } else {
-                    self._props = nil
-                }
-
-                print("render \(type(of: self))")
-                self.render()
+            if let props = props as? Props {
+                self._props = props
+            } else {
+                self._props = nil
             }
-        }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + (propsWithDelay?.delay ?? 0), execute: workItem!)
+            print("render \(type(of: self))")
+            self.render()
+        }
     }
 
     override open func viewDidLoad() {

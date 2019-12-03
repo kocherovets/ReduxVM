@@ -23,19 +23,17 @@ class Presenter: PresenterBase<Props, State> {
         return .props
     }
 
-    override func propsWithDelay(for box: StateBox<State>) -> PropsWithDelay? {
+    override func props(for box: StateBox<State>) -> Props? {
 
-        return PropsWithDelay(
-            props: Props(
-                counterText: "\(box.state.counter.counter)",
-                add1Command: Command {
-                    store.dispatch(IncrementAction())
-                },
-                add150Command: Command {
-                    store.dispatch(RequestIncrementSE())
-                },
-                showActivityIndicator: box.state.counter.incrementRequested
-            )
+        return Props(
+            counterText: "\(box.state.counter.counter)",
+            add1Command: Command {
+                store.dispatch(IncrementAction())
+            },
+            add150Command: Command {
+                store.dispatch(RequestIncrementSE())
+            },
+            showActivityIndicator: box.state.counter.incrementRequested
         )
     }
 }
