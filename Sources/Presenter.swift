@@ -69,7 +69,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
 
     public final func subscribe() {
 
-        StoreQueue.async { [weak self] in
+        store.queue.async { [weak self] in
 
             guard let self = self else { return }
 
@@ -79,7 +79,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
 
     public final func unsubscribe() {
 
-        StoreQueue.async { [weak self] in
+        store.queue.async { [weak self] in
 
             guard let self = self else { return }
 
@@ -91,7 +91,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
 
         switch reaction(for: box) {
         case .router(let command):
-            StoreQueue.async {
+            store.queue.async {
                 DispatchQueue.main.async {
                     command.perform()
                 }

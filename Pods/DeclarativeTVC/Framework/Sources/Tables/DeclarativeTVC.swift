@@ -14,6 +14,7 @@ open class DeclarativeTVC: UITableViewController {
     private static let stubCell = UITableViewCell()
 
     private var model: TableModel? = nil
+    private var registeredCells = [String]()
 
     open func set(rows: [CellAnyModel], animations: Animations? = nil) {
 
@@ -65,7 +66,18 @@ open class DeclarativeTVC: UITableViewController {
 
         guard let vm = model?.sections[indexPath.section].rows[indexPath.row] else { return UITableViewCell() }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: type(of: vm).cellAnyType))!
+        let cell: UITableViewCell
+        if let storyBoardCell = tableView.dequeueReusableCell(withIdentifier: String(describing: type(of: vm).cellAnyType)) {
+            cell = storyBoardCell
+        } else {
+            let cellTypeString = String(describing: type(of: vm).cellAnyType)
+            if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
+                let nib = UINib.init(nibName: cellTypeString, bundle: nil)
+                tableView.register(nib, forCellReuseIdentifier: cellTypeString)
+                registeredCells.append(cellTypeString)
+            }
+            cell = tableView.dequeueReusableCell(withIdentifier: cellTypeString, for: indexPath)
+        }
 
         vm.apply(to: cell)
 

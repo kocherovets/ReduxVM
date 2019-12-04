@@ -9,23 +9,38 @@
 import UIKit
 import DifferenceKit
 
-extension DeclarativeTVC {
+public extension DeclarativeTVC {
 
-    public struct Animations: Equatable {
+    struct Animations: Equatable {
         let deleteSectionsAnimation: UITableView.RowAnimation
         let insertSectionsAnimation: UITableView.RowAnimation
         let reloadSectionsAnimation: UITableView.RowAnimation
         let deleteRowsAnimation: UITableView.RowAnimation
         let insertRowsAnimation: UITableView.RowAnimation
         let reloadRowsAnimation: UITableView.RowAnimation
+
+        public init(deleteSectionsAnimation: UITableView.RowAnimation,
+                    insertSectionsAnimation: UITableView.RowAnimation,
+                    reloadSectionsAnimation: UITableView.RowAnimation,
+                    deleteRowsAnimation: UITableView.RowAnimation,
+                    insertRowsAnimation: UITableView.RowAnimation,
+                    reloadRowsAnimation: UITableView.RowAnimation) {
+
+            self.deleteSectionsAnimation = deleteSectionsAnimation
+            self.insertSectionsAnimation = insertSectionsAnimation
+            self.reloadSectionsAnimation = reloadSectionsAnimation
+            self.deleteRowsAnimation = deleteRowsAnimation
+            self.insertRowsAnimation = insertRowsAnimation
+            self.reloadRowsAnimation = reloadRowsAnimation
+        }
     }
 
-    public static let fadeAnimations = Animations(deleteSectionsAnimation: .fade,
-                                                  insertSectionsAnimation: .fade,
-                                                  reloadSectionsAnimation: .fade,
-                                                  deleteRowsAnimation: .fade,
-                                                  insertRowsAnimation: .fade,
-                                                  reloadRowsAnimation: .fade)
+    static let fadeAnimations = Animations(deleteSectionsAnimation: .fade,
+                                           insertSectionsAnimation: .fade,
+                                           reloadSectionsAnimation: .fade,
+                                           deleteRowsAnimation: .fade,
+                                           insertRowsAnimation: .fade,
+                                           reloadRowsAnimation: .fade)
 }
 
 extension UITableView {

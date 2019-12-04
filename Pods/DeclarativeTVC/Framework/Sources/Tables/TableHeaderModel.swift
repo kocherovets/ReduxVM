@@ -24,7 +24,7 @@ public protocol TableHeaderModel: TableHeaderAnyModel, Hashable {
     func apply(to header: HeaderType)
 }
 
-extension TableHeaderModel {
+public extension TableHeaderModel {
     
     static var headerAnyType: UIView.Type {
         return HeaderType.self

@@ -14,8 +14,21 @@ open class CollectionDS: NSObject, UICollectionViewDataSource, UICollectionViewD
     private static let stubCell = UICollectionViewCell()
 
     private var model: CollectionModel? = nil
+    private var registeredCells = [String]()
 
-    private var collectionView: UICollectionView? 
+    private var collectionView: UICollectionView?
+
+    public enum CellType {
+        case storyboard
+        case xib
+    }
+    let cellType: CellType
+
+    public init(cellType: CellType) {
+        self.cellType = cellType
+
+        super.init()
+    }
 
     open func set(collectionView: UICollectionView?, items: [CellAnyModel], animated: Bool) {
 
@@ -72,8 +85,15 @@ open class CollectionDS: NSObject, UICollectionViewDataSource, UICollectionViewD
 
         guard let vm = model?.sections[indexPath.section].items[indexPath.row] else { return CollectionDS.stubCell }
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: type(of: vm).cellAnyType),
-                                                      for: indexPath)
+        let cellTypeString = String(describing: type(of: vm).cellAnyType)
+        if case .xib = cellType {
+            if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
+                let nib = UINib.init(nibName: cellTypeString, bundle: nil)
+                collectionView.register(nib, forCellWithReuseIdentifier: cellTypeString)
+                registeredCells.append(cellTypeString)
+            }
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellTypeString, for: indexPath)
         vm.apply(to: cell)
 
         return cell

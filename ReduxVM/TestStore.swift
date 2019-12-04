@@ -36,8 +36,10 @@ class DependencyContainer: SideEffectDependencyContainer {
     let api = APIManager()
 }
 
+let storeQueue = DispatchQueue(label: "queueTitle", qos: .userInteractive)
+
 var globalStore = Store<State>(state: State(),
-                               queueTitle: "queueTitle",
+                               queue: storeQueue,
                                sideEffectDependencyContainer: DependencyContainer(),
                                middleware: [])
 

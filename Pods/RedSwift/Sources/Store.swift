@@ -8,13 +8,6 @@
 
 import Foundation
 
-
-fileprivate var _queue: DispatchQueue = DispatchQueue.main
-public var StoreQueue: DispatchQueue {
-    return _queue
-}
-
-
 /**
  This class is the default implementation of the `Store` protocol. You will use this store in most
  of your applications. You shouldn't need to implement your own store.
@@ -44,6 +37,7 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
     var subscriptions: Set<SubscriptionType> = []
 
     private var isDispatching = false
+    public let queue: DispatchQueue
 
     public var dispatchFunction: DispatchFunction!
 
@@ -65,7 +59,7 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
     ///   implements `Equatable`. Defaults to `true`.
     public required init(
         state: State?,
-        queueTitle: String?,
+        queue: DispatchQueue,
         sideEffectDependencyContainer: SideEffectDependencyContainer,
         middleware: [Middleware<State>] = [],
         automaticallySkipsRepeats: Bool = true
@@ -73,9 +67,7 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
 
         self.sideEffectDependencyContainer = sideEffectDependencyContainer
 
-        if let queueTitle = queueTitle {
-            _queue = DispatchQueue(label: queueTitle, qos: .userInteractive)
-        }
+        self.queue = queue
 
         self.subscriptionsAutomaticallySkipRepeats = automaticallySkipsRepeats
 
@@ -162,7 +154,7 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
 
         isDispatching = true
 
-        StoreQueue.async { [weak self] in
+        let f = { [weak self] in
 
             guard let self = self else { fatalError() }
 
@@ -176,6 +168,12 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
             default:
                 break
             }
+        }
+
+        if Thread.current.threadName == queue.label {
+            f()
+        } else {
+            queue.async { f() }
         }
 
         isDispatching = false
@@ -215,11 +213,11 @@ public protocol StoreProvider {
 }
 
 extension Store: StoreProvider {
-    
-    public func subscribe<S>(_ subscriber: S) where S : StoreSubscriber {
+
+    public func subscribe<S>(_ subscriber: S) where S: StoreSubscriber {
         _ = subscribe(subscriber, transform: nil)
     }
-    
+
 
 //    open func subscribe<S: StoreSubscriber>
 //    (
@@ -229,7 +227,7 @@ extension Store: StoreProvider {
 //    {
 //        _ = subscribe(subscriber, transform: nil)
 //    }
-    
+
     open func unsubscribe(_ subscriber: AnyStoreSubscriber) {
 
         if let index = subscriptions.firstIndex(where: { return $0.subscriber === subscriber }) {
@@ -307,5 +305,19 @@ extension Store: StateProvider {
     public func getState<S: RootStateType>() -> S {
 
         return state as! S
+    }
+}
+
+extension Thread {
+
+    var threadName: String {
+        if let currentOperationQueue = OperationQueue.current?.name {
+            return "OperationQueue: \(currentOperationQueue)"
+        } else if let underlyingDispatchQueue = OperationQueue.current?.underlyingQueue?.label {
+            return "DispatchQueue: \(underlyingDispatchQueue)"
+        } else {
+            let name = __dispatch_queue_get_label(nil)
+            return String(cString: name, encoding: .utf8) ?? Thread.current.description
+        }
     }
 }

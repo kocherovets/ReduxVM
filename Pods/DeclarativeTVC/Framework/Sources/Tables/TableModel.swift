@@ -17,7 +17,7 @@ public struct TableSection {
 
     fileprivate var orderNumber: Int = 0
     
-    init(header: TableHeaderAnyModel?, rows: [CellAnyModel], footer: TableFooterAnyModel?) {
+    public init(header: TableHeaderAnyModel?, rows: [CellAnyModel], footer: TableFooterAnyModel?) {
         self.header = header
         self.rows = rows
         self.footer = footer
