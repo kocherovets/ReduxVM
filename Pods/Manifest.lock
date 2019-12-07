@@ -7,7 +7,7 @@ PODS:
   - DifferenceKit/Core (1.1.3)
   - DifferenceKit/UIKitExtension (1.1.3):
     - DifferenceKit/Core
-  - RedSwift (1.0.8)
+  - RedSwift (1.0.10)
 
 DEPENDENCIES:
   - DeclarativeTVC
@@ -22,8 +22,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   DeclarativeTVC: beb9b5ee7bff132d345675c26f5c1128dd2d5ecc
   DifferenceKit: 5018791b6c1fc839921a3c171a0a539ace6ea60c
-  RedSwift: 5686d2ad9604c7f80ec13d5fcc3287635b42e798
+  RedSwift: 36cefc62f429f7ce7db39d485aa75834631c7cb5
 
-PODFILE CHECKSUM: bf8000da0b734e8b37c7ee9291009020c2d7c7b7
+PODFILE CHECKSUM: 967f5fa9f99ec957ad5813a740a4d65d7826350e
 
 COCOAPODS: 1.8.4

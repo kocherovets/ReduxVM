@@ -10,15 +10,6 @@ import Foundation
 
 public protocol Dispatchable { }
 
-//public protocol Dispatchable: CustomDebugStringConvertible { }
-
-//public extension Dispatchable {
-//
-//    var debugDescription: String {
-//        return String(reflecting: type(of: self))
-//    }
-//}
-
 public protocol AnyAction: Dispatchable {
 
     func updatedState(currentState: StateType) -> StateType

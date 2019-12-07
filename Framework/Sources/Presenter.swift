@@ -59,8 +59,8 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
 
         self.propsReceiver = propsReceiver
 
-        stateChanged(box: StateBox<State>(state: store.getState(),
-                                          oldState: store.getState()))
+        stateChanged(box: StateBox<State>(state: store.state,
+                                          oldState: store.state))
     }
 
     deinit {

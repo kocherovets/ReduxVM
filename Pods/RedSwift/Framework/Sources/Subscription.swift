@@ -24,27 +24,16 @@ class SubscriptionBox<State>: Hashable {
         hasher.combine(self.objectIdentifier)
     }
 
-    init<T>(
+    init(
         originalSubscription: Subscription<State>,
-        transformedSubscription: Subscription<T>?,
         subscriber: AnyStoreSubscriber
     ) {
         self.originalSubscription = originalSubscription
         self.subscriber = subscriber
         self.objectIdentifier = ObjectIdentifier(subscriber)
 
-        // If we received a transformed subscription, we subscribe to that subscription
-        // and forward all new values to the subscriber.
-        if let transformedSubscription = transformedSubscription {
-            transformedSubscription.observer = { [unowned self] prevState, newState in
-                self.subscriber?.stateChanged(newState: newState as Any, prevState: prevState)
-            }
-            // If we haven't received a transformed subscription, we forward all values
-            // from the original subscription.
-        } else {
-            originalSubscription.observer = { [unowned self] prevState, newState in
-                self.subscriber?.stateChanged(newState: newState as Any, prevState: prevState)
-            }
+        originalSubscription.observer = { [unowned self] prevState, newState in
+            self.subscriber?.stateChanged(newState: newState as Any, prevState: prevState)
         }
     }
 
@@ -94,8 +83,8 @@ public class Subscription<State> {
         return self._select(selector)
     }
 
-    
-    
+
+
     private func _select<Substate>(_ keyPath: KeyPath<State, Substate>) -> Subscription<Substate>
     {
         return Subscription<Substate> { sink in
@@ -110,30 +99,6 @@ public class Subscription<State> {
         return self._select(keyPath)
     }
 
-    
-    /// Provides a subscription that skips certain state updates of the original subscription.
-    /// - parameter isRepeat: A closure that determines whether a given state update is a repeat and
-    /// thus should be skipped and not forwarded to subscribers.
-    /// - parameter oldState: The store's old state, before the action is reduced.
-    /// - parameter newState: The store's new state, after the action has been reduced.
-    public func skipRepeats(_ isRepeat: @escaping (_ oldState: State, _ newState: State) -> Bool)
-        -> Subscription<State> {
-            return Subscription<State> { sink in
-                self.observer = { oldState, newState in
-                    switch (oldState, newState) {
-                    case let (old?, new):
-                        if !isRepeat(old, new) {
-                            sink(oldState, newState)
-                        } else {
-                            return
-                        }
-                    default:
-                        sink(oldState, newState)
-                    }
-                }
-            }
-    }
-
     /// The closure called with changes from the store.
     /// This closure can be written to for use in extensions to Subscription similar to `skipRepeats`
     public var observer: ((State?, State) -> Void)?
@@ -145,39 +110,5 @@ public class Subscription<State> {
     /// Sends new values over this subscription. Observers will be notified of these new values.
     func newValues(oldState: State?, newState: State) {
         self.observer?(oldState, newState)
-    }
-}
-
-extension Subscription where State: Equatable {
-    public func skipRepeats() -> Subscription<State> {
-        return self.skipRepeats(==)
-    }
-}
-
-/// Subscription skipping convenience methods
-extension Subscription {
-
-    /// Provides a subscription that skips certain state updates of the original subscription.
-    ///
-    /// This is identical to `skipRepeats` and is provided simply for convenience.
-    /// - parameter when: A closure that determines whether a given state update is a repeat and
-    /// thus should be skipped and not forwarded to subscribers.
-    /// - parameter oldState: The store's old state, before the action is reduced.
-    /// - parameter newState: The store's new state, after the action has been reduced.
-    public func skip(when: @escaping (_ oldState: State, _ newState: State) -> Bool) -> Subscription<State> {
-        return self.skipRepeats(when)
-    }
-
-    /// Provides a subscription that only updates for certain state changes.
-    ///
-    /// This is effectively the inverse of `skip(when:)` / `skipRepeats(:)`
-    /// - parameter when: A closure that determines whether a given state update should notify
-    /// - parameter oldState: The store's old state, before the action is reduced.
-    /// - parameter newState: The store's new state, after the action has been reduced.
-    /// the subscriber.
-    public func only(when: @escaping (_ oldState: State, _ newState: State) -> Bool) -> Subscription<State> {
-        return self.skipRepeats { oldState, newState in
-            return !when(oldState, newState)
-        }
     }
 }

@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-FrameworkTests/Pods-FrameworkTests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DeclarativeTVC/DeclarativeTVC.framework
+${BUILT_PRODUCTS_DIR}/DifferenceKit/DifferenceKit.framework
+${BUILT_PRODUCTS_DIR}/RedSwift/RedSwift.framework

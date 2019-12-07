@@ -15,7 +15,6 @@ target "ReduxVM" do
     shared_pods
 end
 
-
 target "ReduxVMTests" do
     project 'ReduxVM'
 
@@ -23,6 +22,18 @@ target "ReduxVMTests" do
 end
 
 target "ReduxVMUITests" do
+    project 'ReduxVM'
+
+    shared_pods
+end
+
+target "Framework" do
+    project 'ReduxVM'
+
+    shared_pods
+end
+
+target "FrameworkTests" do
     project 'ReduxVM'
 
     shared_pods

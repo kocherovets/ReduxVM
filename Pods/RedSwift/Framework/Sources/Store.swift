@@ -15,7 +15,7 @@ import Foundation
  reducers you can combine them by initializng a `MainReducer` with all of your reducers as an
  argument.
  */
-open class Store<State: RootStateType>: StoreType, StoreTrunk {
+open class Store<State: RootStateType>: StoreTrunk {
 
     typealias SubscriptionType = SubscriptionBox<State>
 
@@ -41,10 +41,6 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
 
     public var dispatchFunction: DispatchFunction!
 
-    /// Indicates if new subscriptions attempt to apply `skipRepeats`
-    /// by default.
-    fileprivate let subscriptionsAutomaticallySkipRepeats: Bool
-
     /// Initializes the store with a reducer, an initial state and a list of middleware.
     ///
     /// Middleware is applied in the order in which it is passed into this constructor.
@@ -61,15 +57,12 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
         state: State?,
         queue: DispatchQueue,
         sideEffectDependencyContainer: SideEffectDependencyContainer,
-        middleware: [Middleware<State>] = [],
-        automaticallySkipsRepeats: Bool = true
+        middleware: [Middleware<State>] = []
     ) {
 
         self.sideEffectDependencyContainer = sideEffectDependencyContainer
 
         self.queue = queue
-
-        self.subscriptionsAutomaticallySkipRepeats = automaticallySkipsRepeats
 
         // Wrap the dispatch function with all middlewares
         self.dispatchFunction = middleware
@@ -89,18 +82,13 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
         self.state = state
     }
 
-    fileprivate func _subscribe<SelectedState, S: StoreSubscriber>
-    (
-        _ subscriber: S,
-        originalSubscription: Subscription<State>,
-        transformedSubscription: Subscription<SelectedState>?
-    )
+    public func subscribe<SelectedState, S: StoreSubscriber> (_ subscriber: S)
     where S.StoreSubscriberStateType == SelectedState
     {
-        let subscriptionBox = self.subscriptionBox(originalSubscription: originalSubscription,
-                                                   transformedSubscription: transformedSubscription,
-                                                   subscriber: subscriber
-        )
+        let originalSubscription = Subscription<State>()
+
+        let subscriptionBox = SubscriptionBox(originalSubscription: originalSubscription,
+                                              subscriber: subscriber)
 
         subscriptions.update(with: subscriptionBox)
 
@@ -109,40 +97,15 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
         }
     }
 
-    private func subscribe<SelectedState, S: StoreSubscriber>
-    (
-        _ subscriber: S,
-        transform: ((Subscription<State>) -> Subscription<SelectedState>)?
-    )
-    where S.StoreSubscriberStateType == SelectedState
-    {
-        // Create a subscription for the new subscriber.
-        let originalSubscription = Subscription<State>()
-        // Call the optional transformation closure. This allows callers to modify
-        // the subscription, e.g. in order to subselect parts of the store's state.
-        let transformedSubscription = transform?(originalSubscription)
+    public func unsubscribe(_ subscriber: AnyStoreSubscriber) {
 
-        _subscribe(subscriber, originalSubscription: originalSubscription,
-                   transformedSubscription: transformedSubscription)
-    }
-
-    func subscriptionBox<T>
-    (
-        originalSubscription: Subscription<State>,
-        transformedSubscription: Subscription<T>?,
-        subscriber: AnyStoreSubscriber
-    )
-        -> SubscriptionBox<State>
-    {
-        return SubscriptionBox(
-            originalSubscription: originalSubscription,
-            transformedSubscription: transformedSubscription,
-            subscriber: subscriber
-        )
+        if let index = subscriptions.firstIndex(where: { return $0.subscriber === subscriber }) {
+            subscriptions.remove(at: index)
+        }
     }
 
     // swiftlint:disable:next identifier_name
-    open func _defaultDispatch(action: Dispatchable) {
+    private func _defaultDispatch(action: Dispatchable) {
         guard !isDispatching else {
             raiseFatalError(
                 "ReSwift:ConcurrentMutationError- Action has been dispatched while" +
@@ -179,132 +142,31 @@ open class Store<State: RootStateType>: StoreType, StoreTrunk {
         isDispatching = false
     }
 
-    open func dispatch(_ action: Dispatchable,
+    public func dispatch(_ action: Dispatchable,
                        file: String = #file,
                        function: String = #function,
                        line: Int = #line) {
 
+        var type: String
         switch action {
         case _ as AnyAction:
-            print("---ACTION---")
+            type = "---ACTION---"
         case _ as AnySideEffect:
-            print("---SIDE EFFECT---")
+            type = "---SIDE EFFECT---"
         default:
-            print("---MIDDLEWARE---")
+            type = "---MIDDLEWARE---"
         }
-        print("\(action)")
-        print("file: \(file):\(line)")
-        print("function: \(function)")
-        print(".")
+        let log =
+        """
+        \(type)
+        \(action)
+        file: \(file):\(line)
+        function: \(function)
+        .
+        """
+        print(log)
 
         dispatchFunction(action)
-    }
-
-    public typealias DispatchCallback = (State) -> Void
-}
-
-// MARK: Skip Repeats for Equatable States
-
-public protocol StoreProvider {
-
-    func subscribe<S: StoreSubscriber> (_ subscriber: S)
-
-    func unsubscribe(_ subscriber: AnyStoreSubscriber)
-}
-
-extension Store: StoreProvider {
-
-    public func subscribe<S>(_ subscriber: S) where S: StoreSubscriber {
-        _ = subscribe(subscriber, transform: nil)
-    }
-
-
-//    open func subscribe<S: StoreSubscriber>
-//    (
-//        _ subscriber: S
-//    )
-//    where S.StoreSubscriberStateType == State
-//    {
-//        _ = subscribe(subscriber, transform: nil)
-//    }
-
-    open func unsubscribe(_ subscriber: AnyStoreSubscriber) {
-
-        if let index = subscriptions.firstIndex(where: { return $0.subscriber === subscriber }) {
-            subscriptions.remove(at: index)
-        }
-    }
-}
-
-//public protocol StoreProvider {
-//
-////    func subscribe<State, Subscriber>
-////    (
-////        _ subscriber: Subscriber
-////    )
-////    where State: StateType,
-////        State: Equatable,
-////        State == Subscriber.StoreSubscriberStateType,
-////        Subscriber: StoreSubscriber
-//
-//    func subscribe<S: StoreSubscriber>(_ subscriber: S)
-//
-//    func unsubscribe(_ subscriber: AnyStoreSubscriber)
-//}
-
-//extension Store {
-//
-//    open func subscribe<S: StoreSubscriber>(_ subscriber: S)
-//    where S.StoreSubscriberStateType == State {
-//        guard subscriptionsAutomaticallySkipRepeats else {
-//            _ = subscribe(subscriber, transform: nil)
-//            return
-//        }
-//        _ = subscribe(subscriber, transform: { $0.skipRepeats() })
-//    }
-//}
-
-//extension Store: StoreProvider {
-//
-////    open func subscribe<State, Subscriber>
-////    (
-////        _ subscriber: Subscriber
-////    )
-////    where State: StateType,
-////        State: Equatable,
-////        State == Subscriber.StoreSubscriberStateType,
-////        Subscriber: StoreSubscriber
-////    {
-////        let originalSubscription = Subscription<State>()
-////
-////        var transformedSubscription: Subscription<State>? = nil
-////        if subscriptionsAutomaticallySkipRepeats {
-////            transformedSubscription = transformedSubscription?.skipRepeats()
-////        }
-////        _subscribe(subscriber,
-////                   originalSubscription: originalSubscription,
-////                   transformedSubscription: transformedSubscription)
-////    }
-//
-//    open func unsubscribe(_ subscriber: AnyStoreSubscriber) {
-//
-//        if let index = subscriptions.firstIndex(where: { return $0.subscriber === subscriber }) {
-//            subscriptions.remove(at: index)
-//        }
-//    }
-//}
-
-public protocol StateProvider {
-
-    func getState<S: RootStateType>() -> S
-}
-
-extension Store: StateProvider {
-
-
-    public func getState<S: RootStateType>() -> S {
-
-        return state as! S
     }
 }
 
