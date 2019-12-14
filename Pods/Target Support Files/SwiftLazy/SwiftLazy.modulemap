@@ -1,0 +1,6 @@
+framework module SwiftLazy {
+  umbrella header "SwiftLazy-umbrella.h"
+
+  export *
+  module * { export * }
+}

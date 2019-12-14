@@ -1,0 +1,6 @@
+framework module DITranquillity {
+  umbrella header "DITranquillity-umbrella.h"
+
+  export *
+  module * { export * }
+}

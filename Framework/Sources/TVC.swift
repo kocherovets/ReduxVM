@@ -27,9 +27,9 @@ public protocol TableProperties: Properties, Equatable {
     var tableModel: TableModel { get }
 }
 
-open class TVC<Props: TableProperties, PresenterType: PresenterProtocol>: DeclarativeTVC, PropsReceiver {
+open class TVC<Props: TableProperties>: DeclarativeTVC, PropsReceiver {
 
-    private var presenter: PresenterType!
+    public var presenter: PresenterProtocol!
     private var _props: Props?
     public final var props: Props? {
         return _props
@@ -52,7 +52,7 @@ open class TVC<Props: TableProperties, PresenterType: PresenterProtocol>: Declar
 
     private func setup() {
 
-        presenter = PresenterType.init(propsReceiver: self)
+//        presenter = PresenterType.init(propsReceiver: self)
     }
 
     final public func set(props: Properties?) {

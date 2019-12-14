@@ -9,6 +9,7 @@
 import UIKit
 import DeclarativeTVC
 import RedSwift
+import DITranquillity
 
 struct Props: Properties, Equatable {
     let counterText: String
@@ -17,32 +18,45 @@ struct Props: Properties, Equatable {
     let showActivityIndicator: Bool
 }
 
-class Presenter: PresenterBase<Props, State> {
+class VCPart: DIPart {
+    static func load(container: DIContainer) {
+       
+        container.register(ViewController.self)
+            .injection(\ViewController.presenter) { $0 as Presenter }
+            .lifetime(.objectGraph)
 
-    override var store: Store<State>! {
-        return globalStore
+        container.register (Presenter.init)
+            .injection(cycle: true, \Presenter.propsReceiver)
+            .lifetime(.objectGraph)
     }
-    
+}
+
+class Presenter: PresenterBase<State, Props, ViewController> {
+
+    override func onInit(trunk: Trunk) {
+        trunk.dispatch(AddAction(value: 10))
+    }
+
     override func reaction(for box: StateBox<State>) -> ReactionToState {
         return .props
     }
 
-    override func props(for box: StateBox<State>) -> Props? {
+    override func props(for box: StateBox<State>, trunk: Trunk) -> Props? {
 
         return Props(
             counterText: "\(box.state.counter.counter)",
             add1Command: Command {
-                self.store.dispatch(IncrementAction())
+                trunk.dispatch(IncrementAction())
             },
             add150Command: Command {
-                self.store.dispatch(RequestIncrementSE())
+                trunk.dispatch(RequestIncrementSE())
             },
             showActivityIndicator: box.state.counter.incrementRequested
         )
     }
 }
 
-class ViewController: VC<Props, Presenter> {
+class ViewController: VC<Props> {
 
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var add1Button: UIButton!

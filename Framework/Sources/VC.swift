@@ -9,9 +9,10 @@
 import Foundation
 import RedSwift
 
-open class VC<Props: Properties, PresenterType: PresenterProtocol>: UIViewController, PropsReceiver where Props: Equatable {
+open class VC<Props: Properties>: UIViewController, PropsReceiver where Props: Equatable {
 
-    private var presenter: PresenterType!
+    public var presenter: PresenterProtocol!
+
     private var _props: Props?
     public final var props: Props? {
         return _props
@@ -19,23 +20,6 @@ open class VC<Props: Properties, PresenterType: PresenterProtocol>: UIViewContro
     private var renderOnViewWillAppear = true
     private var uiIsReady = false
     private var workItem: DispatchWorkItem?
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-
-        setup()
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-
-        setup()
-    }
-
-    private func setup() {
-
-        presenter = PresenterType.init(propsReceiver: self)
-    }
 
     final public func set(props: Properties?) {
 
@@ -51,7 +35,7 @@ open class VC<Props: Properties, PresenterType: PresenterProtocol>: UIViewContro
             }
         }
 
-       let applyProps = { [weak self] in
+        let applyProps = { [weak self] in
 
             guard let self = self else { return }
 

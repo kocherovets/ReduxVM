@@ -7,6 +7,7 @@ use_frameworks!
 def shared_pods
     pod 'DeclarativeTVC'
     pod 'RedSwift'
+    pod 'DITranquillity'
 end
 
 target "ReduxVM" do

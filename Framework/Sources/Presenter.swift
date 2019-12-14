@@ -13,15 +13,6 @@ import RedSwift
 public protocol Properties {
 
 }
-//public struct PropsWithDelay {
-//    public let props: Properties?
-//    public let delay: Double?
-//
-//    public init(props: Properties?, delay: TimeInterval? = 0) {
-//        self.props = props
-//        self.delay = delay
-//    }
-//}
 
 public protocol PropsReceiver: class {
 
@@ -37,35 +28,43 @@ public enum ReactionToState {
 
 public protocol PresenterProtocol {
 
-    init(propsReceiver: PropsReceiver)
     func onInit()
     func onDeinit()
     func subscribe()
     func unsubscribe()
 }
 
-open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscriber, PresenterProtocol {
-    
-    private weak var propsReceiver: PropsReceiver?
-    
-    open var store: Store<State>! {
-        nil
+open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsReceiver>: StoreSubscriber, PresenterProtocol, Trunk {
+
+    public weak var propsReceiver: PR!
+
+    private var store: Store<State> {
+        didSet {
+            stateChanged(box: StateBox<State>(state: store.state,
+                                              oldState: store.state))
+        }
     }
 
-    open func onInit() {  }
-    open func onDeinit()  {  }
+    public var storeTrunk: StoreTrunk { store }
 
-    required public init(propsReceiver: PropsReceiver) {
+    public func onInit() {
+        onInit(trunk: self)
+    }
 
-        self.propsReceiver = propsReceiver
+    public func onDeinit() {
+        onDeinit(trunk: self)
+    }
 
-        stateChanged(box: StateBox<State>(state: store.state,
-                                          oldState: store.state))
+    public init(store: Store<State>) {
+        self.store = store
     }
 
     deinit {
         onDeinit()
     }
+
+    open func onInit(trunk: Trunk) { }
+    open func onDeinit(trunk: Trunk) { }
 
     public final func subscribe() {
 
@@ -99,7 +98,7 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
         case .command(let command):
             command.perform()
         case .props:
-            propsReceiver?.set(props: props(for: box))
+            propsReceiver?.set(props: props(for: box, trunk: self))
         case .none:
             return
         }
@@ -109,8 +108,8 @@ open class PresenterBase<Props: Properties, State: RootStateType>: StoreSubscrib
 
         return .props
     }
-    
-    open func props(for box: StateBox<State>) -> Props? {
+
+    open func props(for box: StateBox<State>, trunk: Trunk) -> Props? {
 
         return nil
     }

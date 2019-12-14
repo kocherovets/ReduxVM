@@ -10,10 +10,40 @@ import UIKit
 import CoreData
 @_exported import Framework
 
+import DITranquillity
+import RedSwift
+
+public class AppFramework: DIFramework {
+    public static func load(container: DIContainer) {
+
+        container.register {
+            Store<State>(state: State(),
+                         queue: storeQueue,
+                         sideEffectDependencyContainer: DependencyContainer(),
+                         middleware: [])
+        }
+            .lifetime(.single)
+
+        container.registerStoryboard(name: "Main")
+            .lifetime(.single)
+
+        container.append(part: VCPart.self)
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        let container = DIContainer()
+        container.append(framework: AppFramework.self)
+
+        if !container.validate() {
+            fatalError()
+        }
+
+        container.initializeSingletonObjects()
 
         return true
     }
