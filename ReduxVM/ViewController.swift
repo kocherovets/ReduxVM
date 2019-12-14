@@ -33,7 +33,7 @@ class VCPart: DIPart {
 
 class Presenter: PresenterBase<State, Props, ViewController> {
 
-    override func onInit(trunk: Trunk) {
+    override func onInit(state: State, trunk: Trunk) {
         trunk.dispatch(AddAction(value: 10))
     }
 

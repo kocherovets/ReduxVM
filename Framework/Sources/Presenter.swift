@@ -48,11 +48,11 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
     public var storeTrunk: StoreTrunk { store }
 
     public func onInit() {
-        onInit(trunk: self)
+        onInit(state: store.state, trunk: self)
     }
 
     public func onDeinit() {
-        onDeinit(trunk: self)
+        onDeinit(state: store.state, trunk: self)
     }
 
     public init(store: Store<State>) {
@@ -63,8 +63,8 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
         onDeinit()
     }
 
-    open func onInit(trunk: Trunk) { }
-    open func onDeinit(trunk: Trunk) { }
+    open func onInit(state: State, trunk: Trunk) { }
+    open func onDeinit(state: State, trunk: Trunk) { }
 
     public final func subscribe() {
 
