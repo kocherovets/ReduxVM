@@ -73,7 +73,7 @@ open class TVC<Props: TableProperties>: DeclarativeTVC, PropsReceiver {
             }
         }
 
-        DispatchQueue.main.async { [weak self] in
+        let applyProps = { [weak self] in
 
             guard let self = self else { return }
 
@@ -85,6 +85,14 @@ open class TVC<Props: TableProperties>: DeclarativeTVC, PropsReceiver {
 
             print("render \(type(of: self))")
             self.render()
+        }
+
+        if Thread.isMainThread {
+            applyProps()
+        } else {
+            DispatchQueue.main.async {
+                applyProps()
+            }
         }
     }
 

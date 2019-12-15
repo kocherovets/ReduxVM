@@ -36,14 +36,14 @@ public protocol PresenterProtocol {
 
 open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsReceiver>: StoreSubscriber, PresenterProtocol, Trunk {
 
-    public weak var propsReceiver: PR!
-
-    private var store: Store<State> {
+    public weak var propsReceiver: PR! {
         didSet {
             stateChanged(box: StateBox<State>(state: store.state,
                                               oldState: store.state))
         }
     }
+
+    private var store: Store<State>
 
     public var storeTrunk: StoreTrunk { store }
 
@@ -90,10 +90,8 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
 
         switch reaction(for: box) {
         case .router(let command):
-            store.queue.async {
-                DispatchQueue.main.async {
-                    command.perform()
-                }
+            DispatchQueue.main.async {
+                command.perform()
             }
         case .command(let command):
             command.perform()
