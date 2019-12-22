@@ -6,9 +6,12 @@
 //  Copyright © 2019 Dmitry Kocherovets. All rights reserved.
 //
 
-import UIKit
 import CoreData
+@_exported import UIKit
+@_exported import DeclarativeTVC
+@_exported import RedSwift
 @_exported import Framework
+@_exported import DITranquillity
 
 import DITranquillity
 import RedSwift
@@ -27,7 +30,10 @@ public class AppFramework: DIFramework {
         container.registerStoryboard(name: "Main")
             .lifetime(.single)
 
-        container.append(part: VCPart.self)
+        container.append(part: ModuleVC.DI.self)
+        container.append(part: MenuTVCModule.DI.self)
+        container.append(part: ModuleBaseWithPropsVC.DI.self)
+        container.append(part: ModuleChildVC.DI.self)
     }
 }
 

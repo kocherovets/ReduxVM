@@ -14,11 +14,6 @@ public protocol Properties {
 
 }
 
-public protocol PropsReceiver: class {
-
-    func set(props: Properties?)
-}
-
 public enum ReactionToState {
     case router(Command)
     case command(Command)
@@ -96,7 +91,7 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
         case .command(let command):
             command.perform()
         case .props:
-            propsReceiver?.set(props: props(for: box, trunk: self))
+            propsReceiver?.set(newProps: props(for: box, trunk: self))
         case .none:
             return
         }

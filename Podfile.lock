@@ -1,11 +1,11 @@
 PODS:
-  - DeclarativeTVC (1.0.9):
+  - DeclarativeTVC (1.0.10):
     - DifferenceKit
-  - DifferenceKit (1.1.3):
-    - DifferenceKit/Core (= 1.1.3)
-    - DifferenceKit/UIKitExtension (= 1.1.3)
-  - DifferenceKit/Core (1.1.3)
-  - DifferenceKit/UIKitExtension (1.1.3):
+  - DifferenceKit (1.1.4):
+    - DifferenceKit/Core (= 1.1.4)
+    - DifferenceKit/UIKitExtension (= 1.1.4)
+  - DifferenceKit/Core (1.1.4)
+  - DifferenceKit/UIKitExtension (1.1.4):
     - DifferenceKit/Core
   - DITranquillity (3.9.2):
     - SwiftLazy
@@ -26,8 +26,8 @@ SPEC REPOS:
     - SwiftLazy
 
 SPEC CHECKSUMS:
-  DeclarativeTVC: beb9b5ee7bff132d345675c26f5c1128dd2d5ecc
-  DifferenceKit: 5018791b6c1fc839921a3c171a0a539ace6ea60c
+  DeclarativeTVC: 7cf462ee6ec869325457ac904dc0bf34311892b8
+  DifferenceKit: d7e8a7edd2ae706f1e1f05c8103d4cf858e04b78
   DITranquillity: d07c05a93de108d84c27cf011594fc897b0bff03
   RedSwift: 36cefc62f429f7ce7db39d485aa75834631c7cb5
   SwiftLazy: 7ace993ccc9e1773ddf3a7bb309ed0182f469366

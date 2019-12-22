@@ -11,7 +11,7 @@ import DeclarativeTVC
 import RedSwift
 
 
-public struct TableProps: TableProperties {
+public struct TableProps: TableProperties, Equatable {
 
     public var tableModel: TableModel
     public var animations: DeclarativeTVC.Animations?
@@ -22,16 +22,16 @@ public struct TableProps: TableProperties {
     }
 }
 
-public protocol TableProperties: Properties, Equatable {
+public protocol TableProperties: Properties {
 
     var tableModel: TableModel { get }
 }
 
-open class TVC<Props: TableProperties>: DeclarativeTVC, PropsReceiver {
+open class TVC: DeclarativeTVC {
 
     public var presenter: PresenterProtocol!
-    private var _props: Props?
-    public final var props: Props? {
+    private var _props: Properties?
+    public final var generalProps: Properties? {
         return _props
     }
     private var workItem: DispatchWorkItem?
@@ -55,45 +55,16 @@ open class TVC<Props: TableProperties>: DeclarativeTVC, PropsReceiver {
 //        presenter = PresenterType.init(propsReceiver: self)
     }
 
-    final public func set(props: Properties?) {
+    public func applyProps(newProps: Properties?) {
 
-        if props == nil {
-            return
-        }
-
-        if let props = props as? Props {
-            if let currentProps = self._props, currentProps == props {
-                print("skip render \(type(of: self))")
-                return
-            }
+        if let props = newProps  {
+            self._props = props
         } else {
-            if self._props == nil {
-                print("skip render \(type(of: self))")
-                return
-            }
+            self._props = nil
         }
 
-        let applyProps = { [weak self] in
-
-            guard let self = self else { return }
-
-            if let props = props as? Props {
-                self._props = props
-            } else {
-                self._props = nil
-            }
-
-            print("render \(type(of: self))")
-            self.render()
-        }
-
-        if Thread.isMainThread {
-            applyProps()
-        } else {
-            DispatchQueue.main.async {
-                applyProps()
-            }
-        }
+        print("render \(type(of: self))")
+        self.render()
     }
 
     override open func viewDidLoad() {
@@ -118,7 +89,7 @@ open class TVC<Props: TableProperties>: DeclarativeTVC, PropsReceiver {
 
     open func render() {
 
-        if let props = props {
+        if let props = generalProps as? TableProperties {
             set(model: props.tableModel)
         }
     }

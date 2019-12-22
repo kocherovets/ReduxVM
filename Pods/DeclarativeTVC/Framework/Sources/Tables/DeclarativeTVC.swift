@@ -67,9 +67,10 @@ open class DeclarativeTVC: UITableViewController {
         guard let vm = model?.sections[indexPath.section].rows[indexPath.row] else { return UITableViewCell() }
 
         let cell: UITableViewCell
-        if let storyBoardCell = tableView.dequeueReusableCell(withIdentifier: String(describing: type(of: vm).cellAnyType)) {
-            cell = storyBoardCell
-        } else {
+        switch vm.cellType() {
+        case .storyboard:
+            cell = tableView.dequeueReusableCell(withIdentifier: String(describing: type(of: vm).cellAnyType))!
+        case .xib:
             let cellTypeString = String(describing: type(of: vm).cellAnyType)
             if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
                 let nib = UINib.init(nibName: cellTypeString, bundle: nil)
@@ -77,7 +78,25 @@ open class DeclarativeTVC: UITableViewController {
                 registeredCells.append(cellTypeString)
             }
             cell = tableView.dequeueReusableCell(withIdentifier: cellTypeString, for: indexPath)
+        case .code:
+            let cellTypeString = String(describing: type(of: vm).cellAnyType)
+            if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
+                vm.register(tableView: tableView, identifier: cellTypeString)
+                registeredCells.append(cellTypeString)
+            }
+            cell = tableView.dequeueReusableCell(withIdentifier: cellTypeString, for: indexPath)
         }
+//        if let storyBoardCell = tableView.dequeueReusableCell(withIdentifier: String(describing: type(of: vm).cellAnyType)) {
+//            cell = storyBoardCell
+//        } else {
+//            let cellTypeString = String(describing: type(of: vm).cellAnyType)
+//            if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
+//                let nib = UINib.init(nibName: cellTypeString, bundle: nil)
+//                tableView.register(nib, forCellReuseIdentifier: cellTypeString)
+//                registeredCells.append(cellTypeString)
+//            }
+//            cell = tableView.dequeueReusableCell(withIdentifier: cellTypeString, for: indexPath)
+//        }
 
         vm.apply(to: cell)
 

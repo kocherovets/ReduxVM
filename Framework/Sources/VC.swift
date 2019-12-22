@@ -9,56 +9,76 @@
 import Foundation
 import RedSwift
 
-open class VC<Props: Properties>: UIViewController, PropsReceiver where Props: Equatable {
+public protocol PropsReceiver: class {
+
+    associatedtype Props: Properties, Equatable
+
+    var generalProps: Properties? { get }
+    var props: Props? { get }
+
+    func set(newProps: Properties?)
+
+    func applyProps(newProps: Properties?)
+    func render()
+}
+
+public protocol TablePropsReceiver: PropsReceiver where Props: TableProperties {
+
+}
+
+extension PropsReceiver {
+
+    public var props: Props? { generalProps as? Props }
+
+    public func set(newProps: Properties?) {
+
+        if let newProps = newProps as? Props {
+            if let currentProps = props, currentProps == newProps {
+                print("skip render \(type(of: self))")
+                return
+            }
+        } else {
+            if props == nil {
+                print("skip render \(type(of: self))")
+                return
+            }
+        }
+
+        if Thread.isMainThread {
+            applyProps(newProps: newProps)
+        } else {
+            DispatchQueue.main.async {
+                self.applyProps(newProps: newProps)
+            }
+        }
+    }
+}
+
+open class VC: UIViewController {
 
     public var presenter: PresenterProtocol!
 
-    private var _props: Props?
-    public final var props: Props? {
+    private var _props: Properties?
+    public final var generalProps: Properties? {
         return _props
     }
     private var renderOnViewWillAppear = true
     private var uiIsReady = false
     private var workItem: DispatchWorkItem?
 
-    final public func set(props: Properties?) {
+    public func applyProps(newProps: Properties?) {
 
-        if let props = props as? Props {
-            if let currentProps = self._props, currentProps == props {
-                print("skip render \(type(of: self))")
-                return
-            }
+        self.renderOnViewWillAppear = true
+
+        if let props = newProps {
+            self._props = props
         } else {
-            if self._props == nil {
-                print("skip render \(type(of: self))")
-                return
-            }
+            self._props = nil
         }
 
-        let applyProps = { [weak self] in
-
-            guard let self = self else { return }
-
-            self.renderOnViewWillAppear = true
-
-            if let props = props as? Props {
-                self._props = props
-            } else {
-                self._props = nil
-            }
-
-            if self.uiIsReady {
-                print("render \(type(of: self))")
-                self.render()
-            }
-        }
-
-        if Thread.isMainThread {
-            applyProps()
-        } else {
-            DispatchQueue.main.async {
-                applyProps()
-            }
+        if self.uiIsReady {
+            print("render \(type(of: self))")
+            self.render()
         }
     }
 
