@@ -34,10 +34,10 @@ enum MenuTVCModule {
             let rows: [CellAnyModel] = [
                 SimpleCodeCellVM(titleText: "View Controller",
                                  selectCommand: Command { Router.showVC() }),
-            SimpleCodeCellVM(titleText: "Base With Props View Controller",
-                             selectCommand: Command { Router.showBaseWithPropsVC() }),
-            SimpleCodeCellVM(titleText: "Child View Controller",
-                             selectCommand: Command { Router.showChildVC() }),
+                SimpleCodeCellVM(titleText: "Base With Props View Controller",
+                                 selectCommand: Command { Router.showBaseWithPropsVC() }),
+                SimpleCodeCellVM(titleText: "Child View Controller",
+                                 selectCommand: Command { Router.showChildVC() }),
             ]
 
             return TableProps(tableModel: TableModel(rows: rows))
