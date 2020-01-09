@@ -29,7 +29,7 @@ public protocol TableProperties: Properties {
 
 open class TVC: DeclarativeTVC {
 
-    public var presenter: PresenterProtocol!
+    public var presenter: PresenterProtocol?
     private var _props: Properties?
     public final var generalProps: Properties? {
         return _props
@@ -70,21 +70,21 @@ open class TVC: DeclarativeTVC {
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        presenter.onInit()
+        presenter?.onInit()
     }
 
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         print("subscribe presenter \(type(of: self))")
-        presenter.subscribe()
+        presenter?.subscribe()
     }
 
     override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         print("unsubscribe presenter \(type(of: self))")
-        presenter.unsubscribe()
+        presenter?.unsubscribe()
     }
 
     open func render() {

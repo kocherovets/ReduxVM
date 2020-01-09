@@ -56,7 +56,7 @@ extension PropsReceiver {
 
 open class VC: UIViewController {
 
-    public var presenter: PresenterProtocol!
+    public var presenter: PresenterProtocol?
 
     private var _props: Properties?
     public final var generalProps: Properties? {
@@ -87,14 +87,14 @@ open class VC: UIViewController {
 
         uiIsReady = true
 
-        presenter.onInit()
+        presenter?.onInit()
     }
 
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         print("subscribe presenter \(type(of: self))")
-        presenter.subscribe()
+        presenter?.subscribe()
 
         if renderOnViewWillAppear {
             render()
@@ -106,7 +106,7 @@ open class VC: UIViewController {
         super.viewWillDisappear(animated)
 
         print("unsubscribe presenter \(type(of: self))")
-        presenter.unsubscribe()
+        presenter?.unsubscribe()
     }
 
     open func render() {
