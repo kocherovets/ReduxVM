@@ -11,11 +11,27 @@ import DifferenceKit
 
 extension Int: Differentiable {}
 
+open class StoryboardTableViewCell: UITableViewCell {
+    
+}
+
 open class XibTableViewCell: UITableViewCell {
     
 }
 
-open class CodeTableViewCell: UITableViewCell {
+open class CodedTableViewCell: UITableViewCell {
+    
+}
+
+open class StoryboardCollectionViewCell: UICollectionViewCell {
+    
+}
+
+open class XibCollectionViewCell: UICollectionViewCell {
+    
+}
+
+open class CodedCollectionViewCell: UICollectionViewCell {
     
 }
 
@@ -36,6 +52,10 @@ public protocol CellAnyModel {
     func cellType() -> CellKind
     
     func register(tableView: UITableView, identifier: String)
+    
+    func register(collectionView: UICollectionView, identifier: String)
+    
+    var height: CGFloat? { get }
 }
 
 public protocol CellModel: CellAnyModel, Hashable, Differentiable {
@@ -45,8 +65,6 @@ public protocol CellModel: CellAnyModel, Hashable, Differentiable {
     func apply(to cell: CellType)
     
     func cellType() -> CellKind
-    
-    func register(tableView: UITableView, identifier: String)
 }
 
 public extension CellModel {
@@ -65,9 +83,9 @@ public extension CellModel {
     
     func cellType() -> CellKind {
         switch CellType.self {
-        case is XibTableViewCell.Type:
+        case is XibTableViewCell.Type, is XibCollectionViewCell.Type:
             return .xib
-        case is CodeTableViewCell.Type:
+        case is CodedTableViewCell.Type, is CodedCollectionViewCell.Type:
             return .code
         default:
             return .storyboard
@@ -79,4 +97,10 @@ public extension CellModel {
         tableView.register(CellType.self, forCellReuseIdentifier: identifier)
     }
 
+    func register(collectionView: UICollectionView, identifier: String) {
+        
+        collectionView.register(CellType.self, forCellWithReuseIdentifier: identifier)
+    }
+    
+    var height: CGFloat? { nil }
 }

@@ -19,6 +19,7 @@ enum ModuleVC {
 
             container.register (Presenter.init)
                 .injection(cycle: true, \Presenter.propsReceiver)
+                .injection(\Presenter.apiService)
                 .lifetime(.objectGraph)
         }
     }
@@ -31,6 +32,8 @@ enum ModuleVC {
     }
 
     class Presenter: PresenterBase<State, Props, ViewController> {
+        
+        var apiService: ApiService!
 
         override func onInit(state: State, trunk: Trunk) {
             trunk.dispatch(AddAction(value: 10))
@@ -48,9 +51,9 @@ enum ModuleVC {
                     trunk.dispatch(IncrementAction())
                 },
                 add150Command: Command {
-                    trunk.dispatch(RequestIncrementSE())
+                    trunk.dispatch(RequestIncrementAction())
                 },
-                showActivityIndicator: box.state.counter.incrementRequested
+                showActivityIndicator: box.state.counter.delayedIncrement == .requested
             )
         }
     }

@@ -32,8 +32,6 @@ open class Store<State: RootStateType>: StoreTrunk {
         }
     }
 
-    let sideEffectDependencyContainer: SideEffectDependencyContainer
-
     var subscriptions: Set<SubscriptionType> = []
 
     private var isDispatching = false
@@ -56,11 +54,8 @@ open class Store<State: RootStateType>: StoreTrunk {
     public required init(
         state: State?,
         queue: DispatchQueue,
-        sideEffectDependencyContainer: SideEffectDependencyContainer,
         middleware: [Middleware<State>] = []
     ) {
-
-        self.sideEffectDependencyContainer = sideEffectDependencyContainer
 
         self.queue = queue
 
@@ -124,10 +119,6 @@ open class Store<State: RootStateType>: StoreTrunk {
             switch action {
             case let action as AnyAction:
                 self.state = action.updatedState(currentState: self.state) as? State
-            case let sideEffect as AnySideEffect:
-                sideEffect.sideEffect(state: self.state,
-                                      trunk: SideEffectTrunk(storeTrunk: self),
-                                      dependencies: self.sideEffectDependencyContainer)
             default:
                 break
             }
@@ -151,8 +142,6 @@ open class Store<State: RootStateType>: StoreTrunk {
         switch action {
         case _ as AnyAction:
             type = "---ACTION---"
-        case _ as AnySideEffect:
-            type = "---SIDE EFFECT---"
         default:
             type = "---MIDDLEWARE---"
         }

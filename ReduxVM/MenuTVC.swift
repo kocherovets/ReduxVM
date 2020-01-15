@@ -45,7 +45,7 @@ enum MenuTVCModule {
     }
 }
 
-class SimpleCodeCell: CodeTableViewCell {
+class SimpleCodeCell: CodedTableViewCell {
 
 }
 

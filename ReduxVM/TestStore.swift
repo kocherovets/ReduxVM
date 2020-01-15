@@ -17,31 +17,12 @@ struct TestState: StateType, Equatable {
     var companyName: String = "test"
 }
 
-
 struct State: RootStateType, Equatable {
     var test = TestState()
     var counter = CounterState()
 }
 
-class APIManager {
-
-    func test(_ callback: @escaping (Int) -> Void) {
-        delay(5) {
-            callback(150)
-        }
-    }
-}
-
-class DependencyContainer: SideEffectDependencyContainer {
-    let api = APIManager()
-}
-
 let storeQueue = DispatchQueue(label: "queueTitle", qos: .userInteractive)
-
-//var globalStore = Store<State>(state: State(),
-//                               queue: storeQueue,
-//                               sideEffectDependencyContainer: DependencyContainer(),
-//                               middleware: [])
 
 class TestStore: Store<State> {
 

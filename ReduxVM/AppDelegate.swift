@@ -22,9 +22,11 @@ public class AppFramework: DIFramework {
         container.register {
             Store<State>(state: State(),
                          queue: storeQueue,
-                         sideEffectDependencyContainer: DependencyContainer(),
                          middleware: [])
         }
+            .lifetime(.single)
+
+        container.register (ApiService.init)
             .lifetime(.single)
 
         container.registerStoryboard(name: "Main")

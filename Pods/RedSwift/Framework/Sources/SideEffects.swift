@@ -38,49 +38,49 @@ extension Trunk {
 
 }
 
-public struct SideEffectTrunk: Trunk {
-
-    public var storeTrunk: StoreTrunk
-}
-
-public protocol SideEffectDependencyContainer: class { }
-
-public protocol AnySideEffect: Dispatchable {
-
-    func sideEffect<R: StateType>(state: R,
-                                  trunk: Trunk,
-                                  dependencies: SideEffectDependencyContainer)
-
-}
-
-public protocol SideEffect: AnySideEffect {
-
-    associatedtype State: StateType
-
-    associatedtype DependencyContainer: SideEffectDependencyContainer
-
-    func sideEffect(state: State,
-                    trunk: Trunk,
-                    dependencies: DependencyContainer)
-}
-
-public extension SideEffect {
-
-    func sideEffect<R: StateType>(state: R,
-                                  trunk: Trunk,
-                                  dependencies: SideEffectDependencyContainer) {
-
-        guard let typedState = state as? State else {
-            fatalError("Side effect body invoked with the wrong state type")
-        }
-
-        guard let typedDependencyContainer = dependencies as? DependencyContainer else {
-            fatalError("Side effect body invoked with the wrong dependecy container type")
-        }
-
-        self.sideEffect(state: typedState,
-                        trunk: trunk,
-                        dependencies: typedDependencyContainer)
-    }
-}
-
+//public struct SideEffectTrunk: Trunk {
+//
+//    public var storeTrunk: StoreTrunk
+//}
+//
+//public protocol SideEffectDependencyContainer: class { }
+//
+//public protocol AnySideEffect: Dispatchable {
+//
+//    func sideEffect<R: StateType>(state: R,
+//                                  trunk: Trunk,
+//                                  dependencies: SideEffectDependencyContainer)
+//
+//}
+//
+//public protocol SideEffect: AnySideEffect {
+//
+//    associatedtype State: StateType
+//
+//    associatedtype DependencyContainer: SideEffectDependencyContainer
+//
+//    func sideEffect(state: State,
+//                    trunk: Trunk,
+//                    dependencies: DependencyContainer)
+//}
+//
+//public extension SideEffect {
+//
+//    func sideEffect<R: StateType>(state: R,
+//                                  trunk: Trunk,
+//                                  dependencies: SideEffectDependencyContainer) {
+//
+//        guard let typedState = state as? State else {
+//            fatalError("Side effect body invoked with the wrong state type")
+//        }
+//
+//        guard let typedDependencyContainer = dependencies as? DependencyContainer else {
+//            fatalError("Side effect body invoked with the wrong dependecy container type")
+//        }
+//
+//        self.sideEffect(state: typedState,
+//                        trunk: trunk,
+//                        dependencies: typedDependencyContainer)
+//    }
+//}
+//

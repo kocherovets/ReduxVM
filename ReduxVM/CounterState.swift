@@ -11,7 +11,12 @@ import RedSwift
 struct CounterState: StateType, Equatable {
 
     var counter: Int = 0
-    var incrementRequested = false
+    
+    enum DelayedIncrement {
+        case requested
+        case none
+    }
+    var delayedIncrement = DelayedIncrement.none
 }
 
 struct IncrementAction: Action {
@@ -28,7 +33,6 @@ struct AddAction: Action {
     func updateState(_ state: inout State) {
 
         state.counter.counter += value
-        state.counter.incrementRequested = false
     }
 }
 
@@ -36,18 +40,17 @@ struct RequestIncrementAction: Action {
 
     func updateState(_ state: inout State) {
 
-        state.counter.incrementRequested = true
+        state.counter.delayedIncrement = .requested
     }
 }
 
-struct RequestIncrementSE: SideEffect {
+struct SetRequestedIncrementAction: Action {
 
-    func sideEffect(state: State, trunk: Trunk, dependencies: DependencyContainer) {
+    let value: Int
 
-        trunk.dispatch(RequestIncrementAction())
+    func updateState(_ state: inout State) {
 
-        dependencies.api.test { value in
-            trunk.dispatch(AddAction(value: value))
-        }
+        state.counter.counter += value
+        state.counter.delayedIncrement = .none
     }
 }

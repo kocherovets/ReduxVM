@@ -10,7 +10,7 @@ s.license = { :type => "MIT", :file => "LICENSE" }
 s.homepage = 'https://github.com/kocherovets/ReduxVM'
 s.author = { 'Dmitry Kocherovets' => 'kocherovets@gmail.com' }
 
-s.version = "1.0.12"
+s.version = "1.0.13"
 s.source = { :git => 'https://github.com/kocherovets/ReduxVM.git', :tag => s.version.to_s  }
 s.source_files = "Framework/Sources/**/*.{swift}"
 

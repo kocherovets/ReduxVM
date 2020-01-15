@@ -11,9 +11,8 @@ import DifferenceKit
 
 open class DeclarativeCVC: UICollectionViewController {
 
-    private static let stubCell = UICollectionViewCell()
-
     private var model: CollectionModel? = nil
+    private var registeredCells = [String]()
 
     open func set(items: [CellAnyModel], animated: Bool) {
 
@@ -62,10 +61,30 @@ open class DeclarativeCVC: UICollectionViewController {
 
     open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        guard let vm = model?.sections[indexPath.section].items[indexPath.row] else { return DeclarativeCVC.stubCell }
+        guard let vm = model?.sections[indexPath.section].items[indexPath.row] else { return UICollectionViewCell() }
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: type(of: vm).cellAnyType),
+        let cell: UICollectionViewCell
+        switch vm.cellType() {
+        case .storyboard:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: type(of: vm).cellAnyType),
                                                       for: indexPath)
+        case .xib:
+            let cellTypeString = String(describing: type(of: vm).cellAnyType)
+            if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
+                let nib = UINib.init(nibName: cellTypeString, bundle: nil)
+                collectionView.register(nib, forCellWithReuseIdentifier: cellTypeString)
+                registeredCells.append(cellTypeString)
+            }
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellTypeString, for: indexPath)
+        case .code:
+            let cellTypeString = String(describing: type(of: vm).cellAnyType)
+            if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
+                vm.register(collectionView: collectionView, identifier: cellTypeString)
+                registeredCells.append(cellTypeString)
+            }
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellTypeString, for: indexPath)
+        }
+
         vm.apply(to: cell)
 
         return cell

@@ -11,24 +11,10 @@ import DifferenceKit
 
 open class CollectionDS: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    private static let stubCell = UICollectionViewCell()
-
     private var model: CollectionModel? = nil
     private var registeredCells = [String]()
 
     private var collectionView: UICollectionView?
-
-    public enum CellType {
-        case storyboard
-        case xib
-    }
-    let cellType: CellType
-
-    public init(cellType: CellType) {
-        self.cellType = cellType
-
-        super.init()
-    }
 
     open func set(collectionView: UICollectionView?, items: [CellAnyModel], animated: Bool) {
 
@@ -83,17 +69,30 @@ open class CollectionDS: NSObject, UICollectionViewDataSource, UICollectionViewD
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        guard let vm = model?.sections[indexPath.section].items[indexPath.row] else { return CollectionDS.stubCell }
+        guard let vm = model?.sections[indexPath.section].items[indexPath.row] else { return UICollectionViewCell() }
 
-        let cellTypeString = String(describing: type(of: vm).cellAnyType)
-        if case .xib = cellType {
+        let cell: UICollectionViewCell
+        switch vm.cellType() {
+        case .storyboard:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: type(of: vm).cellAnyType),
+                                                      for: indexPath)
+        case .xib:
+            let cellTypeString = String(describing: type(of: vm).cellAnyType)
             if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
                 let nib = UINib.init(nibName: cellTypeString, bundle: nil)
                 collectionView.register(nib, forCellWithReuseIdentifier: cellTypeString)
                 registeredCells.append(cellTypeString)
             }
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellTypeString, for: indexPath)
+        case .code:
+            let cellTypeString = String(describing: type(of: vm).cellAnyType)
+            if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
+                vm.register(collectionView: collectionView, identifier: cellTypeString)
+                registeredCells.append(cellTypeString)
+            }
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellTypeString, for: indexPath)
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellTypeString, for: indexPath)
+
         vm.apply(to: cell)
 
         return cell

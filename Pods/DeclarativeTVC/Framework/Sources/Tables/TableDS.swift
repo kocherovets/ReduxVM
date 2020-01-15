@@ -1,25 +1,33 @@
 //
-//  DeclarativeTVC.swift
-//  DeclarativeTVC
+//  TableDS.swift
+//  Framework
 //
-//  Created by Dmitry Kocherovets on 02.11.2019.
-//  Copyright © 2019 Dmitry Kocherovets. All rights reserved.
+//  Created by Dmitry Kocherovets on 01.01.2020.
+//  Copyright © 2020 Dmitry Kocherovets. All rights reserved.
 //
 
 import UIKit
 import DifferenceKit
 
-open class DeclarativeTVC: UITableViewController {
+open class TableDS: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     private var model: TableModel? = nil
     private var registeredCells = [String]()
 
-    open func set(rows: [CellAnyModel], animations: Animations? = nil) {
+    private var tableView: UITableView?
 
-        set(model: TableModel(rows: rows), animations: animations)
+    open func set(tableView: UITableView?, rows: [CellAnyModel], animations: DeclarativeTVC.Animations? = nil) {
+
+        set(tableView: tableView, model: TableModel(rows: rows), animations: animations)
     }
 
-    open func set(model: TableModel, animations: Animations? = nil) {
+    open func set(tableView: UITableView?, model: TableModel, animations: DeclarativeTVC.Animations? = nil) {
+
+        if self.tableView != tableView {
+            self.tableView = tableView
+            self.tableView?.dataSource = self
+            self.tableView?.delegate = self
+        }
 
         let newModel = model
 
@@ -41,26 +49,26 @@ open class DeclarativeTVC: UITableViewController {
 
             self.model = newModel
 
-            tableView.customReload(using: changeset, with: animations) { [weak self] in
+            tableView?.customReload(using: changeset, with: animations) { [weak self] in
 
                 self?.model = newModel
             }
         } else {
 
             self.model = newModel
-            tableView.reloadData()
+            tableView?.reloadData()
         }
     }
 
-    open override func numberOfSections(in tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return model?.sections.count ?? 0
     }
 
-    open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model?.sections[section].rows.count ?? 0
     }
 
-    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let vm = model?.sections[indexPath.section].rows[indexPath.row] else { return UITableViewCell() }
 
@@ -90,7 +98,7 @@ open class DeclarativeTVC: UITableViewController {
         return cell
     }
 
-    open override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         if let vm = model?.sections[section].header {
             let header = tableView.dequeueReusableCell(withIdentifier: String(describing: type(of: vm).headerAnyType))!
@@ -100,23 +108,23 @@ open class DeclarativeTVC: UITableViewController {
         return nil
     }
 
-    open override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 
         if let _ = model?.sections[section].header {
             return UITableView.automaticDimension
         }
         return 0
     }
-    
-    open override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         if let height = model?.sections[indexPath.section].rows[indexPath.row].height {
             return height
         }
         return UITableView.automaticDimension
     }
-
-    open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         guard let vm = model?.sections[indexPath.section].rows[indexPath.row] as? SelectableCellModel else { return }
 
