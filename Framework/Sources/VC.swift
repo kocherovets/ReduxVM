@@ -32,7 +32,7 @@ extension PropsReceiver {
 
     public var props: Props? { generalProps as? Props }
 
-    public var skipEqualProps: Bool { true }
+    public var skipEqualProps: Bool { false }
 
     public func set(newProps: Properties?) {
 
