@@ -12,6 +12,8 @@ import RedSwift
 public protocol PropsReceiver: class {
 
     associatedtype Props: Properties, Equatable
+    
+    var skipEqualProps: Bool { get }
 
     var generalProps: Properties? { get }
     var props: Props? { get }
@@ -30,10 +32,12 @@ extension PropsReceiver {
 
     public var props: Props? { generalProps as? Props }
 
+    public var skipEqualProps: Bool { true }
+
     public func set(newProps: Properties?) {
 
         if let newProps = newProps as? Props {
-            if let currentProps = props, currentProps == newProps {
+            if skipEqualProps, let currentProps = props, currentProps == newProps {
                 print("skip render \(type(of: self))")
                 return
             }
