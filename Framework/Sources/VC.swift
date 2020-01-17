@@ -12,7 +12,7 @@ import RedSwift
 public protocol PropsReceiver: class {
 
     associatedtype Props: Properties, Equatable
-    
+
     var skipEqualProps: Bool { get }
 
     var generalProps: Properties? { get }
@@ -38,12 +38,16 @@ extension PropsReceiver {
 
         if let newProps = newProps as? Props {
             if skipEqualProps, let currentProps = props, currentProps == newProps {
-                print("skip render \(type(of: self))")
+                if ReduxVMSettings.logSkipRenderMessages {
+                    print("skip render \(type(of: self))")
+                }
                 return
             }
         } else {
             if props == nil {
-                print("skip render \(type(of: self))")
+                if ReduxVMSettings.logSkipRenderMessages {
+                    print("skip render \(type(of: self))")
+                }
                 return
             }
         }
@@ -81,7 +85,9 @@ open class VC: UIViewController {
         }
 
         if self.uiIsReady {
-            print("render \(type(of: self))")
+            if ReduxVMSettings.logRenderMessages {
+                print("render \(type(of: self))")
+            }
             self.render()
         }
     }
@@ -97,7 +103,9 @@ open class VC: UIViewController {
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        print("subscribe presenter \(type(of: self))")
+        if ReduxVMSettings.logSubscribeMessages {
+            print("subscribe presenter \(type(of: self))")
+        }
         presenter?.subscribe()
 
         if renderOnViewWillAppear {
@@ -109,7 +117,9 @@ open class VC: UIViewController {
     override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        print("unsubscribe presenter \(type(of: self))")
+        if ReduxVMSettings.logSubscribeMessages {
+            print("unsubscribe presenter \(type(of: self))")
+        }
         presenter?.unsubscribe()
     }
 

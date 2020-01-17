@@ -22,6 +22,7 @@ public class AppFramework: DIFramework {
         container.register {
             Store<State>(state: State(),
                          queue: storeQueue,
+                         loggingExcludedActions: [],
                          middleware: [])
         }
             .lifetime(.single)
@@ -43,6 +44,10 @@ public class AppFramework: DIFramework {
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        ReduxVMSettings.logRenderMessages = false
+        ReduxVMSettings.logSkipRenderMessages = false
+        ReduxVMSettings.logSubscribeMessages = false
 
         let container = DIContainer()
         container.append(framework: AppFramework.self)

@@ -57,13 +57,15 @@ open class TVC: DeclarativeTVC {
 
     public func applyProps(newProps: Properties?) {
 
-        if let props = newProps  {
+        if let props = newProps {
             self._props = props
         } else {
             self._props = nil
         }
 
-        print("render \(type(of: self))")
+        if ReduxVMSettings.logRenderMessages {
+            print("render \(type(of: self))")
+        }
         self.render()
     }
 
@@ -76,14 +78,18 @@ open class TVC: DeclarativeTVC {
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        print("subscribe presenter \(type(of: self))")
+        if ReduxVMSettings.logSubscribeMessages {
+            print("subscribe presenter \(type(of: self))")
+        }
         presenter?.subscribe()
     }
 
     override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        print("unsubscribe presenter \(type(of: self))")
+        if ReduxVMSettings.logSubscribeMessages {
+            print("unsubscribe presenter \(type(of: self))")
+        }
         presenter?.unsubscribe()
     }
 

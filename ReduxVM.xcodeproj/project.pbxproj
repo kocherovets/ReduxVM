@@ -25,6 +25,7 @@
 		C3709F6D239C599E00CC8DD8 /* TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAAE23788A31003259FF /* TVC.swift */; };
 		C3CB35A423CF61FF00CA3F15 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB35A323CF61FF00CA3F15 /* Service.swift */; };
 		C3CB35A623CF677100CA3F15 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB35A523CF677100CA3F15 /* ApiService.swift */; };
+		C3CB35B123D264F800CA3F15 /* ReduxVMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB35B023D264F800CA3F15 /* ReduxVMSettings.swift */; };
 		C3DFBA6F23787B2F003259FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBA6E23787B2F003259FF /* AppDelegate.swift */; };
 		C3DFBA7123787B2F003259FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBA7023787B2F003259FF /* SceneDelegate.swift */; };
 		C3DFBA7323787B2F003259FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBA7223787B2F003259FF /* ViewController.swift */; };
@@ -125,6 +126,7 @@
 		C3709F5E239C598F00CC8DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3CB35A323CF61FF00CA3F15 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C3CB35A523CF677100CA3F15 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		C3CB35B023D264F800CA3F15 /* ReduxVMSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxVMSettings.swift; sourceTree = "<group>"; };
 		C3DFBA6B23787B2F003259FF /* ReduxVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReduxVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DFBA6E23787B2F003259FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3DFBA7023787B2F003259FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				C3DFBAAA23788A08003259FF /* VC.swift */,
 				C3DFBAAE23788A31003259FF /* TVC.swift */,
 				C3CB35A323CF61FF00CA3F15 /* Service.swift */,
+				C3CB35B023D264F800CA3F15 /* ReduxVMSettings.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				C3CB35A423CF61FF00CA3F15 /* Service.swift in Sources */,
 				C3709F6D239C599E00CC8DD8 /* TVC.swift in Sources */,
 				C3709F6B239C599E00CC8DD8 /* Presenter.swift in Sources */,
+				C3CB35B123D264F800CA3F15 /* ReduxVMSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

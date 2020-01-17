@@ -33,6 +33,7 @@ open class Store<State: RootStateType>: StoreTrunk {
     }
 
     var subscriptions: Set<SubscriptionType> = []
+    var loggingExcludedActions = [Dispatchable.Type]()
 
     private var isDispatching = false
     public let queue: DispatchQueue
@@ -54,10 +55,12 @@ open class Store<State: RootStateType>: StoreTrunk {
     public required init(
         state: State?,
         queue: DispatchQueue,
+        loggingExcludedActions: [Dispatchable.Type],
         middleware: [Middleware<State>] = []
     ) {
 
         self.queue = queue
+        self.loggingExcludedActions = loggingExcludedActions
 
         // Wrap the dispatch function with all middlewares
         self.dispatchFunction = middleware
@@ -134,26 +137,29 @@ open class Store<State: RootStateType>: StoreTrunk {
     }
 
     public func dispatch(_ action: Dispatchable,
-                       file: String = #file,
-                       function: String = #function,
-                       line: Int = #line) {
+                         file: String = #file,
+                         function: String = #function,
+                         line: Int = #line) {
 
-        var type: String
-        switch action {
-        case _ as AnyAction:
-            type = "---ACTION---"
-        default:
-            type = "---MIDDLEWARE---"
+        if loggingExcludedActions.first(where: { $0 == type(of: action) }) == nil {
+            
+            var type: String
+            switch action {
+            case _ as AnyAction:
+                type = "---ACTION---"
+            default:
+                type = "---MIDDLEWARE---"
+            }
+            let log =
+                """
+            \(type)
+            \(action)
+            file: \(file):\(line)
+            function: \(function)
+            .
+            """
+            print(log)
         }
-        let log =
-        """
-        \(type)
-        \(action)
-        file: \(file):\(line)
-        function: \(function)
-        .
-        """
-        print(log)
 
         dispatchFunction(action)
     }
