@@ -10,10 +10,12 @@ public struct StateBox<T> {
     
     public let state: T
     private let oldState: T?
-    
-    public init(state: T, oldState: T?) {
+    public let lastAction: Dispatchable?
+
+    public init(state: T, oldState: T?, lastAction: Dispatchable?) {
         self.state = state
         self.oldState = oldState
+        self.lastAction = lastAction
     }
     
     public func isNew<E: Equatable>(keyPath: KeyPath<T, E>) -> Bool {

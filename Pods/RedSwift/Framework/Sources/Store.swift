@@ -26,7 +26,7 @@ open class Store<State: RootStateType>: StoreTrunk {
                 if $0.subscriber == nil {
                     subscriptions.remove($0)
                 } else {
-                    $0.newValues(oldState: oldValue, newState: state)
+                    $0.newValues(oldState: oldValue, newState: state, lastAction: lastAction)
                 }
             }
         }
@@ -37,6 +37,7 @@ open class Store<State: RootStateType>: StoreTrunk {
 
     private var isDispatching = false
     public let queue: DispatchQueue
+    public var lastAction: Dispatchable?
 
     public var dispatchFunction: DispatchFunction!
 
@@ -91,7 +92,7 @@ open class Store<State: RootStateType>: StoreTrunk {
         subscriptions.update(with: subscriptionBox)
 
         if let state = self.state {
-            originalSubscription.newValues(oldState: nil, newState: state)
+            originalSubscription.newValues(oldState: nil, newState: state, lastAction: self.lastAction)
         }
     }
 
@@ -115,6 +116,8 @@ open class Store<State: RootStateType>: StoreTrunk {
 
         isDispatching = true
 
+        lastAction = action
+        
         let f = { [weak self] in
 
             guard let self = self else { fatalError() }

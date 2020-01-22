@@ -34,7 +34,8 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
     public weak var propsReceiver: PR! {
         didSet {
             stateChanged(box: StateBox<State>(state: store.state,
-                                              oldState: store.state))
+                                              oldState: store.state,
+                                              lastAction: store.lastAction))
         }
     }
 

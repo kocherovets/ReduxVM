@@ -8,7 +8,7 @@
 
 public protocol AnyStoreSubscriber: class {
     // swiftlint:disable:next identifier_name
-    func stateChanged(newState: Any, prevState: Any?)
+    func stateChanged(newState: Any, prevState: Any?, lastAction: Dispatchable?)
 }
 
 public protocol StoreSubscriber: AnyStoreSubscriber {
@@ -19,12 +19,13 @@ public protocol StoreSubscriber: AnyStoreSubscriber {
 
 extension StoreSubscriber {
     // swiftlint:disable:next identifier_name
-    public func stateChanged(newState: Any, prevState: Any?)
+    public func stateChanged(newState: Any, prevState: Any?, lastAction: Dispatchable?)
     {
         if let typedState = newState as? StoreSubscriberStateType {
             
             stateChanged(box: StateBox<StoreSubscriberStateType>(state: typedState,
-                                                                 oldState: prevState as? StoreSubscriberStateType))
+                                                                 oldState: prevState as? StoreSubscriberStateType,
+                                                                 lastAction: lastAction))
         }
     }
 }

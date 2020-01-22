@@ -32,16 +32,16 @@ class SubscriptionBox<State>: Hashable {
         self.subscriber = subscriber
         self.objectIdentifier = ObjectIdentifier(subscriber)
 
-        originalSubscription.observer = { [unowned self] prevState, newState in
-            self.subscriber?.stateChanged(newState: newState as Any, prevState: prevState)
+        originalSubscription.observer = { [unowned self] prevState, newState, lastAction in
+            self.subscriber?.stateChanged(newState: newState as Any, prevState: prevState, lastAction: lastAction)
         }
     }
 
-    func newValues(oldState: State, newState: State) {
+    func newValues(oldState: State, newState: State, lastAction: Dispatchable?) {
         // We pass all new values through the original subscription, which accepts
         // values of type `<State>`. If present, transformed subscriptions will
         // receive this update and transform it before passing it on to the subscriber.
-        self.originalSubscription.newValues(oldState: oldState, newState: newState)
+        self.originalSubscription.newValues(oldState: oldState, newState: newState, lastAction: lastAction)
     }
 
     static func == (left: SubscriptionBox<State>, right: SubscriptionBox<State>) -> Bool {
@@ -58,8 +58,8 @@ public class Subscription<State> {
     private func _select<Substate>(_ selector: @escaping (State) -> Substate) -> Subscription<Substate>
     {
         return Subscription<Substate> { sink in
-            self.observer = { oldState, newState in
-                sink(oldState.map(selector) ?? nil, selector(newState))
+            self.observer = { oldState, newState, lastAction in
+                sink(oldState.map(selector) ?? nil, selector(newState), lastAction)
             }
         }
     }
@@ -68,11 +68,11 @@ public class Subscription<State> {
 
     /// Initializes a subscription with a sink closure. The closure provides a way to send
     /// new values over this subscription.
-    public init(sink: @escaping (@escaping (State?, State) -> Void) -> Void) {
+    public init(sink: @escaping (@escaping (State?, State, Dispatchable?) -> Void) -> Void) {
         // Provide the caller with a closure that will forward all values
         // to observers of this subscription.
-        sink { old, new in
-            self.newValues(oldState: old, newState: new)
+        sink { old, new, lastAction in
+            self.newValues(oldState: old, newState: new, lastAction: lastAction)
         }
     }
 
@@ -88,8 +88,8 @@ public class Subscription<State> {
     private func _select<Substate>(_ keyPath: KeyPath<State, Substate>) -> Subscription<Substate>
     {
         return Subscription<Substate> { sink in
-            self.observer = { oldState, newState in
-                sink(oldState?[keyPath: keyPath], newState[keyPath: keyPath])
+            self.observer = { oldState, newState, lastAction in
+                sink(oldState?[keyPath: keyPath], newState[keyPath: keyPath], lastAction)
             }
         }
     }
@@ -101,14 +101,14 @@ public class Subscription<State> {
 
     /// The closure called with changes from the store.
     /// This closure can be written to for use in extensions to Subscription similar to `skipRepeats`
-    public var observer: ((State?, State) -> Void)?
+    public var observer: ((State?, State, Dispatchable?) -> Void)?
 
     // MARK: Internals
 
     init() { }
 
     /// Sends new values over this subscription. Observers will be notified of these new values.
-    func newValues(oldState: State?, newState: State) {
-        self.observer?(oldState, newState)
+    func newValues(oldState: State?, newState: State, lastAction: Dispatchable?) {
+        self.observer?(oldState, newState, lastAction)
     }
 }
