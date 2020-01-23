@@ -55,7 +55,7 @@ open class Service<State: RootStateType>: StoreSubscriber, Trunk {
         onInit()
     }
 
-    public func onInit() {
+    open func onInit() {
         
     }
     

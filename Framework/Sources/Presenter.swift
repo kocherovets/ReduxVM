@@ -43,7 +43,7 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
 
     public var storeTrunk: StoreTrunk { store }
 
-    open func onInit() {
+    public func onInit() {
         onInit(state: store.state, trunk: self)
     }
 
