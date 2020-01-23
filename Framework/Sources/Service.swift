@@ -14,16 +14,17 @@ public protocol AnySideEffect {
 
     func condition(box: Any) -> Bool
 
-    func execute(box: Any, trunk: Trunk)
+    func execute(box: Any, trunk: Trunk, dependencies: Any)
 }
 
 public protocol SideEffect: AnySideEffect {
 
     associatedtype SStateType
+    associatedtype Dependencies
 
     func condition(box: StateBox<SStateType>) -> Bool
 
-    func execute(box: StateBox<SStateType>, trunk: Trunk)
+    func execute(box: StateBox<SStateType>, trunk: Trunk, dependencies: Dependencies)
 }
 
 public extension SideEffect {
@@ -33,25 +34,35 @@ public extension SideEffect {
         return condition(box: box as! StateBox<SStateType>)
     }
 
-    func execute(box: Any, trunk: Trunk) {
+    func execute(box: Any, trunk: Trunk, dependencies: Any) {
 
-        execute(box: box as! StateBox<SStateType>, trunk: trunk)
+        execute(box: box as! StateBox<SStateType>, trunk: trunk, dependencies: dependencies as! Dependencies)
     }
 }
 
-open class Service<State: RootStateType>: StoreSubscriber, Trunk {
+open class Service<State: RootStateType, Dependencies>: StoreSubscriber, Trunk {
 
     private var store: Store<State>
     public var storeTrunk: StoreTrunk { store }
 
+    public let dependencies: Dependencies
+
     open var sideEffects: [AnySideEffect] { [] }
 
-    public init(store: Store<State>) {
+    public init(store: Store<State>, dependencies: Dependencies) {
+
+        self.dependencies = dependencies
 
         self.store = store
         store.subscribe(self)
+        
+        onInit()
     }
 
+    public func onInit() {
+        
+    }
+    
     deinit {
         store.unsubscribe(self)
     }
@@ -60,7 +71,7 @@ open class Service<State: RootStateType>: StoreSubscriber, Trunk {
 
         for sideEffect in sideEffects {
             if sideEffect.condition(box: box) {
-                sideEffect.execute(box: box, trunk: self)
+                sideEffect.execute(box: box, trunk: self, dependencies: dependencies)
             }
         }
     }
