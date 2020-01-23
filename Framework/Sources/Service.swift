@@ -40,6 +40,11 @@ public extension SideEffect {
     }
 }
 
+public struct EmptyDependencies {
+    
+    public init() {}
+}
+
 open class Service<State: RootStateType, Dependencies>: StoreSubscriber, Trunk {
 
     private var store: Store<State>

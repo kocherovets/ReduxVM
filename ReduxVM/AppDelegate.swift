@@ -30,7 +30,7 @@ public class AppFramework: DIFramework {
         container.register (ApiService.init)
             .lifetime(.single)
 
-        container.register (ApiDependencies.init)
+        container.register (EmptyDependencies.init)
             .lifetime(.single)
 
         container.registerStoryboard(name: "Main")
