@@ -14,17 +14,17 @@ public protocol AnySideEffect {
 
     func condition(box: Any) -> Bool
 
-    func execute(box: Any, trunk: Trunk, dependencies: Any)
+    func execute(box: Any, trunk: Trunk, service: Any)
 }
 
 public protocol SideEffect: AnySideEffect {
 
     associatedtype SStateType
-    associatedtype Dependencies
+    associatedtype Service
 
     func condition(box: StateBox<SStateType>) -> Bool
 
-    func execute(box: StateBox<SStateType>, trunk: Trunk, dependencies: Dependencies)
+    func execute(box: StateBox<SStateType>, trunk: Trunk, service: Service)
 }
 
 public extension SideEffect {
@@ -34,29 +34,20 @@ public extension SideEffect {
         return condition(box: box as! StateBox<SStateType>)
     }
 
-    func execute(box: Any, trunk: Trunk, dependencies: Any) {
+    func execute(box: Any, trunk: Trunk, service: Any) {
 
-        execute(box: box as! StateBox<SStateType>, trunk: trunk, dependencies: dependencies as! Dependencies)
+        execute(box: box as! StateBox<SStateType>, trunk: trunk, service: service as! Service)
     }
 }
 
-public struct EmptyDependencies {
-    
-    public init() {}
-}
-
-open class Service<State: RootStateType, Dependencies>: StoreSubscriber, Trunk {
+open class Service<State: RootStateType>: StoreSubscriber, Trunk {
 
     private var store: Store<State>
     public var storeTrunk: StoreTrunk { store }
 
-    public let dependencies: Dependencies
-
     open var sideEffects: [AnySideEffect] { [] }
 
-    public init(store: Store<State>, dependencies: Dependencies) {
-
-        self.dependencies = dependencies
+    public init(store: Store<State>) {
 
         self.store = store
         store.subscribe(self)
@@ -76,7 +67,7 @@ open class Service<State: RootStateType, Dependencies>: StoreSubscriber, Trunk {
 
         for sideEffect in sideEffects {
             if sideEffect.condition(box: box) {
-                sideEffect.execute(box: box, trunk: self, dependencies: dependencies)
+                sideEffect.execute(box: box, trunk: self, service: self)
             }
         }
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ApiService: Service<State, EmptyDependencies> {
+class ApiService: Service<State> {
 
     override var sideEffects: [AnySideEffect] {
         [
@@ -27,7 +27,7 @@ extension ApiService {
             return box.state.counter.delayedIncrement == .requested && box.isNew(keyPath: \.counter.delayedIncrement)
         }
 
-        func execute(box: StateBox<State>, trunk: Trunk, dependencies: EmptyDependencies) {
+        func execute(box: StateBox<State>, trunk: Trunk, service: ApiService) {
 
             delay(5) {
                 trunk.dispatch(SetRequestedIncrementAction(value: 150))
