@@ -44,6 +44,7 @@ open class Service<State: RootStateType>: StoreSubscriber, Trunk {
 
     private var store: Store<State>
     public var storeTrunk: StoreTrunk { store }
+    public var state: State { store.state }
 
     open var sideEffects: [AnySideEffect] { [] }
 
