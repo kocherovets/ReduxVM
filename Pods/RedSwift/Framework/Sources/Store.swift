@@ -15,19 +15,29 @@ import Foundation
  reducers you can combine them by initializng a `MainReducer` with all of your reducers as an
  argument.
  */
+
+public struct AddSubscriberAction: Dispatchable {}
+
 open class Store<State: RootStateType>: StoreTrunk {
 
     typealias SubscriptionType = SubscriptionBox<State>
 
 //    private(set) public var state: State! {
-    private(set) public var state: State! {
-        didSet {
-            subscriptions.forEach {
-                if $0.subscriber == nil {
-                    subscriptions.remove($0)
-                } else {
-                    $0.newValues(oldState: oldValue, newState: state, lastAction: lastAction)
-                }
+    private var _state: State!
+    public var state: State { _state! }
+
+    private func set(state: State, lastAction: Dispatchable) {
+
+        let oldValue = _state ?? state
+        _state = state
+        
+        self.lastAction = lastAction
+
+        subscriptions.forEach {
+            if $0.subscriber == nil {
+                subscriptions.remove($0)
+            } else {
+                $0.newValues(oldState: oldValue, newState: state, lastAction: lastAction)
             }
         }
     }
@@ -38,21 +48,21 @@ open class Store<State: RootStateType>: StoreTrunk {
     private var isDispatching = false
     public let queue: DispatchQueue
     public var lastAction: Dispatchable?
-
+    
     public var dispatchFunction: DispatchFunction!
 
-    /// Initializes the store with a reducer, an initial state and a list of middleware.
-    ///
-    /// Middleware is applied in the order in which it is passed into this constructor.
-    ///
-    /// - parameter reducer: Main reducer that processes incoming actions.
-    /// - parameter state: Initial state, if any. Can be `nil` and will be
-    ///   provided by the reducer in that case.
-    /// - parameter middleware: Ordered list of action pre-processors, acting
-    ///   before the root reducer.
-    /// - parameter automaticallySkipsRepeats: If `true`, the store will attempt
-    ///   to skip idempotent state updates when a subscriber's state type
-    ///   implements `Equatable`. Defaults to `true`.
+/// Initializes the store with a reducer, an initial state and a list of middleware.
+///
+/// Middleware is applied in the order in which it is passed into this constructor.
+///
+/// - parameter reducer: Main reducer that processes incoming actions.
+/// - parameter state: Initial state, if any. Can be `nil` and will be
+///   provided by the reducer in that case.
+/// - parameter middleware: Ordered list of action pre-processors, acting
+///   before the root reducer.
+/// - parameter automaticallySkipsRepeats: If `true`, the store will attempt
+///   to skip idempotent state updates when a subscriber's state type
+///   implements `Equatable`. Defaults to `true`.
     public required init(
         state: State?,
         queue: DispatchQueue,
@@ -78,7 +88,7 @@ open class Store<State: RootStateType>: StoreTrunk {
                 })
 
 
-        self.state = state
+        self._state = state
     }
 
     public func subscribe<SelectedState, S: StoreSubscriber> (_ subscriber: S)
@@ -91,8 +101,8 @@ open class Store<State: RootStateType>: StoreTrunk {
 
         subscriptions.update(with: subscriptionBox)
 
-        if let state = self.state {
-            originalSubscription.newValues(oldState: nil, newState: state, lastAction: self.lastAction)
+        if let state = self._state {
+            originalSubscription.newValues(oldState: nil, newState: state, lastAction: lastAction)
         }
     }
 
@@ -103,7 +113,7 @@ open class Store<State: RootStateType>: StoreTrunk {
         }
     }
 
-    // swiftlint:disable:next identifier_name
+// swiftlint:disable:next identifier_name
     private func _defaultDispatch(action: Dispatchable) {
         guard !isDispatching else {
             raiseFatalError(
@@ -116,15 +126,14 @@ open class Store<State: RootStateType>: StoreTrunk {
 
         isDispatching = true
 
-        lastAction = action
-        
         let f = { [weak self] in
 
             guard let self = self else { fatalError() }
 
             switch action {
             case let action as AnyAction:
-                self.state = action.updatedState(currentState: self.state) as? State
+                self.set(state: action.updatedState(currentState: self.state) as! State,
+                         lastAction: action)
             default:
                 break
             }
@@ -145,7 +154,7 @@ open class Store<State: RootStateType>: StoreTrunk {
                          line: Int = #line) {
 
         if loggingExcludedActions.first(where: { $0 == type(of: action) }) == nil {
-            
+
             var type: String
             switch action {
             case _ as AnyAction:
