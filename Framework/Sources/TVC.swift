@@ -25,6 +25,7 @@ public struct TableProps: TableProperties, Equatable {
 public protocol TableProperties: Properties {
 
     var tableModel: TableModel { get }
+    var animations: DeclarativeTVC.Animations? { get }
 }
 
 open class TVC: DeclarativeTVC {
@@ -96,7 +97,7 @@ open class TVC: DeclarativeTVC {
     open func render() {
 
         if let props = generalProps as? TableProperties {
-            set(model: props.tableModel)
+            set(model: props.tableModel, animations: props.animations)
         }
     }
 }
