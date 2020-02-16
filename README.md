@@ -60,6 +60,6 @@ ReduxVM для всех подписчиков на State предоставля
 
 На реализацию сайдэффектов повлиял [доклад](https://www.youtube.com/watch?v=bhEn-VOH0q0&t=1975s)  [Vitalii Malakhovskiy](https://github.com/vmalakhovskiy)
 
-Redux часть библиотеки реализована в библиотеке [RedSwift](https://github.com/kocherovets/RedSwift), которая в свою очередь является переработанной версией [ReSwift](https://github.com/ReSwift/ReSwift) с программным интефейсов в стиле [katana-swift](https://github.com/BendingSpoons/katana-swift)
+Redux часть библиотеки реализована в библиотеке [RedSwift](https://github.com/kocherovets/RedSwift), которая в свою очередь является переработанной версией [ReSwift](https://github.com/ReSwift/ReSwift) с программным интефейсом в стиле [katana-swift](https://github.com/BendingSpoons/katana-swift)
 
 Создание библиотеки [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC) было вдохновлено [выступлением](https://www.youtube.com/watch?v=Ge73dsgXf_M) [Alexander Zimin](https://github.com/azimin) 
