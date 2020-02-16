@@ -56,10 +56,10 @@ ReduxVM для всех подписчиков на State предоставля
 # Как пользоваться
 ...
 # Источники
-Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://www.youtube.com/watch?v=vcbd3ugM82U&list=PL6YiT5768qC_OzI2N2Kar0CweCyTI-6Ea&index=3&t=0s)
+Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
 
-На реализацию сайдэффектов повлиял [доклад](https://www.youtube.com/watch?v=bhEn-VOH0q0&t=1975s)  [Vitalii Malakhovskiy](https://github.com/vmalakhovskiy)
+На реализацию сайдэффектов повлиял [доклад](https://youtu.be/bhEn-VOH0q0)  [Vitalii Malakhovskiy](https://github.com/vmalakhovskiy)
 
 Redux часть библиотеки реализована в библиотеке [RedSwift](https://github.com/kocherovets/RedSwift), которая в свою очередь является переработанной версией [ReSwift](https://github.com/ReSwift/ReSwift) с программным интефейсом в стиле [katana-swift](https://github.com/BendingSpoons/katana-swift)
 
-Создание библиотеки [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC) было вдохновлено [выступлением](https://www.youtube.com/watch?v=Ge73dsgXf_M) [Alexander Zimin](https://github.com/azimin) 
+Создание библиотеки [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC) было вдохновлено [выступлением](https://youtu.be/Ge73dsgXf_M) [Alexander Zimin](https://github.com/azimin) 
