@@ -1,5 +1,3 @@
 # ReduxVM
 
-https://docs.google.com/document/d/1C6MtpsqtCY2xnu3sWYpH0SaWDqjbCwb365Xu7GcNiPA/edit?usp=sharing
-
-[Redux.pdf](https://github.com/kocherovets/kocherovets.github.io/files/4210046/Redux.pdf)
+<img width="600" alt="ReduxVM" src="https://user-images.githubusercontent.com/4235844/74607773-a5a85d80-50ec-11ea-8f91-7bf480f99698.png">
