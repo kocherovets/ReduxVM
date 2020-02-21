@@ -214,11 +214,17 @@ class MoviesVC: VC, PropsReceiver {
     }
     ...
 ```
+
 Здесь видны все части, которые относятся к ReduxVM. 
+
 ```class MoviesVC: VC, PropsReceiver {``` - пользовательский вьюконтроллер, унаследованный от VC также должен удовлетворять протоколу PropsReceiver.
+
 ```typealias Props = MoviesVCModule.Props``` - нужно указать конкретную структуру MoviesVCModule.Props как пропсы для данного вьюконтроллера.
+
 ```override func render() {``` - нужно реализовать функцю render, которя вызывается при изменениии значений из Props. В ней элементам интерфейса настраиваются в соответствии со значениями пропсов.
+
 ```props?.changeViewModeCommand.perform()``` - в методах реакции на события в интерфейсе можно вызывать команды из пропсов.
+
 Полную реализацию можно посмотреть по [ссылке](https://github.com/kocherovets/MoviesDB/blob/master/MoviesDB/UI/Movies/MoviesVC.swift)
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
