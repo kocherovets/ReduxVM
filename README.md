@@ -185,7 +185,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  Программная реализация Action является структурой, поля которой являются параметрами задающими изменения, и функции ```func updateState(_ state: inout State)```, куда передается корневой стейт по ссылке. В ней собственно и происходит обновление стейта. То есть в терминологии редакса - эта функция является редьюсером.
 ## UI
 Библиотека содержит два класса: VC и TVC, заменяющие соответсвенно UIViewConttroler и UITableViewController.
-Рассмотрим пример использования VC
+### VC
 ```swift
 class MoviesVC: VC, PropsReceiver {
 
@@ -226,6 +226,8 @@ class MoviesVC: VC, PropsReceiver {
 ```props?.changeViewModeCommand.perform()``` - в методах реакции на события в интерфейсе можно вызывать команды из пропсов.
 
 Полную реализацию можно посмотреть по [ссылке](https://github.com/kocherovets/MoviesDB/blob/master/MoviesDB/UI/Movies/MoviesVC.swift)
+### TVC
+d
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
 
