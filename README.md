@@ -8,6 +8,7 @@
   * [UI](#UI)
     + [VC](#VC)
     + [TVC](#TVC)
+  * [Services](#Services)
 - [Источники](#Источники)
 # Описание
 ReduxVM - это библиотека для построения iOS приложения по архитектуре, структурная схема которой выглядит следующим образом:
@@ -381,6 +382,7 @@ public struct TableProps: TableProperties, Equatable {
 Здесь видно использование еще одной возможности презентера.
 
 Функция ```override func onInit(state: State, trunk: Trunk) {``` вызывается при создани презентера. Есть также функция ```open func onDeinit(state: State, trunk: Trunk) { }``` вызывающая при уничтожении презентера. Нужно отметить, что жизненным циклом презентера управляет ассоциированный с ним VC или TVC. 
+## Services
 
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
