@@ -55,6 +55,7 @@ ReduxVM для всех подписчиков на State предоставля
 - Подход мотивирует пользоваться декларативным стилем программирования. _Подавляющее большинство проблем вытекающих из этого решены в ReduxVM введением Presenter и Props, а также написанием сервисных классов для таблиц и коллекций работающих в декларативном стиле. В ReduxVM используется библиотека DeclarativeTVC для работы со списочными интерфейсами._
 
 # Как пользоваться
+## State
 Создание проекта начинается с создания State. Это структура помеченная протоколом StateType.
 ```swift
 struct MoviesState: StateType {
@@ -79,10 +80,82 @@ struct MoviesState: StateType {
 struct State: RootStateType {
 
     var moviesState = MoviesState()
+    
     ...
 }
 ```
 Как видно, поля в стейтах создаются как ```var```, чтобы можно было его редактировать.
+## Store
+Основной менеджмент State программы осуществляет класс Store. 
+```swift
+open class Store<State: RootStateType>: StoreTrunk {
+
+...
+
+    public required init(
+        state: State?,
+        queue: DispatchQueue,
+        loggingExcludedActions: [Dispatchable.Type],
+        middleware: [Middleware<State>] = []
+    ) 
+```
+Здесь state - это наш корневой стейт; queue - это фоновая очередь, в которой работает вся система (синяя область на рисунке); loggingExcludedActions - по умолчаниию все Action в системе логируются, для некоторых из них бывает удобно отключить логирование, именно в этом параметре перечисляются такие Action. 
+## DI
+Библиотека предпологает использование использование какой-то реализации Dependency Injection для связывания своих компонент. В примерах используется библиотека DITranquillity, но можно пользоваться и любой другой, например, Swinject.
+Пример инициализациии связей библиотеки может выглядеть следующим образом.
+```swift
+public class AppFramework: DIFramework {
+    public static func load(container: DIContainer) {
+
+        container.register (State.init)
+            .lifetime(.single)
+
+        container.register { DispatchQueue(label: "queueTitle", qos: .userInteractive) }
+            .as(DispatchQueue.self, name: "storeQueue")
+            .lifetime(.single)
+
+        container.register {
+            Store<State>(state: $0,
+                         queue: $1,
+                         loggingExcludedActions: [],
+                         middleware: [])
+        }
+            .lifetime(.single)
+
+        container.register (APIService.init)
+            .lifetime(.single)
+
+        container.registerStoryboard(name: "Main").lifetime(.single)
+        container.registerStoryboard(name: "Movies").lifetime(.single)
+        container.registerStoryboard(name: "Movie").lifetime(.single)
+
+        container.append(part: MoviesVCModule.DI.self)
+        container.append(part: MoviesTVCModule.DI.self)
+        container.append(part: Movies2TVCModule.DI.self)
+        container.append(part: MovieVCModule.DI.self)
+    }
+}
+
+let container = DIContainer()
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        DISetting.Log.level = .warning
+        
+        container.append(framework: AppFramework.self)
+
+        if !container.validate() {
+            fatalError()
+        }
+
+        container.initializeSingletonObjects()
+
+        return true
+    }
+ ```
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
 
