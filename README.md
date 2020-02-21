@@ -296,6 +296,81 @@ class MoviesTVC: TVC, PropsReceiver {
 }
 ```
 Дополнтельно нужно реализовывать функциональность типа удаления ячейки по свайпу. Для этого достаточно переопределить соответствующие методы, так как TVC является наследником UITableViewController.
+
+Пропсы для TVC в должны удовлетворять протоколу TableProperties и есть реализация по умолчанию TableProps
+```swift
+public struct TableProps: TableProperties, Equatable {
+
+    public var tableModel: TableModel
+    public var animations: DeclarativeTVC.Animations?
+}
+```
+где можно задать модели ячеек, заголовков и подвалов, а также анимацию обновления таблицы. Подробнее смотрите в описаниии библииотеки [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC)
+
+Презентер для MoviesTVC
+```swift
+ class Presenter: PresenterBase<State, TableProps, ViewController> {
+
+        override func onInit(state: State, trunk: Trunk) {
+
+            switch state.moviesState.selectedCategory {
+            case .nowPlaying:
+                if state.moviesState.nowPlayingMovies.count == 0 {
+                    trunk.dispatch(MoviesState.LoadAction(category: .nowPlaying))
+                }
+             
+            ... 
+              
+            }
+        }
+
+        override func reaction(for box: StateBox<State>) -> ReactionToState {
+
+            if !box.isNew(keyPath: \.moviesState.selectedCategoryMovies) {
+                return .none
+            }
+
+            return .props
+        }
+
+        override func props(for box: StateBox<State>, trunk: Trunk) -> TableProps? {
+
+            var rows = [CellAnyModel]()
+
+            rows.append(
+                SegmentedCellVM(
+                    selectedIndex: box.state.moviesState.selectedCategory.rawValue,
+                    
+                    ...
+
+                    })
+            )
+
+            if box.state.moviesState.selectedCategoryMovies.count > 0 {
+
+                for movie in box.state.moviesState.selectedCategoryMovies {
+                    rows.append(
+                        MovieCellVM(title: movie.title,
+                        
+                        ...
+                    )
+                }
+            } else {
+                for _ in 0 ..< 20 {
+                    rows.append(
+                        MovieStubCellVM()
+                    )
+                }
+            }
+            return TableProps(tableModel: TableModel(rows: rows))
+        }
+    }
+```
+
+Здесь видно использование еще одной возможности презентера.
+
+Функция ```override func onInit(state: State, trunk: Trunk) {``` вызывается при создани презентера. Есть также функция ```open func onDeinit(state: State, trunk: Trunk) { }``` вызывающая при уничтожении презентера. Нужно отметить, что жизненным циклом презентера управляет ассоциированный с ним VC или TVC. 
+
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
 
