@@ -55,7 +55,7 @@ ReduxVM для всех подписчиков на State предоставля
 - Подход мотивирует пользоваться декларативным стилем программирования. _Подавляющее большинство проблем вытекающих из этого решены в ReduxVM введением Presenter и Props, а также написанием сервисных классов для таблиц и коллекций работающих в декларативном стиле. В ReduxVM используется библиотека DeclarativeTVC для работы со списочными интерфейсами._
 
 # Как пользоваться
-Примеры кода взяты из проекта созданного специально для демонстрации работы ReduxVM [MoviesDB](https://github.com/kocherovets/MoviesDB)
+Примеры кода взяты из проекта [MoviesDB](https://github.com/kocherovets/MoviesDB) созданного специально для демонстрации работы ReduxVM
 ## State
 Создание проекта начинается с создания State. Это структура помеченная протоколом StateType.
 ```swift
@@ -156,6 +156,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+ ```
+ ## Actions
+ Далее можно создать Actions для изменения State
+ ```swift
+ extension MoviesState {
+
+    struct LoadAction: Action {
+
+        let category: Category
+
+        func updateState(_ state: inout State) {
+            switch category {
+            case .nowPlaying:
+                state.moviesState.isNowPlayingLoading = true
+            case .upcoming:
+                state.moviesState.isUpcomingLoading = true
+            case .trending:
+                state.moviesState.isTrendingLoading = true
+            case .popular:
+                state.moviesState.isPopularLoading = true
+            }
+        }
+    }
+    
+    ...
  ```
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
