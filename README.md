@@ -85,7 +85,7 @@ struct State: RootStateType {
     ...
 }
 ```
-Как видно, поля в стейтах создаются как ```var```, чтобы можно было его редактировать.
+Как видно, поля в стейтах создаются как ```var```, чтобы можно было их редактировать.
 ## Store
 Основной менеджмент State программы осуществляет класс Store. 
 ```swift
@@ -183,7 +183,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ...
  ```
  Программная реализация Action является структурой, поля которой являются параметрами задающими изменения, и функции ```func updateState(_ state: inout State)```, куда передается корневой стейт по ссылке. В ней собственно и происходит обновление стейта. То есть в терминологии редакса - эта функция является редьюсером.
- 
+## UI
+Библиотека содержит два класса: VC и TVC, заменяющие соответсвенно UIViewConttroler и UITableViewController.
+Рассмотрим пример использования VC
+```swift
+class MoviesVC: VC, PropsReceiver {
+
+    typealias Props = MoviesVCModule.Props
+
+    override func render() {
+
+        guard let props = props else { return }
+
+        navigationItem.title = props.title
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: props.rightBarButtonImageName),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(changeMode))
+
+        if props.showsGeneralView && containerView1.isHidden {
+            setupTables(showsGeneralView: true)
+        } else if !props.showsGeneralView && containerView2.isHidden {
+            setupTables(showsGeneralView: false)
+        }
+    }
+    
+    @IBAction func changeMode() {
+        props?.changeViewModeCommand.perform()
+    }
+    ...
+```
+Здесь видны все части, которые относятся к ReduxVM. 
+```class MoviesVC: VC, PropsReceiver {``` - пользовательский вьюконтроллер, унаследованный от VC также должен удовлетворять протоколу PropsReceiver.
+```typealias Props = MoviesVCModule.Props``` - нужно указать конкретную структуру MoviesVCModule.Props как пропсы для данного вьюконтроллера.
+```override func render() {``` - нужно реализовать функцю render, которя вызывается при изменениии значений из Props. В ней элементам интерфейса настраиваются в соответствии со значениями пропсов.
+```props?.changeViewModeCommand.perform()``` - в методах реакции на события в интерфейсе можно вызывать команды из пропсов.
+Полную реализацию можно посмотреть по [ссылке](https://github.com/kocherovets/MoviesDB/blob/master/MoviesDB/UI/Movies/MoviesVC.swift)
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
 
