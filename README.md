@@ -238,6 +238,51 @@ class MoviesVC: VC, PropsReceiver {
         let changeViewModeCommand: Command
     }
  ```
+ 
+ **Presenter**
+ 
+С каждым VC связан свой Presenter, который подписывается на изменения в State и формирует новые пропсы для VC. 
+```swift
+    class Presenter: PresenterBase<State, Props, ViewController> {
+
+        override func reaction(for box: StateBox<State>) -> ReactionToState {
+            return .props
+        }
+
+        override func props(for box: StateBox<State>, trunk: Trunk) -> Props? {
+
+            let title: String
+            let rightBarButtonImageName: String
+            if box.state.moviesState.viewMode == .general {
+                switch box.state.moviesState.selectedCategory {
+                case .nowPlaying:
+                    title = "Now Plaing"
+                case .upcoming:
+                    title = "Upcoming"
+                case .trending:
+                    title = "Trending"
+                case .popular:
+                    title = "Popular"
+                }
+                rightBarButtonImageName = "rectangle.3.offgrid.fill"
+            } else {
+                title = "Movies"
+                rightBarButtonImageName = "rectangle.grid.1x2"
+            }
+
+            return Props(
+                title: title,
+                rightBarButtonImageName: rightBarButtonImageName,
+                showsGeneralView: box.state.moviesState.viewMode == .general,
+                changeViewModeCommand: Command { trunk.dispatch(MoviesState.ChangeViewModeAction()) }
+            )
+        }
+    }
+```
+
+В презентере нужно реализовать как минимум функцию ```override func props(for box: StateBox<State>, trunk: Trunk) -> Props? {```. Ей на вход передается объект StateBox, в котором хранится новый стей, предыдущий стейт и Action приведший изменению стейта. Также передается объект Trunk, являющийся шиной, куда посылаются все новые Action. На выходе функция ```props(for``` формирует новую структуру Props для VC. 
+
+С помощью функции ```override func reaction(for box: StateBox<State>) -> ReactionToState {``` можно настроить поведение презентера. По умолчанию она задает поведеня, когда презентер пересчитывает новые пропсы и отдает из VC. Но также на основаниии информациии из StateBox он может принять решение проигнорировать изменениия из стейта и ничего не делать.
 
 ### TVC
 Реализация табличных интерфейсов полагается на библиотеку [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC) и если нужно только отобразить таблицу и реагировать на нажатия на ячейки, то достаточно написать
