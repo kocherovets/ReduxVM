@@ -385,7 +385,7 @@ public struct TableProps: TableProperties, Equatable {
 ## Services
 
 # Источники
-Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
+Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), в частности [докладом](https://youtu.be/vcbd3ugM82U)
 
 На реализацию сайдэффектов повлиял [доклад](https://youtu.be/bhEn-VOH0q0)  [Vitalii Malakhovskiy](https://github.com/vmalakhovskiy)
 
