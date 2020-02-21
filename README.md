@@ -182,6 +182,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ...
  ```
+ Программная реализация Action является структурой, поля которой являются параметрами задающими изменения, и функции ```func updateState(_ state: inout State)```, куда передается корневой стейт по ссылке. В ней собственно и происходит обновление стейта.
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
 
