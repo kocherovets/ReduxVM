@@ -227,7 +227,15 @@ class MoviesVC: VC, PropsReceiver {
 
 Полную реализацию можно посмотреть по [ссылке](https://github.com/kocherovets/MoviesDB/blob/master/MoviesDB/UI/Movies/MoviesVC.swift)
 ### TVC
-d
+Реализация табличных интерфейсов полагается на библиотеку [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC) и если нужно только отобразить таблицу и реагировать на нажатия на ячейки, то достаточно написать
+```swift
+class MoviesTVC: TVC, PropsReceiver {
+
+    typealias Props = TableProps
+
+}
+```
+Дополнтельно нужно реализовывать функциональность типа удаления ячейки по свайпу. Для этого достаточно переопределить соответствующие методы, так как TVC является наследников UITableViewController.
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), [в частности докладом](https://youtu.be/vcbd3ugM82U)
 
