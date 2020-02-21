@@ -284,6 +284,8 @@ class MoviesVC: VC, PropsReceiver {
 
 С помощью функции ```override func reaction(for box: StateBox<State>) -> ReactionToState {``` можно настроить поведение презентера. По умолчанию она задает поведеня, когда презентер пересчитывает новые пропсы и отдает из VC. Но также на основаниии информациии из StateBox он может принять решение проигнорировать изменениия из стейта и ничего не делать.
 
+Полную реализацию, в том числе реализацию DI, можно посмотреть по [ссылке](https://github.com/kocherovets/MoviesDB/blob/master/MoviesDB/UI/Movies/MoviesVC.swift)
+
 ### TVC
 Реализация табличных интерфейсов полагается на библиотеку [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC) и если нужно только отобразить таблицу и реагировать на нажатия на ячейки, то достаточно написать
 ```swift
