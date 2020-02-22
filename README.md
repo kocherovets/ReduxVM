@@ -9,6 +9,7 @@
     + [VC](#VC)
     + [TVC](#TVC)
   * [Services](#Services)
+  * [Side Effect](#Side-Effect)
 - [Источники](#Источники)
 # Описание
 ReduxVM - это библиотека для построения iOS приложения по архитектуре, структурная схема которой выглядит следующим образом:
@@ -383,7 +384,71 @@ public struct TableProps: TableProperties, Equatable {
 
 Функция ```override func onInit(state: State, trunk: Trunk) {``` вызывается при создани презентера. Есть также функция ```open func onDeinit(state: State, trunk: Trunk) { }``` вызывающая при уничтожении презентера. Нужно отметить, что жизненным циклом презентера управляет ассоциированный с ним VC или TVC. 
 ## Services
+При создании сервиса нужно перечислить сайдэффекты, которые он обслуживает. 
+```swift
+class APIService: Service<State> {
 
+    let api = UnauthorizedAPI.self
+
+    override var sideEffects: [AnySideEffect] {
+        [
+            LoadNowPlayingMoviesSE(),
+            LoadUpcomingMoviesSE(),
+            LoadTrendingMoviesSE(),
+            LoadPopularMoviesSE(),
+            
+            CreateDetailsSE(),
+        ]
+    }
+
+    deinit {
+    }
+}
+```
+По сути задачей сервиса является подписка на обновления стейта и распространение этой информации для своих сайдэффектов. Также он может переопределить метод ```open func onInit() {```, где обычно создается какой-нибудь объект работы с ресурсами выходящимии за пределы ReduxVM, например, менеджер сети или базы данных.
+## Side Effect
+Реализация сайдэффекта может выглядеть так
+```swift
+extension APIService {
+
+    fileprivate struct LoadNowPlayingMoviesSE: SideEffect {
+
+        func condition(box: StateBox<State>) -> Bool {
+
+            if let action = box.lastAction as? MoviesState.LoadAction,
+                action.category == .nowPlaying,
+                box.isNew(keyPath: \.moviesState.isNowPlayingLoading) {
+
+                return true
+            }
+            return false
+        }
+
+        func execute(box: StateBox<State>, trunk: Trunk, service: APIService) {
+
+            _ = service.api.request(target: UnauthorizedAPI.nowPlaying(page: box.state.moviesState.nowPlayingPage + 1))
+            {
+                (result: Result<ServerModels.NowPlaying, Error>) in
+
+                switch result {
+                case .success(let data):
+                    trunk.dispatch(MoviesState.AppendNowPlayingMoviesAction(movies: data.results))
+                case .failure:
+                    trunk.dispatch(MoviesState.ErrorLoadingAction(category: .nowPlaying))
+                }
+            }
+        }
+    }
+    
+    ...
+```
+Как видно она состоит из двух функций. 
+
+```func condition(box: StateBox<State>) -> Bool {``` - это условие срабатывания сайдэффекта, на вход подается уже известный объект StateBox, на выходе сайдэффект нужно ли его запускать или нет. 
+
+```func execute(box: StateBox<State>, trunk: Trunk, service: APIService) {``` - это собственно рабочая часть сайдэффекта. На вход помимо StateBox передается trunk, чтобы сайдэффект мог по результатам своей деятельности поменять стейт, а также ссылка на сервис, к которому принадлежит этот сайдэффект. 
+
+В данном примере видно, что StateBox содержит вспомогательную функцию isNew, которая проверяет поменялось ли значение по заданному keyPath.
 # Источники
 Создание библиотеки было вдохновлено выступлениями [Alexey Demedetskiy](https://github.com/AlexeyDemedetskiy), в частности [докладом](https://youtu.be/vcbd3ugM82U)
 
