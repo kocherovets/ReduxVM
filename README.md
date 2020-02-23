@@ -9,7 +9,7 @@
     + [Props](#Props)
     + [Presenter](#Presenter)
   * [TVC](#TVC)
-    + [Props](#Props)
+    + [Props](#tvc-props)
     + [Presenter](#Presenter)
   * [Services](#Services)
   * [Side Effect](#Side-Effect)
@@ -313,6 +313,7 @@ class MoviesTVC: TVC, PropsReceiver {
 ```
 Дополнтельно нужно реализовывать функциональность типа удаления ячейки по свайпу. Для этого достаточно переопределить соответствующие методы, так как TVC является наследником UITableViewController.
 
+<a name="tvc-props"></a>
 ### Props
 Пропсы для TVC в должны удовлетворять протоколу TableProperties и есть реализация по умолчанию TableProps
 ```swift
