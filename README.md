@@ -5,9 +5,12 @@
   * [Store](#Store)
   * [DI](#DI)
   * [Actions](#Actions)
-  * [UI](#UI)
-    + [VC](#VC)
-    + [TVC](#TVC)
+  * [VC](#VC)
+    + [Props](#Props)
+    + [Presenter](#Presenter)
+  * [TVC](#TVC)
+    + [Props](#Props)
+    + [Presenter](#Presenter)
   * [Services](#Services)
   * [Side Effect](#Side-Effect)
 - [Use Cases](#Use-Cases)
@@ -197,9 +200,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ...
  ```
  Программная реализация Action является структурой, поля которой являются параметрами задающими изменения, и функции ```func updateState(_ state: inout State)```, куда передается корневой стейт по ссылке. В ней собственно и происходит обновление стейта. То есть в терминологии редакса - эта функция является редьюсером.
-## UI
+## VC
 Библиотека содержит два класса: VC и TVC, заменяющие соответсвенно UIViewConttroler и UITableViewController.
-### VC
 ```swift
 class MoviesVC: VC, PropsReceiver {
 
@@ -241,7 +243,7 @@ class MoviesVC: VC, PropsReceiver {
 
 Полную реализацию можно посмотреть по [ссылке](https://github.com/kocherovets/MoviesDB/blob/master/MoviesDB/UI/Movies/MoviesVC.swift)
 
-**Props**
+### Props
 
 Структура пропсов для MoviesVC выглядит так
 ```swift
@@ -253,7 +255,7 @@ class MoviesVC: VC, PropsReceiver {
     }
  ```
  
-**Presenter**
+### Presenter
  
 С каждым VC связан свой Presenter, который подписывается на изменения в State и формирует новые пропсы для VC. 
 ```swift
@@ -300,7 +302,7 @@ class MoviesVC: VC, PropsReceiver {
 
 Полную реализацию, в том числе реализацию DI, можно посмотреть по [ссылке](https://github.com/kocherovets/MoviesDB/blob/master/MoviesDB/UI/Movies/MoviesVC.swift)
 
-### TVC
+## TVC
 Реализация табличных интерфейсов полагается на библиотеку [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC) и если нужно только отобразить таблицу и реагировать на нажатия на ячейки, то достаточно написать
 ```swift
 class MoviesTVC: TVC, PropsReceiver {
@@ -311,6 +313,7 @@ class MoviesTVC: TVC, PropsReceiver {
 ```
 Дополнтельно нужно реализовывать функциональность типа удаления ячейки по свайпу. Для этого достаточно переопределить соответствующие методы, так как TVC является наследником UITableViewController.
 
+### Props
 Пропсы для TVC в должны удовлетворять протоколу TableProperties и есть реализация по умолчанию TableProps
 ```swift
 public struct TableProps: TableProperties, Equatable {
@@ -321,6 +324,7 @@ public struct TableProps: TableProperties, Equatable {
 ```
 где можно задать модели ячеек, заголовков и подвалов, а также анимацию обновления таблицы. Подробнее смотрите в описаниии библииотеки [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC)
 
+### Presenter
 Презентер для MoviesTVC
 ```swift
  class Presenter: PresenterBase<State, TableProps, ViewController> {
