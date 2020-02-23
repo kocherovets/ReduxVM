@@ -4,14 +4,14 @@
   * [State](#State)
   * [Store](#Store)
   * [DI](#DI)
-  * [Actions](#Actions)
+  * [Action](#Action)
   * [VC (View)](#VC)
     + [Props](#Props)
     + [Presenter](#Presenter)
   * [TVC (View)](#TVC)
     + [Props](#tvc-props)
     + [Presenter](#tvc-presenter)
-  * [Services](#Services)
+  * [Service](#Service)
   * [Side Effect](#Side-Effect)
 - [Use Cases](#Use-Cases)
 - [Источники](#Источники)
@@ -174,7 +174,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
  ```
- ## Actions
+ ## Action
  Далее можно создать Actions для изменения State
  ```swift
  extension MoviesState {
@@ -390,7 +390,7 @@ public struct TableProps: TableProperties, Equatable {
 Здесь видно использование еще одной возможности презентера.
 
 Функция ```override func onInit(state: State, trunk: Trunk) {``` вызывается при создани презентера. Есть также функция ```open func onDeinit(state: State, trunk: Trunk) { }``` вызывающая при уничтожении презентера. Нужно отметить, что жизненным циклом презентера управляет ассоциированный с ним VC или TVC. 
-## Services
+## Service
 При создании сервиса нужно перечислить сайдэффекты, которые он обслуживает. 
 ```swift
 class APIService: Service<State> {
