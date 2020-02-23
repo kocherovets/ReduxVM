@@ -10,7 +10,7 @@
     + [Presenter](#Presenter)
   * [TVC](#TVC)
     + [Props](#tvc-props)
-    + [Presenter](#Presenter)
+    + [Presenter](#tvc-presenter)
   * [Services](#Services)
   * [Side Effect](#Side-Effect)
 - [Use Cases](#Use-Cases)
@@ -325,6 +325,7 @@ public struct TableProps: TableProperties, Equatable {
 ```
 где можно задать модели ячеек, заголовков и подвалов, а также анимацию обновления таблицы. Подробнее смотрите в описаниии библииотеки [DeclarativeTVC](https://github.com/kocherovets/DeclarativeTVC)
 
+<a name="tvc-presenter"></a>
 ### Presenter
 Презентер для MoviesTVC
 ```swift
