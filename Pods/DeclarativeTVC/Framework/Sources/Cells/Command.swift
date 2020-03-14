@@ -10,7 +10,7 @@ import Foundation
 
 open class Command: Codable {
 
-    public init(id: String = "unnamed",
+    public init(id: String = "",
          file: StaticString = #file,
          function: StaticString = #function,
          line: Int = #line,
@@ -58,20 +58,20 @@ open class Command: Codable {
 extension Command: Equatable {
 
     public static func == (lhs: Command, rhs: Command) -> Bool {
-        return true
+        return lhs.id == rhs.id
     }
 }
 
 extension Command: Hashable {
 
     open func hash(into hasher: inout Hasher) {
-        hasher.combine(1)
+        hasher.combine(id)
     }
 }
 
 public final class CommandWith<T> {
     
-    public init(id: String = "unnamed",
+    public init(id: String = "",
          file: StaticString = #file,
          function: StaticString = #function,
          line: Int = #line,
@@ -137,14 +137,14 @@ public final class CommandWith<T> {
 extension CommandWith: Hashable {
 
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(1)
+        hasher.combine(id)
     }
 }
 
 extension CommandWith: Equatable {
 
     public static func == (lhs: CommandWith, rhs: CommandWith) -> Bool {
-        return true
+        return lhs.id == rhs.id
     }
 }
 

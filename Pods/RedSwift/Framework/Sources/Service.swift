@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import RedSwift
-
 
 public protocol AnySideEffect {
 

@@ -22,8 +22,9 @@ public class AppFramework: DIFramework {
         container.register {
             Store<State>(state: State(),
                          queue: storeQueue,
-                         loggingExcludedActions: [],
-                         middleware: [])
+                         middleware: [
+                           LoggingMiddleware(loggingExcludedActions: [])
+                         ])
         }
             .lifetime(.single)
 

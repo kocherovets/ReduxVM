@@ -9,12 +9,11 @@
 import UIKit
 import DifferenceKit
 
-open class TableDS: NSObject, UITableViewDelegate, UITableViewDataSource {
+open class TableDS: NSObject, UITableViewDelegate, UITableViewDataSource, Table {
 
-    private var model: TableModel? = nil
-    private var registeredCells = [String]()
-
-    private var tableView: UITableView?
+    var model: TableModel? = nil
+    var registeredCells = [String]()
+    var tableView: UITableView!
 
     open func set(tableView: UITableView?, rows: [CellAnyModel], animations: DeclarativeTVC.Animations? = nil) {
 
@@ -70,60 +69,34 @@ open class TableDS: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let vm = model?.sections[indexPath.section].rows[indexPath.row] else { return UITableViewCell() }
-
-        let cell: UITableViewCell
-        switch vm.cellType() {
-        case .storyboard:
-            cell = tableView.dequeueReusableCell(withIdentifier: String(describing: type(of: vm).cellAnyType))!
-        case .xib:
-            let cellTypeString = String(describing: type(of: vm).cellAnyType)
-            if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
-                let nib = UINib.init(nibName: cellTypeString, bundle: nil)
-                tableView.register(nib, forCellReuseIdentifier: cellTypeString)
-                registeredCells.append(cellTypeString)
-            }
-            cell = tableView.dequeueReusableCell(withIdentifier: cellTypeString, for: indexPath)
-        case .code:
-            let cellTypeString = String(describing: type(of: vm).cellAnyType)
-            if registeredCells.firstIndex(where: { $0 == cellTypeString }) == nil {
-                vm.register(tableView: tableView, identifier: cellTypeString)
-                registeredCells.append(cellTypeString)
-            }
-            cell = tableView.dequeueReusableCell(withIdentifier: cellTypeString, for: indexPath)
-        }
-
-        vm.apply(to: cell)
-
-        return cell
+        return cell(for: indexPath)
     }
 
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
-        if let vm = model?.sections[section].header {
-            let header = tableView.dequeueReusableCell(withIdentifier: String(describing: type(of: vm).headerAnyType))!
-            vm.apply(to: header)
-            return header.contentView
-        }
-        return nil
+        return header(for: section)
     }
 
-    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 
-        if let _ = model?.sections[section].header {
-            return UITableView.automaticDimension
-        }
-        return 0
+        return footer(for: section)
     }
 
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        if let height = model?.sections[indexPath.section].rows[indexPath.row].height {
-            return height
-        }
-        return UITableView.automaticDimension
+        return heightForCell(at: indexPath)
     }
-    
+
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        return heightForHeader(inSection: section)
+    }
+
+    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+
+        return heightForFooter(inSection: section)
+    }
+
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         guard let vm = model?.sections[indexPath.section].rows[indexPath.row] as? SelectableCellModel else { return }
