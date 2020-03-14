@@ -114,9 +114,9 @@ open class Store<State: RootStateType>: StoreTrunk {
     public required init(
         state: State?,
         queue: DispatchQueue,
-        loggingExcludedActions: [Dispatchable.Type],
-        middleware: [Middleware<State>] = []
-    ) 
+        middleware: [Middleware] = [],
+        statedMiddleware: [StatedMiddleware<State>] = []
+    )
 ```
 Здесь state - это наш корневой стейт; queue - это фоновая очередь, в которой работает вся система (синяя область на рисунке); loggingExcludedActions - по умолчаниию все Action в системе логируются, для некоторых из них бывает удобно отключить логирование, именно в этом параметре перечисляются такие Action. 
 ## DI
