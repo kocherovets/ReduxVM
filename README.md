@@ -6,6 +6,7 @@
   * [DI](#DI)
   * [Action](#Action)
     + [Reducer](#Reducer)
+  * [Middleware](#Middleware)
   * [VC (View)](#VC)
     + [Props](#Props)
     + [Presenter](#Presenter)
@@ -202,6 +203,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  Программная реализация Action является структурой, поля которой являются параметрами задающими изменения, и функции ```func updateState(_ state: inout State)```, куда передается корневой стейт по ссылке. 
 ### Reducer
 В функции updateState собственно и происходит обновление стейта. То есть в терминологии редакса - эта функция является редьюсером.
+## Middleware
+Прежде чем стейт обновится Action обрабатывается объектами Middleware, которые не могут менять стейт. Они могут использоваться, например, для логирования. Библиотека поддерживает два типа Middleware, один получает на вход только Action, другой кроме Action получает также текущий стейт.
+```swift
+open class Middleware {
+
+    public func on(action: Dispatchable,
+                   file: String,
+                   function: String,
+                   line: Int
+    ) {
+        
+    }
+}
+
+open class StatedMiddleware<State: RootStateType> {
+
+    public func on(action: Dispatchable,
+                   state: State,
+                   file: String,
+                   function: String,
+                   line: Int
+    ) {
+
+    }
+}
+```
+В библиотеке есть реализация по умолачанию LoggingMiddleware.
+```swift
+public class LoggingMiddleware: Middleware {
+
+    private var loggingExcludedActions = [Dispatchable.Type]()
+
+    public required init(loggingExcludedActions: [Dispatchable.Type]) {
+
+        self.loggingExcludedActions = loggingExcludedActions
+    }
+
+    override public func on(action: Dispatchable,
+                            file: String,
+                            function: String,
+                            line: Int) {
+
+        if loggingExcludedActions.first(where: { $0 == type(of: action) }) == nil {
+
+            let log =
+                """
+                 ---ACTION---
+                 \(action)
+                 file: \(file):\(line)
+                 function: \(function)
+                 .
+                 """
+            print(log)
+        }
+
+    }
+}
+```
 ## VC
 Библиотека содержит два класса: VC и TVC, заменяющие соответсвенно UIViewConttroler и UITableViewController.
 ```swift
