@@ -118,7 +118,7 @@ open class Store<State: RootStateType>: StoreTrunk {
         statedMiddleware: [StatedMiddleware<State>] = []
     )
 ```
-Здесь state - это наш корневой стейт; queue - это фоновая очередь, в которой работает вся система (синяя область на рисунке); loggingExcludedActions - по умолчаниию все Action в системе логируются, для некоторых из них бывает удобно отключить логирование, именно в этом параметре перечисляются такие Action. 
+Здесь state - это наш корневой стейт; queue - это фоновая очередь, в которой работает вся система (синяя область на рисунке); middleware - это набор Middleware. 
 ## DI
 Библиотека предпологает использование использование какой-то реализации Dependency Injection для связывания своих компонент. В примерах используется библиотека DITranquillity, но можно пользоваться и любой другой, например, Swinject.
 Пример инициализациии связей библиотеки может выглядеть следующим образом.
@@ -230,7 +230,7 @@ open class StatedMiddleware<State: RootStateType> {
     }
 }
 ```
-В библиотеке есть реализация по умолачанию LoggingMiddleware.
+В библиотеке есть реализация по умолачанию LoggingMiddleware. По умолчаниию все Action в системе логируются, для некоторых из них бывает удобно отключить логирование, в loggingExcludedActions перечисляются такие Action.
 ```swift
 public class LoggingMiddleware: Middleware {
 
