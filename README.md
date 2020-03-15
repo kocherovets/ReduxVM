@@ -137,12 +137,12 @@ public class AppFramework: DIFramework {
             Store<State>(state: $0,
                          queue: $1,
                          middleware: [
-                           LoggingMiddleware(loggingExcludedActions: [])
+                             LoggingMiddleware(loggingExcludedActions: [])
                          ])
         }
             .lifetime(.single)
 
-        container.register (APIInteractor.init)
+        container.register { APIInteractor(store: $0, api: UnauthorizedAPI.self) }
             .lifetime(.single)
 
         container.registerStoryboard(name: "Main").lifetime(.single)
@@ -164,7 +164,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         DISetting.Log.level = .warning
-        
+
         container.append(framework: AppFramework.self)
 
         if !container.validate() {
