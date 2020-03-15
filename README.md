@@ -6,6 +6,7 @@
   * [DI](#DI)
   * [Action](#Action)
     + [Reducer](#Reducer)
+  * [Middleware](#Middleware)
   * [VC (View)](#VC)
     + [Props](#Props)
     + [Presenter](#Presenter)
@@ -19,7 +20,7 @@
 # Описание
 ReduxVM - это библиотека для построения iOS приложения по архитектуре, структурная схема которой выглядит следующим образом:
 
-<img width="600" alt="ReduxVM" src="https://user-images.githubusercontent.com/4235844/74607773-a5a85d80-50ec-11ea-8f91-7bf480f99698.png">
+<img width="700" alt="ReduxVM" src="https://user-images.githubusercontent.com/4235844/76704650-8a307280-66eb-11ea-8589-f7c769ad0aed.jpg">
 
 Стрелками изображено движение данных между модулями системы. Как видно ReduxVM реализует однонаправленную архитектуру. Единственное место, где это правило нарушается - это сайдэффекты. Поскольку данные могут передаваться только в одном направлении, гораздо проще визуально следовать за кодом и выявлять любые проблемы в приложении.
 
@@ -113,11 +114,11 @@ open class Store<State: RootStateType>: StoreTrunk {
     public required init(
         state: State?,
         queue: DispatchQueue,
-        loggingExcludedActions: [Dispatchable.Type],
-        middleware: [Middleware<State>] = []
-    ) 
+        middleware: [Middleware] = [],
+        statedMiddleware: [StatedMiddleware<State>] = []
+    )
 ```
-Здесь state - это наш корневой стейт; queue - это фоновая очередь, в которой работает вся система (синяя область на рисунке); loggingExcludedActions - по умолчаниию все Action в системе логируются, для некоторых из них бывает удобно отключить логирование, именно в этом параметре перечисляются такие Action. 
+Здесь state - это наш корневой стейт; queue - это фоновая очередь, в которой работает вся система (синяя область на рисунке); middleware - это набор Middleware. 
 ## DI
 Библиотека предпологает использование использование какой-то реализации Dependency Injection для связывания своих компонент. В примерах используется библиотека DITranquillity, но можно пользоваться и любой другой, например, Swinject.
 Пример инициализациии связей библиотеки может выглядеть следующим образом.
@@ -135,8 +136,9 @@ public class AppFramework: DIFramework {
         container.register {
             Store<State>(state: $0,
                          queue: $1,
-                         loggingExcludedActions: [],
-                         middleware: [])
+                         middleware: [
+                           LoggingMiddleware(loggingExcludedActions: [])
+                         ])
         }
             .lifetime(.single)
 
@@ -202,6 +204,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  Программная реализация Action является структурой, поля которой являются параметрами задающими изменения, и функции ```func updateState(_ state: inout State)```, куда передается корневой стейт по ссылке. 
 ### Reducer
 В функции updateState собственно и происходит обновление стейта. То есть в терминологии редакса - эта функция является редьюсером.
+## Middleware
+Прежде чем стейт обновится Action обрабатывается объектами Middleware, которые не могут менять стейт. Они могут использоваться, например, для логирования. Библиотека поддерживает два типа Middleware, один получает на вход только Action, другой кроме Action получает также текущий стейт.
+```swift
+open class Middleware {
+
+    public func on(action: Dispatchable,
+                   file: String,
+                   function: String,
+                   line: Int
+    ) {
+        
+    }
+}
+
+open class StatedMiddleware<State: RootStateType> {
+
+    public func on(action: Dispatchable,
+                   state: State,
+                   file: String,
+                   function: String,
+                   line: Int
+    ) {
+
+    }
+}
+```
+В библиотеке есть реализация по умолачанию LoggingMiddleware. По умолчаниию все Action в системе логируются, для некоторых из них бывает удобно отключить логирование, в loggingExcludedActions перечисляются такие Action.
+```swift
+public class LoggingMiddleware: Middleware {
+
+    private var loggingExcludedActions = [Dispatchable.Type]()
+
+    public required init(loggingExcludedActions: [Dispatchable.Type]) {
+
+        self.loggingExcludedActions = loggingExcludedActions
+    }
+
+    override public func on(action: Dispatchable,
+                            file: String,
+                            function: String,
+                            line: Int) {
+
+        if loggingExcludedActions.first(where: { $0 == type(of: action) }) == nil {
+
+            let log =
+                """
+                 ---ACTION---
+                 \(action)
+                 file: \(file):\(line)
+                 function: \(function)
+                 .
+                 """
+            print(log)
+        }
+
+    }
+}
+```
 ## VC
 Библиотека содержит два класса: VC и TVC, заменяющие соответсвенно UIViewConttroler и UITableViewController.
 ```swift
