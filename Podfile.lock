@@ -9,7 +9,7 @@ PODS:
     - DifferenceKit/Core
   - DITranquillity (3.9.3):
     - SwiftLazy
-  - RedSwift (1.0.20)
+  - RedSwift (1.0.21)
   - SwiftLazy (1.1.7)
 
 DEPENDENCIES:
@@ -29,7 +29,7 @@ SPEC CHECKSUMS:
   DeclarativeTVC: 53d3f5f413c9cb13eeeeaaeb9a30a4eda543ff7e
   DifferenceKit: 516f12e336ed65a3a0665847b5c3cb5cad4bd4ea
   DITranquillity: 7aba075b73dbb1f321a1218dd3d9f1bd5ad9427b
-  RedSwift: 912eb7b2d223a157c940026bf375f9946bc15715
+  RedSwift: bc8935bc97d81d10bf4a8d80250c91cd5f38aba4
   SwiftLazy: dcb1edc6c2b633ba2e68f28554d9dd6d1c0bfd13
 
 PODFILE CHECKSUM: f801ffe31c9c8e4b54fa010b491ef6df6dc4f9d5

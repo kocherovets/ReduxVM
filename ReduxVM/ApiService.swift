@@ -27,7 +27,7 @@ extension ApiInteractor {
             return box.state.counter.delayedIncrement == .requested && box.isNew(keyPath: \.counter.delayedIncrement)
         }
 
-        func execute(box: StateBox<State>, trunk: Trunk, service: ApiInteractor) {
+        func execute(box: StateBox<State>, trunk: Trunk, interactor: ApiInteractor) {
 
             delay(5) {
                 trunk.dispatch(SetRequestedIncrementAction(value: 150))
