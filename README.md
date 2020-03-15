@@ -457,7 +457,7 @@ public struct TableProps: TableProperties, Equatable {
 ```swift
 class APIInteractor: Interactor<State> {
 
-    fileprivate let api: UnauthorizedAPI.Type // = UnauthorizedAPI.self
+    fileprivate let api: UnauthorizedAPI.Type 
 
     init(store: Store<State>, api: UnauthorizedAPI.Type) {
 
