@@ -19,7 +19,7 @@ enum ModuleVC {
 
             container.register (Presenter.init)
                 .injection(cycle: true, \Presenter.propsReceiver)
-                .injection(\Presenter.apiService)
+                .injection(\Presenter.api)
                 .lifetime(.objectGraph)
         }
     }
@@ -33,7 +33,7 @@ enum ModuleVC {
 
     class Presenter: PresenterBase<State, Props, ViewController> {
         
-        var apiService: ApiService!
+        var api: ApiInteractor!
 
         override func onInit(state: State, trunk: Trunk) {
             trunk.dispatch(AddAction(value: 10))

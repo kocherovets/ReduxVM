@@ -28,7 +28,7 @@ public class AppFramework: DIFramework {
         }
             .lifetime(.single)
 
-        container.register (ApiService.init)
+        container.register (ApiInteractor.init)
             .lifetime(.single)
 
         container.registerStoryboard(name: "Main")
