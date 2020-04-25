@@ -40,6 +40,7 @@
 		C3DFBAB723788B1B003259FF /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAB623788B1B003259FF /* CounterState.swift */; };
 		C3DFBAB823788B1B003259FF /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAB623788B1B003259FF /* CounterState.swift */; };
 		C3DFBAB923788B1B003259FF /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAB623788B1B003259FF /* CounterState.swift */; };
+		C3E8932F2454B9520039EAEB /* CVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8932E2454B9520039EAEB /* CVC.swift */; };
 		CFE2ABD0D4CDE3E945FE7CEC /* Pods_ReduxVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0EF1AF0AFFC678D823FC63 /* Pods_ReduxVM.framework */; };
 		EAC411DE72AC0B347F6346D6 /* Pods_FrameworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F269F7382AE80F0F21EE7D /* Pods_FrameworkTests.framework */; };
 		FE12620969324AACE7866EF0 /* Pods_ReduxVMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893F2219539B74B8A2DE59BE /* Pods_ReduxVMTests.framework */; };
@@ -145,6 +146,7 @@
 		C3DFBAAE23788A31003259FF /* TVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVC.swift; sourceTree = "<group>"; };
 		C3DFBAB223788AF6003259FF /* TestStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStore.swift; sourceTree = "<group>"; };
 		C3DFBAB623788B1B003259FF /* CounterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
+		C3E8932E2454B9520039EAEB /* CVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVC.swift; sourceTree = "<group>"; };
 		DA0EF1AF0AFFC678D823FC63 /* Pods_ReduxVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A01031470ED3C6B9B74195 /* Pods-FrameworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrameworkTests.debug.xcconfig"; path = "Target Support Files/Pods-FrameworkTests/Pods-FrameworkTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -317,6 +319,7 @@
 				C3DFBAA623788766003259FF /* Presenter.swift */,
 				C3DFBAAA23788A08003259FF /* VC.swift */,
 				C3DFBAAE23788A31003259FF /* TVC.swift */,
+				C3E8932E2454B9520039EAEB /* CVC.swift */,
 				C3CB35B023D264F800CA3F15 /* ReduxVMSettings.swift */,
 			);
 			path = Sources;
@@ -718,6 +721,7 @@
 			files = (
 				C3709F6C239C599E00CC8DD8 /* VC.swift in Sources */,
 				C3709F6D239C599E00CC8DD8 /* TVC.swift in Sources */,
+				C3E8932F2454B9520039EAEB /* CVC.swift in Sources */,
 				C3709F6B239C599E00CC8DD8 /* Presenter.swift in Sources */,
 				C3CB35B123D264F800CA3F15 /* ReduxVMSettings.swift in Sources */,
 			);
