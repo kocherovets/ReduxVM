@@ -15,6 +15,7 @@
     + [Props](#tvc-props)
     + [Presenter](#tvc-presenter)
   * [Interactor](#Interactor)
+    + [InteractorLogger](#InteractorLogger)
   * [Side Effect](#Side-Effect)
 - [Use Cases](#Use-Cases)
 - [Источники](#Источники)
@@ -507,6 +508,22 @@ class APIInteractor: Interactor<State> {
 }
 ```
 По сути задачей интерактора является подписка на обновления стейта и распространение этой информации для своих сайдэффектов. Также он может переопределить метод ```open func onInit() {```, который вызывается при создании интерактора.
+### InteractorLogger
+Для логирования сработавших сайдэффектов ввден класс InteractorLogger, в котором можно переопределить функцию логирования.
+```swift
+public class InteractorLogger {
+
+    public static var logger: ((String) -> ())? = { sideEffect in
+        print(
+            """
+            ---SE---
+            \(sideEffect)
+            .
+            """
+        )
+    }
+}
+```
 ## Side Effect
 Реализация сайдэффекта может выглядеть так
 ```swift
