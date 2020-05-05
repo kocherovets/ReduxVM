@@ -513,14 +513,11 @@ class APIInteractor: Interactor<State> {
 ```swift
 public class InteractorLogger {
 
-    public static var logger: ((String) -> ())? = { sideEffect in
-        print(
-            """
-            ---SE---
-            \(sideEffect)
-            .
-            """
-        )
+    public static var logger: ((AnySideEffect) -> ())? = { sideEffect in
+
+        print("---SE---")
+        dump(sideEffect)
+        print(".")
     }
 }
 ```
