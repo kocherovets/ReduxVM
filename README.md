@@ -286,9 +286,10 @@ public class LoggingMiddleware: Middleware {
         if loggingExcludedActions.first(where: { $0 == type(of: action) }) == nil {
 
             let printFile: String
-            if startIndex == nil,
+            if 
+                startIndex == nil,
                 let firstPart = firstPart
-                {
+            {
                 let components = file.components(separatedBy: firstPart + "/")
                 if let component = components.last
                     {
@@ -296,7 +297,7 @@ public class LoggingMiddleware: Middleware {
                 }
             }
             if let startIndex = startIndex
-                {
+            {
                 let substring = file[startIndex..<file.endIndex]
                 printFile = String(substring)
             }
