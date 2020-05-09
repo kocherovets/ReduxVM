@@ -538,15 +538,23 @@ class APIInteractor: Interactor<State> {
 ```
 По сути задачей интерактора является подписка на обновления стейта и распространение этой информации для своих сайдэффектов. Также он может переопределить метод ```open func onInit() {```, который вызывается при создании интерактора.
 ### InteractorLogger
-Для логирования сработавших сайдэффектов ввден класс InteractorLogger, в котором можно переопределить функцию логирования.
+Для логирования сработавших сайдэффектов ввден класс InteractorLogger, в котором можно переопределить функцию логирования. По умолчаниию все сайдэффекты в системе логируются, для некоторых из них бывает удобно отключить логирование, в loggingExcludedSideEffects перечисляются такие сайдэффекты.
 ```swift
 public class InteractorLogger {
 
+    static var consoleLogger = ConsoleLogger()
+    
+    public static var loggingExcludedSideEffects = [AnySideEffect.Type]()
+
     public static var logger: ((AnySideEffect) -> ())? = { sideEffect in
 
-        print("---SE---")
-        dump(sideEffect)
-        print(".")
+        if loggingExcludedSideEffects.first(where: { $0 == type(of: sideEffect) }) == nil {
+
+            print("---SE---", to: &consoleLogger)
+            dump(sideEffect, to: &consoleLogger)
+            print(".", to: &consoleLogger)
+            consoleLogger.flush()
+        }
     }
 }
 ```
