@@ -44,9 +44,7 @@ struct TestView: View {
     @ObservedObject var presenter: Presenter
 
     var props: Props { presenter.props }
-    
-    @State var a: Int = 5
-
+        
     var body: some View {
         VStack(spacing: 10) {
             Text(props.counterText)
@@ -64,7 +62,7 @@ struct TestView: View {
         static func load(container: DIContainer)
         {
             container.register(Presenter.init).lifetime(.objectGraph)
-            container.register(TestView.init).lifetime(.objectGraph)
+            container.register{ TestView(presenter: $0) }.lifetime(.objectGraph)
         }
     }
 }
