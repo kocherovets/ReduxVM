@@ -17,7 +17,7 @@ public protocol SwiftUIProperties {
 
 open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: StoreSubscriber, PresenterProtocol, Trunk, ObservableObject {
 
-    @Published public var props = Props()
+    @Published public var props: Props
 
     private var store: Store<State>
 
@@ -31,9 +31,11 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
         onDeinit(state: store.state, trunk: self)
     }
 
-    public init(store: Store<State>) {
+    public init(store: Store<State>, props: Props) {
         self.store = store
 
+        self.props = props
+        
         subscribe()
         
         stateChanged(box: StateBox<State>(state: store.state,

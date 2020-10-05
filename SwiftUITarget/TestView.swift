@@ -61,7 +61,8 @@ struct TestView: View {
     {
         static func load(container: DIContainer)
         {
-            container.register(Presenter.init).lifetime(.objectGraph)
+            container.register(Props.init).lifetime(.objectGraph)
+            container.register{ Presenter(store: $0, props: $1) }.lifetime(.objectGraph)
             container.register{ TestView(presenter: $0) }.lifetime(.objectGraph)
         }
     }
