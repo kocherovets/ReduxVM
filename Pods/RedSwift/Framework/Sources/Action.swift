@@ -35,3 +35,15 @@ public extension Action {
         return typedState
     }
 }
+
+public protocol ThrottleAction {
+    
+    var interval: TimeInterval { get }
+}
+
+public extension ThrottleAction {
+    
+    var interval: TimeInterval {
+        0.3
+    }
+}

@@ -18,14 +18,14 @@ import Foundation
 
 public struct AddSubscriberAction: Dispatchable { }
 
-open class Store<State: RootStateType>: StoreTrunk {
+open class Store<AppState: RootStateType>: StoreTrunk {
 
-    typealias SubscriptionType = SubscriptionBox<State>
+    typealias SubscriptionType = SubscriptionBox<AppState>
 
-    private var _state: State!
-    public var state: State { _state! }
+    private var _state: AppState!
+    public var state: AppState { _state! }
 
-    private func set(state: State, lastAction: Dispatchable) {
+    private func set(state: AppState, lastAction: Dispatchable) {
 
         let oldValue = _state ?? state
         _state = state
@@ -47,13 +47,15 @@ open class Store<State: RootStateType>: StoreTrunk {
     public var lastAction: Dispatchable?
 
     private var middleware: [Middleware] = []
-    private var statedMiddleware: [StatedMiddleware<State>] = []
+    private var statedMiddleware: [StatedMiddleware<AppState>] = []
+
+    private var throttleActions = [String: TimeInterval]()
 
     public required init(
-        state: State?,
+        state: AppState?,
         queue: DispatchQueue,
         middleware: [Middleware] = [],
-        statedMiddleware: [StatedMiddleware<State>] = []
+        statedMiddleware: [StatedMiddleware<AppState>] = []
     ) {
 
         self.queue = queue
@@ -65,7 +67,7 @@ open class Store<State: RootStateType>: StoreTrunk {
     public func subscribe<SelectedState, S: StoreSubscriber> (_ subscriber: S)
     where S.StoreSubscriberStateType == SelectedState
     {
-        let originalSubscription = Subscription<State>()
+        let originalSubscription = Subscription<AppState>()
 
         let subscriptionBox = SubscriptionBox(originalSubscription: originalSubscription,
                                               subscriber: subscriber)
@@ -89,6 +91,18 @@ open class Store<State: RootStateType>: StoreTrunk {
                          function: String = #function,
                          line: Int = #line) {
 
+        if let throttleAction = action as? ThrottleAction
+        {
+            if
+                let interval = throttleActions["\(action)"],
+                Date().timeIntervalSince1970 - interval < throttleAction.interval
+            {
+                print("throttleAction \(action)")
+                return
+            }
+            throttleActions["\(action)"] = Date().timeIntervalSince1970
+        }
+
         queue.async { [weak self] in
 
             guard let self = self else { fatalError() }
@@ -103,7 +117,7 @@ open class Store<State: RootStateType>: StoreTrunk {
 
             switch action {
             case let action as AnyAction:
-                self.set(state: action.updatedState(currentState: self.state) as! State,
+                self.set(state: action.updatedState(currentState: self.state) as! AppState,
                          lastAction: action)
             default:
                 break

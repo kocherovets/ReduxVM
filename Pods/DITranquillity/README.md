@@ -1,230 +1,227 @@
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![CocoaPods Version](https://img.shields.io/cocoapods/v/DITranquillity.svg?style=flat)](http://cocoapods.org/pods/DITranquillity)
-[![License](https://img.shields.io/github/license/ivlevAstef/DITranquillity.svg?maxAge=2592000)](http://cocoapods.org/pods/DITranquillity)
-[![Platform](https://img.shields.io/cocoapods/p/DITranquillity.svg?style=flat)](http://cocoapods.org/pods/DITranquillity)
-[![Swift Version](https://img.shields.io/badge/Swift-3.0--5.0-F16D39.svg?style=flat)](https://developer.apple.com/swift)
+<p align="center">
+<img src ="https://habrastorage.org/files/c6d/c89/5d0/c6dc895d02324b96bc679f41228ab6bf.png" alt="Tranquillity"/>
+</p>
+<p align="center">
+<a href="http://cocoapods.org/pods/DITranquillity"><img src ="https://img.shields.io/cocoapods/v/DITranquillity.svg?style=flat"/></a>
+<a href="https://github.com/Carthage/Carthage"><img src ="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
+<a href="https://swift.org/package-manager"><img src ="https://img.shields.io/badge/SwiftPM-compatible-4BC51D.svg?style=flat"/></a>
+<a href="https://travis-ci.org/ivlevAstef/DITranquillity"><img src ="https://travis-ci.org/ivlevAstef/DITranquillity.svg?tag=v4.1.0"/></a>
+<a href="https://github.com/ivlevAstef/DITranquillity/blob/master/LICENSE"><img src ="https://img.shields.io/github/license/ivlevAstef/DITranquillity.svg?maxAge=2592000"/></a>
+<a href="https://developer.apple.com/swift"><img src ="https://img.shields.io/badge/Swift-3.0--5.3-F16D39.svg?style=flat"/></a>
+<a href="http://cocoapods.org/pods/DITranquillity"><img src ="https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Linux-lightgrey.svg"/></a>
+<a href="https://codecov.io/gh/ivlevAstef/DITranquillity"><img src ="https://codecov.io/gh/ivlevAstef/DITranquillity/branch/master/graph/badge.svg"/></a>
+</p>
 
 # DITranquillity
-The small library for [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) in applications written on pure Swift for iOS/OSX/tvOS. Despite its size, it solves a large enough range of tasks, including Storyboard support. Its main advantage -  modularity of support, detailed errors description and lots of opportunities.
+Tranquillity is a lightweight but powerful [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) library for swift.
 
+The name "Tranquillity" laid the foundation in the basic principles of library: clarity, simplicity and security.
+
+It says - use the library and you will be calm for your dependencies.
+
+> Language switch: [English](README.md), [Russian](README_ru.md)
+
+## About Dependendy Injection
+Dependency Injections is a software design pattern in which someone delivers dependencies to an object.
+
+Is one form of the broader technique of [Inversion Of Control](https://en.wikipedia.org/wiki/Inversion_of_control) and help the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
+
+[For more details you can read this link](Documentation/en/about_dependency_injection.md)
+
+Also I recommend you to read [Glossary](Documentation/en/glossary.md) which will help to better understand the terms. 
 
 ## Features
-<img align="right" src="https://habrastorage.org/files/c6d/c89/5d0/c6dc895d02324b96bc679f41228ab6bf.png" alt="Tranquillity">  
+#### Core
+- [x] [Registration components and services](Documentation/en/core/registration_and_service.md)
+- [x] [Initializer/Property/Method Injections](Documentation/en/core/injection.md)
+- [x] [Optional and argument, many, by tag Injections](Documentation/en/core/modificated_injection.md)
+- [x] [Delayed injection](Documentation/en/core/delayed_injection.md)
+- [x] [Circular dependency injection](Documentation/en/core/injection.md)
+- [x] [Scope and lifetime](Documentation/en/core/scope_and_lifetime.md)
+- [x] [Modular](Documentation/en/core/modular.md)
+- [x] [Details logs](Documentation/en/core/logs.md)
+- [x] Thread safety
+- [x] [Container hierarchy](Documentation/en/core/container_hierarchy.md)
+#### UI
+- [x] [Storyboard and StoryboardReferences](Documentation/en/ui/storyboard.md)
+- [x] [Simple subviews and Cells Injection](Documentation/en/ui/view_injection.md)
+#### Graph API
+- [x ] [Get dependency graph](Documentation/en/graph/get_graph.md)
+- [x] [Graph Validation](Documentation/en/graph/graph_validation.md)
+- [ ] [Visualization dependency graph](Documentation/en/graph/visualization_graph.md)
 
-* Pure Swift Type Support
-* Initializer injections [ru](Documentation/ru/registration.md#Разрешение-зависимостей-при-инициализации)
-* Property, Method injections [ru](Documentation/ru/injection.md#Внедрение)
-* Named, Tags definitions and Many [ru](Documentation/ru/modificators.md#Модификаторы)
-* Type forwarding [ru](Documentation/ru/registration.md#Указание-сервисов)
-* Lifetimes: single, perRun(weak/strong), perContainer(weak/strong), objectGraph, prototype, custom [ru](Documentation/ru/lifetime.md#Время-жизни)
-* iOS/macOS Storyboard and StoryboardReference [ru](Documentation/ru/storyboard.md#storyboard)
-* Circular dependencies [ru](Documentation/ru/injection.md#Внедрение-циклических-зависимостей-через-свойства)
-* Three level hierarchy: types, part, framework [ru](Documentation/ru/part_framework.md#Части-и-Фреймворки)
-* Short resolve syntax [ru](Documentation/ru/resolve.md#Разрешение-зависимостей)
-* keyPath injection (since swift4.0) [ru](Documentation/ru/injection.md#Внедрение-зависимостей-через-свойства-используя-keypath)
-* Very detail logs [ru](Documentation/ru/log.md#Логирование)
-* Validation at the run app [ru](Documentation/ru/validation.md#Валидация-контейнера)
-* Injection into Subviews and cells [ru](Documentation/ru/storyboard.md#Внедрение-в-subview-и-ячейки)
-* Support Delayed injection [ru](Documentation/ru/delayed_injection.md#Отложенное-внедрение)
-* Injection with arguments at any depth
-* Container Hierarchy
-* Thread safe
+## Installing
+The library supports three popular package managers: Cocoapods, Carthage, SwiftPM.
 
-### Helpful links
-* Read the Quick Start [ru](Documentation/ru/quick_start.md#Быстрый-старт) / [~~en~~](Documentation/en/Ups.md)
-* Or documentation [ru](Documentation/ru/main.md) / [~~en~~](Documentation/en/Ups.md)
-* Samples [ru](Documentation/ru/sample.md) / [en](Samples)
-* Also see [code documentation](https://htmlpreview.github.io/?https://github.com/ivlevAstef/DITranquillity/blob/master/Documentation/code/index.html)
+#### CocoaPods
+Add the following lines to your `Podfile`: 
+```
+pod 'DITranquillity'
+``` 
 
+#### SwiftPM
+You can use "Xcode/File/Swift Packages/Add Package Dependency..." and write github url:
+```
+https://github.com/ivlevAstef/DITranquillity
+```
+
+Also you can edit your `Package.swift` and the following line into section `dependencies`:
+```Swift
+.package(url: "https://github.com/ivlevAstef/DITranquillity.git", from: "3.8.4")
+```
+And don't forget to specify in your section `target` wrote dependency line:
+```Swift
+.product(name: "DITranquillity")
+```
+> Attention! - SwiftPM unsupport features from the "UI" section.
+
+#### Carthage
+Add the following lines to your `Cartfile`:
+```
+github "ivlevAstef/DITranquillity"
+```
+Carthage support "UI" and "GraphAPI" section no additional actions.
 
 ## Usage
+The library uses a declarative style of dependency description, and allows you to separate your application code from dependency description code.
 
+For a quick entry, let's look at an example code of one simplified VIPER screen:
 ```Swift
-// container - for register and resolve your types
+.................................................
+/// Dependency description
+
 let container = DIContainer()
 
-container.register{ Cat(name: "Felix") }
-  .as(Animal.self) // register Cat with name felix by protocol Animal
-  .lifetime(.prototype) // set lifetime
+container.register(LoginRouter.init)
 
-container.register(PetOwner.init) // register PetOwner
+container.register(LoginPresenterImpl.init)
+  .as(LoginPresenter.self)
+  .lifetime(.objectGraph)
 
-// you can validate you registrations graph
-if !container.validate() {
-  fatalError("...")
-}
+container.register(LoginViewController.init)
+  .injection(cycle: true, \.presenter)
+  .as(LoginView.self)
+  .lifetime(.objectGraph)
 
-.................................................
-
-// get instance of a types from the container
-let owner: PetOwner = container.resolve()
-let animal: Animal = *container // short syntax
-
-print(owner.pet.name) // "Felix"
-print(animal.name) // "Felix"
+container.register(AuthInteractorImpl.init)
+  .as(AuthInteractor.self)
 
 .................................................
+/// Application start point
 
-// where
-protocol Animal {
-  var name: String { get }
-}
-
-class Cat: Animal {
-  let name: String
-  init(name: String) {
-    self.name = name
-  }
-}
-
-class PetOwner {
-  let pet: Animal
-  init(pet: Animal) {
-    self.pet = pet
-  }
-}
-```
-<details>
-<summary>See More</summary>
-
-```Swift
-let container = DIContainer()
-
-container.register{ Cat(name: "Felix") }
-  .as(Animal.self)
-  
-container.register{ Dog(name: "Rex") }
-  .as(Animal.self)
-  .default()
-
-container.register{ PetOwner(pets: many($0)) }
-  .injection(\.home) // since swift4.0 and 3.2.0 lib
-
-container.register(Home.init)
-  .postInit{ $0.address = "City, Street, Number" }
+let router: LoginRouter = container.resolve()
+window.rootViewController = router.rootViewController
+router.start()
 
 .................................................
+/// Application Code
 
-let owner: PetOwner = *container
+import SwiftLazy
 
-print(owner.pets.map{ $0.name }) // ["Felix", "Rex"]
-print(onwer.home.address) // "City, Street, Number"
-
-.................................................
-
-// where
-protocol Animal {
-  var name: String { get }
+class LoginRouter {
+    let rootViewController = UINavigationController()
+    private let loginPresenterProvider: Provider<LoginPresenter>
+    
+    init(loginPresenterProvider: Provider<LoginPresenter>) {
+        loginPresenterProvider = loginPresenterProvider
+    }
+    
+    func start() {
+        let presenter = loginPresenterProvider.value
+        presenter.loginSuccessCallback = { [weak self] _ in
+            ...
+        }
+        // Your can write code without force cast, it's code simple example
+        rootViewController.push(presenter.view as! UIViewController)
+    }
 }
 
-class Cat: Animal {
-  let name: String
-  init(name: String) {
-    self.name = name
-  }
+protocol LoginPresenter: class {
+    var loginSuccessCallback: ((_ userId: String) -> Void)?
+    func login(name: String, password: String)
 }
 
-class Dog: Animal {
-  let name: String
-  init(name: String) {
-    self.name = name
-  }
+protocol LoginView: class {
+    func showError(text: String)
 }
 
-class PetOwner {
-  let pets: [Animal]
-  init(pets: [Animal]) {
-    self.pets = pets
-  }
-  
-  private(set) var home: Home!
+class LoginPresenterImpl: LoginPresenter {
+    private weak var view: LoginView?
+    private let authInteractor: AuthInteractor
+    init(view: LoginView, authInteractor: AuthInteractor) {
+        self.view = view
+        self.authInteractor = authInteractor
+    }
+    
+    func login(name: String, password: String) {
+        if name.isEmpty || password.isEmpty {
+            view?.showError(text: "fill input")
+            return
+        }
+        
+        authInteractor.login(name: name, password: password, completion: { [weak self] result in
+            switch result {
+            case .failure(let error): 
+                self?.view?.showError(text: "\(error)")
+            case .success(let userId):
+                self?.loginSuccessCallback?(userId)
+            }
+        })
+    }
 }
 
-class Home {
-  var address: String!
+class LoginViewController: UIViewController, LoginView {
+    var presenter: LoginPresenter!
+    ...
+    func showError(text: String) {
+        showAlert(title: "Error", message: text)
+    }
+    
+    private func tapOnLoginButton() {
+        presenter.login(name: nameTextField.text ?? "", password: passwordTextField.text ?? "")
+    }
 }
-```
-</details>
 
-### Storyboard (iOS/OS X)
-
-<details>
-<summary>See code</summary>
-
-Create your ViewController:
-```Swift
-class ViewController: UIViewController/NSViewController {
-  private(set) var inject: Inject?
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    print("Inject: \(inject)")
-  }
+protocol AuthInteractor: class {
+    func login(name: String, password: String, completion: (Result<String, Error>) -> Void)
 }
-```
-Create container:
-```Swift
-let container = DIContainer()
-container.register(ViewController.self)
-  .injection(\.inject)
-```
-Create Storyboard:
-```Swift
-/// for iOS
-func applicationDidFinishLaunching(_ application: UIApplication) {
-  let storyboard = DIStoryboard.create(name: "Main", bundle: nil, container: container)
 
-  window = UIWindow(frame: UIScreen.main.bounds)
-  window!.rootViewController = storyboard.instantiateInitialViewController()
-  window!.makeKeyAndVisible()
-}
-```
-
-```Swift
-/// for OS X
-func applicationDidFinishLaunching(_ aNotification: Notification) {
-  let storyboard = DIStoryboard.create(name: "Main", bundle: nil, container: container)
-
-  let viewController = storyboard.instantiateInitialController() as! NSViewController
-  let window = NSApplication.shared.windows.first
-  window?.contentViewController = viewController
+class AuthInteractorImpl: AuthInteractor {
+    func login(name: String, password: String, completion: (Result<String, Error>) -> Void) {
+        ...
+    }
 }
 ```
+As you can see, the dependency description code takes a small part, and the application code doen't know about how dependencies are implemented.  
 
-</details>
+Also your can show samples:
+* [For habr](Samples/SampleHabr/)
+* [Chaos](Samples/SampleChaos/)
+* [Delegate and observer](Samples/SampleDelegateAndObserver/)
 
-## Install
-###### Via CocoaPods.
-
-To install DITranquillity with CocoaPods, add the following lines to your Podfile: `pod 'DITranquillity'`  
-
-###### Via Carthage.
-
-`github "ivlevAstef/DITranquillity"` Swift
-(iOS8+,macOS10.10+,tvOS9+)
-
-###### Via SwiftPM.
-
-`https://github.com/ivlevAstef/DITranquillity`
-version >= 3.8.4 (iOS8+,macOS10.10+,tvOS9+)
+Also your can read articles:
+* Ru! [https://habr.com/ru/post/457188/](https://habr.com/ru/post/457188/) 
+* Ru! Old! [https://habr.com/ru/post/311334/](https://habr.com/ru/post/311334/)
 
 ## Requirements
-iOS 8.0+,macOS 10.10+,tvOS 9.0+; ARC
+iOS 8.0+,macOS 10.10+,tvOS 9.0+, watchOS, linux; ARC
 
-* Swift 5.1: Xcode 11; version >= 3.6.3
-* Swift 5.0: Xcode 10.2; version >= 3.6.3
+* Swift 5.0-5.3: Xcode 10.2-12; version >= 3.6.3
 * Swift 4.2: Xcode 10; version >= 3.4.3
 * Swift 4.1: Xcode 9.3; version >= 3.2.3
 * Swift 4.0: Xcode 9.0; version >= 3.0.5
 * Swift 3.0-3.2: Xcode 8.0-9.0; 0.9.5 <= version < 3.7.0
 * Swift 2.3: Xcode 7.0; version < 0.9.5
 
-## Migration
-* v1.x.x -> v2.x.x [ru](Documentation/ru/migration1to2.md)
-* v2.x.x -> v3.x.x [ru](Documentation/ru/migration2to3.md)
-
 ## Changelog
-See [CHANGELOG.md](CHANGELOG.md) file.
+See [CHANGELOG](CHANGELOG.md) file or [releases](https://github.com/ivlevAstef/DITranquillity/releases).
+
+## History and Plans
+- [x] v1.x.x - Started
+- [x] v2.x.x - Stabilization
+- [x]  v3.x.x - Evolution and Features
+- [ ] v4.x.x - Graph API and Optimization. Also Documentation and Marketing
+- [ ]  v5.x.x - Pre compile time validation
 
 ## Feedback
 
@@ -234,5 +231,12 @@ Please raise a [GitHub issue](https://github.com/ivlevAstef/DITranquillity/issue
 ### I've found a defect in documentation, or thought up how to improve it
 Please help library development and create [pull requests](https://github.com/ivlevAstef/DITranquillity/pulls)
 
+### Plea
+If you like my library, then support the library by putting star.
+
+You can also support the author of the library with a donation:
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/ivlevAstef)
+
 ### Question?
-You can feel free to ask the question at e-mail: ivlev.stef@gmail.com.  
+You can feel free to ask the question at e-mail: ivlev.stef@gmail.com.

@@ -13,8 +13,8 @@
 #import "DITranquillity.h"
 #import "NSObject+Swizzling.h"
 #import "DINSResolver.h"
-#import "UIView+Swizzling.h"
 #import "DIStoryboardBase.h"
+#import "UIView+Swizzling.h"
 
 FOUNDATION_EXPORT double DITranquillityVersionNumber;
 FOUNDATION_EXPORT const unsigned char DITranquillityVersionString[];
