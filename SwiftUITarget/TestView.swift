@@ -42,7 +42,6 @@ struct TestView: View {
     }
 
     @ObservedObject var presenter: Presenter
-
     var props: Props { presenter.props }
         
     var body: some View {
@@ -61,16 +60,31 @@ struct TestView: View {
     {
         static func load(container: DIContainer)
         {
-            container.register(Props.init).lifetime(.objectGraph)
-            container.register{ Presenter(store: $0, props: $1) }.lifetime(.objectGraph)
-            container.register{ TestView(presenter: $0) }.lifetime(.objectGraph)
+            container.register(Props.init).lifetime(.prototype)
+            container.register{ Presenter(store: $0, props: $1) }.lifetime(.prototype)
+            container.register{ TestView(presenter: $0) }.lifetime(.prototype)
         }
     }
 }
 
 
-struct ContentView_Previews: PreviewProvider {
+struct TestView_Previews: PreviewProvider {
     static var previews: some View {
         container.resolve() as TestView
+    }
+}
+
+struct Test2View_Previews: PreviewProvider {
+    static var previews: some View
+    {
+        let view = container.resolve() as TestView
+        
+        view.presenter.props = TestView.Props(
+            counterText: "10",
+            add1Command: nil,
+            add150Command: nil
+        )
+        
+        return view
     }
 }
