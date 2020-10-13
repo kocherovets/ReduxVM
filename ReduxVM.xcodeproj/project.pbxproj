@@ -15,6 +15,7 @@
 		C350ABDE23AFB5AF007A9F6F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350ABDD23AFB5AF007A9F6F /* UIColor+.swift */; };
 		C350ABE023AFB6B4007A9F6F /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350ABDF23AFB6B4007A9F6F /* ChildVC.swift */; };
 		C350ABE223AFB98D007A9F6F /* BaseWithProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350ABE123AFB98D007A9F6F /* BaseWithProps.swift */; };
+		C355BD1E2535865000E7044F /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C355BD1D2535865000E7044F /* TestView2.swift */; };
 		C3709F56239C598F00CC8DD8 /* Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3709F4D239C598F00CC8DD8 /* Framework.framework */; };
 		C3709F5D239C598F00CC8DD8 /* FrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3709F5C239C598F00CC8DD8 /* FrameworkTests.swift */; };
 		C3709F5F239C598F00CC8DD8 /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = C3709F4F239C598F00CC8DD8 /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -166,6 +167,7 @@
 		C350ABDD23AFB5AF007A9F6F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		C350ABDF23AFB6B4007A9F6F /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
 		C350ABE123AFB98D007A9F6F /* BaseWithProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWithProps.swift; sourceTree = "<group>"; };
+		C355BD1D2535865000E7044F /* TestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
 		C3709F4D239C598F00CC8DD8 /* Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3709F4F239C598F00CC8DD8 /* Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		C3709F50239C598F00CC8DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				C3F52D54252A98E200B1B6AB /* ApiInteractor.swift */,
 				C3A970A925291B91003296E5 /* SwiftUITargetApp.swift */,
 				C3F52D0B252A8D9C00B1B6AB /* TestView.swift */,
+				C355BD1D2535865000E7044F /* TestView2.swift */,
 				C3A970AD25291B92003296E5 /* Assets.xcassets */,
 				C3A970B225291B92003296E5 /* Info.plist */,
 				C3A970AF25291B92003296E5 /* Preview Content */,
@@ -1016,6 +1019,7 @@
 				C3A970AA25291B91003296E5 /* SwiftUITargetApp.swift in Sources */,
 				C3F52D0C252A8D9C00B1B6AB /* TestView.swift in Sources */,
 				C3A970DC25291BA8003296E5 /* TestStore.swift in Sources */,
+				C355BD1E2535865000E7044F /* TestView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

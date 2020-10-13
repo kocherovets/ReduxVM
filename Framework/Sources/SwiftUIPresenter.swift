@@ -15,13 +15,13 @@ public protocol SwiftUIProperties {
     init()
 }
 
-open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: StoreSubscriber, PresenterProtocol, Trunk, ObservableObject {
-
-    @Published public var props: Props
-
+open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: StoreSubscriber, PresenterProtocol, Trunk {
+    
     private var store: Store<State>
 
     public var storeTrunk: StoreTrunk { store }
+    
+    public var onPropsChanged: ((Props) -> ())?
 
     public func onInit() {
         onInit(state: store.state, trunk: self)
@@ -31,10 +31,10 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
         onDeinit(state: store.state, trunk: self)
     }
 
-    public init(store: Store<State>, props: Props) {
+    public init(store: Store<State>, onPropsChanged: ((Props) -> ())?) {
+        
         self.store = store
-
-        self.props = props
+        self.onPropsChanged = onPropsChanged
         
         subscribe()
         
@@ -82,8 +82,8 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
             command.perform()
         case .props:
             let p = props(for: box, trunk: self)
-            DispatchQueue.main.async {
-                self.props = p
+            DispatchQueue.main.async { [weak self] in
+                self?.onPropsChanged?(p)
             }
         case .none:
             return

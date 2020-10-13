@@ -20,10 +20,24 @@ struct TestState: StateType, Equatable {
 struct AppState: RootStateType, Equatable {
     var test = TestState()
     var counter = CounterState()
+    
+    var isWhite = false
 }
 
 let storeQueue = DispatchQueue(label: "queueTitle", qos: .userInteractive)
 
 class TestStore: Store<AppState> {
 
+}
+
+
+extension AppState
+{
+    struct DetailViewAction: Action {
+
+        func updateState(_ state: inout AppState) {
+
+            state.isWhite = true
+        }
+    }
 }

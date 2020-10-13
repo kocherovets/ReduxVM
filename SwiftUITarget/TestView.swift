@@ -17,8 +17,9 @@ struct TestView: View {
 
     struct Props: SwiftUIProperties {
         var counterText: String = "0"
-        var add1Command: Command?
-        var add150Command: Command?
+        var add1Command: Command = Command { }
+        var add150Command: Command = Command { }
+        var detailViewCommand: Command = Command { }
     }
 
     class Presenter: SwiftUIPresenter<AppState, Props> {
@@ -36,55 +37,57 @@ struct TestView: View {
                 },
                 add150Command: Command {
                     trunk.dispatch(RequestIncrementAction())
+                },
+                detailViewCommand: Command {
+                    trunk.dispatch(AppState.DetailViewAction())
                 }
             )
         }
     }
 
-    @ObservedObject var presenter: Presenter
-    var props: Props { presenter.props }
-        
     var body: some View {
-        VStack(spacing: 10) {
-            Text(props.counterText)
-            Button("Add 1") {
-                props.add1Command?.perform()
-            }
-            Button("Add 150") {
-                props.add150Command?.perform()
-            }
-        }
-    }
-    
-    class DI: DIPart
-    {
-        static func load(container: DIContainer)
-        {
-            container.register(Props.init).lifetime(.prototype)
-            container.register{ Presenter(store: $0, props: $1) }.lifetime(.prototype)
-            container.register{ TestView(presenter: $0) }.lifetime(.prototype)
-        }
-    }
-}
+        NavigationView {
 
+            VStack(spacing: 10) {
+                Text(props.counterText)
+                Button("Add 1") {
+                    props.add1Command.perform()
+                }
+                Button("Add 150") {
+                    props.add150Command.perform()
+                }
+                NavigationLink(destination: TestView2())
+                {
+                    Text("Show Detail View")
+                } .simultaneousGesture(TapGesture().onEnded {
+                    props.detailViewCommand.perform()
+                })
+                    .navigationBarTitle("Demo")
+                    .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>,
+                                                      onPropsChanged: { props in self.properties = props }) }
+                    .onDisappear { properties = nil; presenter = nil }
+            }
+        }
+    }
+
+    @State var presenter: Presenter?
+    @State var properties: Props?
+    var props: Props { properties ?? Props() }
+}
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
-        container.resolve() as TestView
+        TestView()
     }
 }
 
-struct Test2View_Previews: PreviewProvider {
+struct TestView_Previews2: PreviewProvider {
     static var previews: some View
     {
-        let view = container.resolve() as TestView
-        
-        view.presenter.props = TestView.Props(
-            counterText: "10",
-            add1Command: nil,
-            add150Command: nil
-        )
-        
-        return view
+        TestView(properties: TestView.Props(counterText: "10",
+                                               add1Command: Command { },
+                                               add150Command: Command { },
+                                               detailViewCommand: Command { }
+        ))
     }
 }

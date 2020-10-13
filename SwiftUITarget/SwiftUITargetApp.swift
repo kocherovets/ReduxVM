@@ -25,8 +25,6 @@ public class AppFramework: DIFramework {
             .lifetime(.single)
 
         container.register (ApiInteractor.init) .lifetime(.single)
-        
-        container.append(part: TestView.DI.self)
     }
 }
 
@@ -57,13 +55,13 @@ struct SwiftUITargetApp: App
 
     var body: some Scene {
         WindowGroup {
-            container.resolve() as TestView
+            TestView()
         }
     }
 }
 
 struct SwiftUITargetApp_Previews: PreviewProvider {
     static var previews: some View {
-        container.resolve() as TestView
+        TestView()
     }
 }
