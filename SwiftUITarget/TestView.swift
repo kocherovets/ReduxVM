@@ -16,7 +16,11 @@ import DeclarativeTVC
 struct TestView: View {
 
     struct Props: SwiftUIProperties {
-        var counterText: String = "0"
+        var navBarText = "Demo"
+        var counterText = "Counter: 0"
+        var add1Text = "Add 1"
+        var add150Text = "Add 150"
+        var showDetailViewText = "Show Detail View"
         var add1Command: Command = Command { }
         var add150Command: Command = Command { }
         var detailViewCommand: Command = Command { }
@@ -31,7 +35,11 @@ struct TestView: View {
         override func props(for box: StateBox<AppState>, trunk: Trunk) -> Props {
 
             Props(
-                counterText: "\(box.state.counter.counter)",
+                navBarText: "Demo",
+                counterText: "Counter: \(box.state.counter.counter)",
+                add1Text: "Add 1",
+                add150Text: "Add 150",
+                showDetailViewText: "Show Detail View",
                 add1Command: Command {
                     trunk.dispatch(IncrementAction())
                 },
@@ -49,30 +57,31 @@ struct TestView: View {
         NavigationView {
 
             VStack(spacing: 10) {
-                Text("Counter: " + props.counterText)
-                Button("Add 1") {
+                Text(props.counterText)
+                Button(props.add1Text) {
                     props.add1Command.perform()
                 }
-                Button("Add 150") {
+                Button(props.add150Text) {
                     props.add150Command.perform()
                 }
                 NavigationLink(destination: TestView2())
                 {
-                    Text("Show Detail View")
+                    Text(props.showDetailViewText)
                 } .simultaneousGesture(TapGesture().onEnded {
                     props.detailViewCommand.perform()
                 })
-                    .navigationBarTitle("Demo")
+                    .navigationBarTitle(props.navBarText)
+
                     .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>,
-                                                      onPropsChanged: { props in self.properties = props }) }
-                    .onDisappear { properties = nil; presenter = nil }
+                                                      onPropsChanged: { props in self.optionalProps = props }) }
+                    .onDisappear { optionalProps = nil; presenter = nil }
             }
         }
     }
 
     @State var presenter: Presenter?
-    @State var properties: Props?
-    var props: Props { properties ?? Props() }
+    @State var optionalProps: Props?
+    var props: Props { optionalProps ?? Props() }
 }
 
 struct TestView_Previews: PreviewProvider {
@@ -84,10 +93,15 @@ struct TestView_Previews: PreviewProvider {
 struct TestView_Previews2: PreviewProvider {
     static var previews: some View
     {
-        TestView(properties: TestView.Props(counterText: "10",
-                                               add1Command: Command { },
-                                               add150Command: Command { },
-                                               detailViewCommand: Command { }
-        ))
+        TestView(optionalProps:
+            TestView.Props(navBarText: "Demo",
+                           counterText: "Counter: 10",
+                           add1Text: "Add 1",
+                           add150Text: "Add 150",
+                           showDetailViewText: "Show Detail View",
+                           add1Command: Command { },
+                           add150Command: Command { },
+                           detailViewCommand: Command { })
+        )
     }
 }
