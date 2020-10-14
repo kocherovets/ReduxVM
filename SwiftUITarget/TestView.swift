@@ -21,9 +21,9 @@ struct TestView: View {
         var add1Text = "Add 1"
         var add150Text = "Add 150"
         var showDetailViewText = "Show Detail View"
-        var add1Command: Command = Command { }
-        var add150Command: Command = Command { }
-        var detailViewCommand: Command = Command { }
+        var add1Command = Command { }
+        var add150Command = Command { }
+        var detailViewCommand = Command { }
     }
 
     class Presenter: SwiftUIPresenter<AppState, Props> {
