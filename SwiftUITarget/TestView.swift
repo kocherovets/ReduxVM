@@ -49,7 +49,7 @@ struct TestView: View {
         NavigationView {
 
             VStack(spacing: 10) {
-                Text(props.counterText)
+                Text("Counter: " + props.counterText)
                 Button("Add 1") {
                     props.add1Command.perform()
                 }

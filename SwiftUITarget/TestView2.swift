@@ -18,6 +18,8 @@ struct TestView2: View {
     struct Props: SwiftUIProperties {
         var color: Color = .green
         var counterText: String = "0"
+        var options = ["1", "10", "100"]
+        var optionCommands = [Command]()
     }
 
     class Presenter: SwiftUIPresenter<AppState, Props> {
@@ -29,23 +31,41 @@ struct TestView2: View {
         override func props(for box: StateBox<AppState>, trunk: Trunk) -> Props {
             Props(
                 color: box.state.isWhite ? .white : .green,
-                counterText: "\(box.state.counter.counter)"
+                counterText: "\(box.state.counter.counter)",
+                options: ["1", "10", "100"],
+                optionCommands: [
+                    Command { trunk.dispatch(AddAction(value: 1)) },
+                    Command { trunk.dispatch(AddAction(value: 10)) },
+                    Command { trunk.dispatch(AddAction(value: 100)) }
+                ]
             )
         }
     }
 
+    @State fileprivate var selectorIndex = 0
+
     var body: some View {
-        VStack {
+        HStack {
             Spacer()
-            HStack {
+            VStack(spacing: 10) {
                 Spacer()
-                Text("TestView2 " + props.counterText)
+                Text("Counter: " + props.counterText)
+                Text("Add")
+                Picker("", selection: $selectorIndex) {
+                    ForEach(0 ..< props.options.count, id: \.self) { index in
+                        Text(props.options[index])
+                    }
+                }
+                    .pickerStyle(SegmentedPickerStyle())
                 Spacer()
             }
             Spacer()
         }
             .background(props.color)
             .edgesIgnoringSafeArea(.all)
+
+            .onChange(of: selectorIndex) { value in props.optionCommands[self.selectorIndex].perform() }
+
             .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>,
                                               onPropsChanged: { props in self.properties = props }) }
             .onDisappear { properties = nil; presenter = nil }
@@ -67,7 +87,7 @@ struct TestView2_Previews2: PreviewProvider {
     static var previews: some View
     {
         TestView2(properties: TestView2.Props(color: .white,
-                                                 counterText: "10"
+                                              counterText: "10"
         ))
     }
 }
