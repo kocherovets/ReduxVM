@@ -13,6 +13,8 @@ import RedSwift
 import Combine
 import DeclarativeTVC
 
+var qq = 0
+
 struct TestView2: View {
 
     struct Props: SwiftUIProperties {
@@ -24,6 +26,18 @@ struct TestView2: View {
     }
 
     class Presenter: SwiftUIPresenter<AppState, Props> {
+
+        override init(store: Store<AppState>, onPropsChanged: ((TestView2.Props) -> ())?) {
+            super.init(store: store, onPropsChanged: onPropsChanged)
+            qq += 1
+            print("qq = \(qq)")
+        }
+        
+        deinit {
+            print("deinit")
+            qq -= 1
+            print("qq = \(qq)")
+        }
 
         override func reaction(for box: StateBox<AppState>) -> ReactionToState {
             return .props
@@ -70,7 +84,7 @@ struct TestView2: View {
 
             .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>,
                                               onPropsChanged: { props in self.optionalProps = props }) }
-            .onDisappear { optionalProps = nil; presenter = nil }
+            .onDisappear { optionalProps = nil; presenter?.unsubscribe(); presenter = nil }
     }
 
     @State var presenter: Presenter?
