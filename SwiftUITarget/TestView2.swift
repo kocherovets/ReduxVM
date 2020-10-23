@@ -28,7 +28,7 @@ struct TestView2: View {
 
     class Presenter: SwiftUIPresenter<AppState, Props> {
 
-        required init(store: Store<AppState>) {
+        override init(store: Store<AppState>) {
             super.init(store: store)
             qq += 1
             print("qq = \(qq)")
@@ -87,42 +87,48 @@ struct TestView2: View {
             }
         }
     }
-    
-    class DI: DIPart
-    {
-        static func load(container: DIContainer)
-        {
-            container.register(Presenter.self)
+
+    class DI: DIPart {
+        static func load(container: DIContainer) {
+            container.register { Presenter(store: $0) }.lifetime(.prototype)
         }
     }
 }
 
+fileprivate var testProps: TestView2.Props? = nil
+
 struct TestView2_Previews: PreviewProvider {
     static var previews: some View {
-        TestView2()
+        (container.resolve() as TestView2.Presenter).testProps = TestView2.Props()
+//        container.register { TestView2.Presenter(store: $0, testProps: TestView2.Props()) }.lifetime(.prototype)
+        return TestView2()
     }
 }
 
-//struct TestView2_Previews2: PreviewProvider {
-//    static var previews: some View
-//    {
-//        let view = TestView2()
-//        view.
-//
-//        TestView2(optionalProps:
-//            TestView2.Props(color: .white,
-//                            counterText: "Counter: 10",
-//                            pickerTitle: "Add",
-//                            options: ["1", "10", "100"],
-//                            optionCommands: []
-//        ))
-//    }
-//}
+struct TestView2_Previews2: PreviewProvider {
+    static var previews: some View
+    {
+        let props = TestView2.Props(color: .white,
+                                    counterText: "Counter: 10",
+                                    pickerTitle: "Add",
+                                    options: ["1", "10", "100"],
+                                    optionCommands: [])
+        (container.resolve() as TestView2.Presenter).testProps = props
+        print(111)
+        return TestView2()
+    }
+}
 
 struct BaseView<Content, Presenter, Props>: View where Content: View, Presenter: SwiftUIPresenter<AppState, Props>, Props: SwiftUIProperties
 {
     @State var presenter: Presenter?
-    var props: Props { presenter?.props ?? Props() }
+    @State var optionalProps: Props?
+    var props: Props {
+        if let props = presenter?.testProps {
+            return props
+        }
+        return optionalProps ?? Props()
+    }
 
     @State var viewBuilder: (Props) -> Content
 
@@ -133,8 +139,18 @@ struct BaseView<Content, Presenter, Props>: View where Content: View, Presenter:
     var body: some View {
 
         viewBuilder(props)
-            .onAppear { presenter = container.resolve() as Presenter }
-            .onDisappear { presenter?.unsubscribe(); presenter = nil }
+            .onAppear
+        {
+            presenter = container.resolve() as Presenter
+            presenter?.onPropsChanged = { props in
+                self.optionalProps = props
+            }
+        }
+            .onDisappear
+        {
+            optionalProps = nil;
+            presenter?.unsubscribe();
+            presenter = nil
+        }
     }
 }
-//Presenter(store: container.resolve() as Store<AppState>)

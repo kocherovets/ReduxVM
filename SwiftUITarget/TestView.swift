@@ -40,7 +40,7 @@ struct TestView: View {
                 add1Text: "Add 1",
                 add150Text: "Add 150",
                 showDetailViewText: "Show Detail View",
-                add1Command: Command {
+                add1Command: Command(id: "1") {
                     trunk.dispatch(IncrementAction())
                 },
                 add150Command: Command {
@@ -52,35 +52,38 @@ struct TestView: View {
             )
         }
     }
-
+    
     var body: some View {
-        NavigationView {
+        BaseView<ZStack, Presenter, Props> { props in
+            ZStack {
+                NavigationView {
 
-            VStack(spacing: 10) {
-                Text(props.counterText)
-                Button(props.add1Text) {
-                    props.add1Command.perform()
+                    VStack(spacing: 10) {
+                        Text(props.counterText)
+                        Button(props.add1Text) {
+                            props.add1Command.perform()
+                        }
+                        Button(props.add150Text) {
+                            props.add150Command.perform()
+                        }
+                        NavigationLink(destination: TestView2())
+                        {
+                            Text(props.showDetailViewText)
+                        } .simultaneousGesture(TapGesture().onEnded {
+                            props.detailViewCommand.perform()
+                        })
+                            .navigationBarTitle(props.navBarText)
+                    }
                 }
-                Button(props.add150Text) {
-                    props.add150Command.perform()
-                }
-                NavigationLink(destination: TestView2())
-                {
-                    Text(props.showDetailViewText)
-                } .simultaneousGesture(TapGesture().onEnded {
-                    props.detailViewCommand.perform()
-                })
-                    .navigationBarTitle(props.navBarText)
-
-                    .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>) }
-                    .onDisappear { optionalProps = nil; presenter = nil }
             }
         }
     }
 
-    @State var presenter: Presenter?
-    @State var optionalProps: Props?
-    var props: Props { optionalProps ?? Props() }
+    class DI: DIPart {
+        static func load(container: DIContainer) {
+            container.register { Presenter(store: $0) }.lifetime(.prototype)
+        }
+    }
 }
 
 struct TestView_Previews: PreviewProvider {
@@ -89,18 +92,18 @@ struct TestView_Previews: PreviewProvider {
     }
 }
 
-struct TestView_Previews2: PreviewProvider {
-    static var previews: some View
-    {
-        TestView(optionalProps:
-            TestView.Props(navBarText: "Demo",
-                           counterText: "Counter: 10",
-                           add1Text: "Add 1",
-                           add150Text: "Add 150",
-                           showDetailViewText: "Show Detail View",
-                           add1Command: Command { },
-                           add150Command: Command { },
-                           detailViewCommand: Command { })
-        )
-    }
-}
+//struct TestView_Previews2: PreviewProvider {
+//    static var previews: some View
+//    {
+//        TestView(optionalProps:
+//            TestView.Props(navBarText: "Demo",
+//                           counterText: "Counter: 10",
+//                           add1Text: "Add 1",
+//                           add150Text: "Add 150",
+//                           showDetailViewText: "Show Detail View",
+//                           add1Command: Command { },
+//                           add150Command: Command { },
+//                           detailViewCommand: Command { })
+//        )
+//    }
+//}
