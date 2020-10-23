@@ -17,14 +17,6 @@ public protocol SwiftUIProperties {
 
 open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: StoreSubscriber, PresenterProtocol, Trunk {
 
-    public var testProps: Props? {
-        didSet {
-            if let testProps = testProps {
-                onPropsChanged?(testProps)
-            }
-        }
-    }
-
     private var store: Store<State>
 
     public var storeTrunk: StoreTrunk { store }
@@ -39,7 +31,7 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
         onDeinit(state: store.state, trunk: self)
     }
 
-    public init(store: Store<State>) {
+    public required init(store: Store<State>) {
 
         self.store = store
 
