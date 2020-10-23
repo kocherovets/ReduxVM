@@ -25,6 +25,10 @@ public class AppFramework: DIFramework {
             .lifetime(.single)
 
         container.register (ApiInteractor.init) .lifetime(.single)
+        
+        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
+            container.append(part: TestView2.DI.self)
+        }
     }
 }
 

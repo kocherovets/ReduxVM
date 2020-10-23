@@ -28,8 +28,8 @@ struct TestView2: View {
 
     class Presenter: SwiftUIPresenter<AppState, Props> {
 
-        required init(store: Store<AppState>, onPropsChanged: ((TestView2.Props) -> ())?) {
-            super.init(store: store, onPropsChanged: onPropsChanged)
+        required init(store: Store<AppState>) {
+            super.init(store: store)
             qq += 1
             print("qq = \(qq)")
         }
@@ -87,6 +87,14 @@ struct TestView2: View {
             }
         }
     }
+    
+    class DI: DIPart
+    {
+        static func load(container: DIContainer)
+        {
+            container.register(Presenter.self)
+        }
+    }
 }
 
 struct TestView2_Previews: PreviewProvider {
@@ -114,8 +122,7 @@ struct TestView2_Previews: PreviewProvider {
 struct BaseView<Content, Presenter, Props>: View where Content: View, Presenter: SwiftUIPresenter<AppState, Props>, Props: SwiftUIProperties
 {
     @State var presenter: Presenter?
-    @State var optionalProps: Props?
-    var props: Props { optionalProps ?? Props() }
+    var props: Props { presenter?.props ?? Props() }
 
     @State var viewBuilder: (Props) -> Content
 
@@ -126,9 +133,8 @@ struct BaseView<Content, Presenter, Props>: View where Content: View, Presenter:
     var body: some View {
 
         viewBuilder(props)
-            .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>,
-                                              onPropsChanged: { props in self.optionalProps = props }) }
-            .onDisappear { optionalProps = nil; presenter?.unsubscribe(); presenter = nil }
+            .onAppear { presenter = container.resolve() as Presenter }
+            .onDisappear { presenter?.unsubscribe(); presenter = nil }
     }
 }
-
+//Presenter(store: container.resolve() as Store<AppState>)

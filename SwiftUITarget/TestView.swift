@@ -72,8 +72,7 @@ struct TestView: View {
                 })
                     .navigationBarTitle(props.navBarText)
 
-                    .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>,
-                                                      onPropsChanged: { props in self.optionalProps = props }) }
+                    .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>) }
                     .onDisappear { optionalProps = nil; presenter = nil }
             }
         }
