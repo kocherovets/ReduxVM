@@ -11,12 +11,36 @@ import RedSwift
 struct CounterState: StateType, Equatable {
 
     var counter: Int = 0
+    var actionIndex = 0
     
     enum DelayedIncrement {
         case requested
         case none
     }
     var delayedIncrement = DelayedIncrement.none
+}
+
+extension CounterState {
+
+    struct AddAction: Action {
+
+        let actionIndex: Int
+
+        func updateState(_ state: inout AppState) {
+
+            state.counter.actionIndex = actionIndex
+            switch actionIndex {
+            case 0:
+                state.counter.counter += 1
+            case 1:
+                state.counter.counter += 10
+            case 2:
+                state.counter.counter += 100
+            default:
+                return
+            }
+        }
+    }
 }
 
 struct IncrementAction: Action {

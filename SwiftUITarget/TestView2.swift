@@ -23,16 +23,17 @@ struct TestView2: View {
         var pickerTitle = "Add"
         var options = ["1", "10", "100"]
         var optionCommands = [Command]()
+        var actionIndex = 0
     }
 
     class Presenter: SwiftUIPresenter<AppState, Props> {
 
-        override init(store: Store<AppState>, onPropsChanged: ((TestView2.Props) -> ())?) {
+        required init(store: Store<AppState>, onPropsChanged: ((TestView2.Props) -> ())?) {
             super.init(store: store, onPropsChanged: onPropsChanged)
             qq += 1
             print("qq = \(qq)")
         }
-        
+
         deinit {
             print("deinit")
             qq -= 1
@@ -50,48 +51,43 @@ struct TestView2: View {
                 pickerTitle: "Add",
                 options: ["1", "10", "100"],
                 optionCommands: [
-                    Command { trunk.dispatch(AddAction(value: 1)) },
-                    Command { trunk.dispatch(AddAction(value: 10)) },
-                    Command { trunk.dispatch(AddAction(value: 100)) }
-                ]
+                    Command { trunk.dispatch(CounterState.AddAction(actionIndex: 0)) },
+                    Command { trunk.dispatch(CounterState.AddAction(actionIndex: 1)) },
+                    Command { trunk.dispatch(CounterState.AddAction(actionIndex: 2)) }
+                ],
+                actionIndex: box.state.counter.actionIndex
             )
         }
     }
 
-    @State fileprivate var selectorIndex = 0
-
     var body: some View {
-        HStack {
-            Spacer()
-            VStack(spacing: 10) {
-                Spacer()
-                Text(props.counterText)
-                Text(props.pickerTitle)
-                Picker("", selection: $selectorIndex) {
-                    ForEach(0 ..< props.options.count, id: \.self) { index in
-                        Text(props.options[index])
+        BaseView<ZStack, Presenter, Props> { props in
+            ZStack {
+                HStack {
+                    Spacer()
+                    VStack(spacing: 10) {
+                        Spacer()
+                        Text(props.counterText)
+                        Text(props.pickerTitle)
+                        Picker("",
+                               selection: Binding(get: { props.actionIndex },
+                                                  set: { props.optionCommands[$0].perform() })
+                        ) {
+                            ForEach(0 ..< props.options.count, id: \.self) { index in
+                                Text(props.options[index])
+                            }
+                        }
+                            .pickerStyle(SegmentedPickerStyle())
+                        Spacer()
                     }
+                    Spacer()
                 }
-                    .pickerStyle(SegmentedPickerStyle())
-                Spacer()
+                    .background(props.color)
+                    .edgesIgnoringSafeArea(.all)
             }
-            Spacer()
         }
-            .background(props.color)
-            .edgesIgnoringSafeArea(.all)
-
-            .onChange(of: selectorIndex) { value in props.optionCommands[self.selectorIndex].perform() }
-
-            .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>,
-                                              onPropsChanged: { props in self.optionalProps = props }) }
-            .onDisappear { optionalProps = nil; presenter?.unsubscribe(); presenter = nil }
     }
-
-    @State var presenter: Presenter?
-    @State var optionalProps: Props?
-    var props: Props { optionalProps ?? Props() }
 }
-
 
 struct TestView2_Previews: PreviewProvider {
     static var previews: some View {
@@ -99,15 +95,40 @@ struct TestView2_Previews: PreviewProvider {
     }
 }
 
-struct TestView2_Previews2: PreviewProvider {
-    static var previews: some View
-    {
-        TestView2(optionalProps:
-            TestView2.Props(color: .white,
-                            counterText: "Counter: 10",
-                            pickerTitle: "Add",
-                            options: ["1", "10", "100"],
-                            optionCommands: []
-        ))
+//struct TestView2_Previews2: PreviewProvider {
+//    static var previews: some View
+//    {
+//        let view = TestView2()
+//        view.
+//
+//        TestView2(optionalProps:
+//            TestView2.Props(color: .white,
+//                            counterText: "Counter: 10",
+//                            pickerTitle: "Add",
+//                            options: ["1", "10", "100"],
+//                            optionCommands: []
+//        ))
+//    }
+//}
+
+struct BaseView<Content, Presenter, Props>: View where Content: View, Presenter: SwiftUIPresenter<AppState, Props>, Props: SwiftUIProperties
+{
+    @State var presenter: Presenter?
+    @State var optionalProps: Props?
+    var props: Props { optionalProps ?? Props() }
+
+    @State var viewBuilder: (Props) -> Content
+
+    init(@ViewBuilder builder: @escaping (Props) -> Content) {
+        self._viewBuilder = State<(Props) -> Content>(initialValue: builder)
+    }
+
+    var body: some View {
+
+        viewBuilder(props)
+            .onAppear { presenter = Presenter(store: container.resolve() as Store<AppState>,
+                                              onPropsChanged: { props in self.optionalProps = props }) }
+            .onDisappear { optionalProps = nil; presenter?.unsubscribe(); presenter = nil }
     }
 }
+

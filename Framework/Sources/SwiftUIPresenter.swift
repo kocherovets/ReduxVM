@@ -31,7 +31,7 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
         onDeinit(state: store.state, trunk: self)
     }
 
-    public init(store: Store<State>, onPropsChanged: ((Props) -> ())?) {
+    public required init(store: Store<State>, onPropsChanged: ((Props) -> ())?) {
         
         self.store = store
         self.onPropsChanged = onPropsChanged
@@ -89,7 +89,7 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
             return
         }
     }
-
+    
     open func reaction(for box: StateBox<State>) -> ReactionToState {
 
         return .props
