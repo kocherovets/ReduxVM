@@ -64,6 +64,8 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
 
     public final func unsubscribe() {
 
+        props = nil
+        
         store.queue.async { [weak self] in
 
             guard let self = self else { return }

@@ -52,33 +52,31 @@ struct TestView: View {
             )
         }
     }
-    
-    var body: some View {
-        BaseView<ZStack, Presenter, Props>(testProps: testProps) { props in
-            ZStack {
-                NavigationView {
 
-                    VStack(spacing: 10) {
-                        Text(props.counterText)
-                        Button(props.add1Text) {
-                            props.add1Command.perform()
-                        }
-                        Button(props.add150Text) {
-                            props.add150Command.perform()
-                        }
-                        NavigationLink(destination: TestView2())
-                        {
-                            Text(props.showDetailViewText)
-                        } .simultaneousGesture(TapGesture().onEnded {
-                            props.detailViewCommand.perform()
-                        })
-                            .navigationBarTitle(props.navBarText)
-                    }
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 10) {
+                Text(props.counterText)
+                Button(props.add1Text) {
+                    props.add1Command.perform()
                 }
+                Button(props.add150Text) {
+                    props.add150Command.perform()
+                }
+                NavigationLink(destination: TestView2())
+                {
+                    Text(props.showDetailViewText)
+                } .simultaneousGesture(TapGesture().onEnded {
+                    props.detailViewCommand.perform()
+                })
+                    .navigationBarTitle(props.navBarText)
             }
         }
+            .onDisappear { presenter.unsubscribe() }
     }
 
+    @StateObject var presenter = Presenter(store: container.resolve() as Store<AppState>)
+    var props: Props { testProps ?? presenter.props ?? Props() }
     var testProps: Props? = nil
 }
 

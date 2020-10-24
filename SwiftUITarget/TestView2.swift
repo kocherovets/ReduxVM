@@ -61,33 +61,33 @@ struct TestView2: View {
     }
 
     var body: some View {
-        BaseView<ZStack, Presenter, Props>(testProps: testProps) { props in
-            ZStack {
-                HStack {
-                    Spacer()
-                    VStack(spacing: 10) {
-                        Spacer()
-                        Text(props.counterText)
-                        Text(props.pickerTitle)
-                        Picker("",
-                               selection: Binding(get: { props.actionIndex },
-                                                  set: { props.optionCommands[$0].perform() })
-                        ) {
-                            ForEach(0 ..< props.options.count, id: \.self) { index in
-                                Text(props.options[index])
-                            }
-                        }
-                            .pickerStyle(SegmentedPickerStyle())
-                        Spacer()
+        HStack {
+            Spacer()
+            VStack(spacing: 10) {
+                Spacer()
+                Text(props.counterText)
+                Text(props.pickerTitle)
+                Picker("",
+                       selection: Binding(get: { props.actionIndex },
+                                          set: { props.optionCommands[$0].perform() })
+                ) {
+                    ForEach(0 ..< props.options.count, id: \.self) { index in
+                        Text(props.options[index])
                     }
-                    Spacer()
                 }
-                    .background(props.color)
-                    .edgesIgnoringSafeArea(.all)
+                    .pickerStyle(SegmentedPickerStyle())
+                Spacer()
             }
+            Spacer()
         }
+            .background(props.color)
+            .edgesIgnoringSafeArea(.all)
+
+        .onDisappear { presenter.unsubscribe() }
     }
 
+    @StateObject var presenter = Presenter(store: container.resolve() as Store<AppState>)
+    var props: Props { testProps ?? presenter.props ?? Props() }
     var testProps: Props? = nil
 }
 
@@ -105,33 +105,5 @@ struct TestView2_Previews2: PreviewProvider {
                                              pickerTitle: "Add",
                                              options: ["1", "10", "100"],
                                              optionCommands: []))
-    }
-}
-
-struct BaseView<Content, Presenter, Props>: View where Content: View, Presenter: SwiftUIPresenter<AppState, Props>, Props: SwiftUIProperties
-{
-    @StateObject var presenter = Presenter(store: container.resolve() as Store<AppState>)
-
-    var props: Props {
-        testProps ?? presenter.props ?? Props()
-    }
-
-    @State var viewBuilder: (Props) -> Content
-
-    private var testProps: Props?
-
-    init(testProps: Props? = nil, @ViewBuilder builder: @escaping (Props) -> Content) {
-        self.testProps = testProps
-        self._viewBuilder = State<(Props) -> Content>(initialValue: builder)
-    }
-
-    var body: some View {
-
-        viewBuilder(props)
-            .onDisappear
-        {
-            presenter.props = nil
-            presenter.unsubscribe()
-        }
     }
 }
