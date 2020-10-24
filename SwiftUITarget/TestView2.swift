@@ -110,13 +110,13 @@ struct TestView2_Previews2: PreviewProvider {
 
 struct BaseView<Content, Presenter, Props>: View where Content: View, Presenter: SwiftUIPresenter<AppState, Props>, Props: SwiftUIProperties
 {
-    @State var presenter: Presenter?
-    @State var optionalProps: Props?
+    @StateObject var presenter = Presenter(store: container.resolve() as Store<AppState>)
+
     var props: Props {
         if let testProps = testProps {
             return testProps
         }
-        return optionalProps ?? Props()
+        return presenter.props ?? Props()
     }
 
     @State var viewBuilder: (Props) -> Content
@@ -131,18 +131,10 @@ struct BaseView<Content, Presenter, Props>: View where Content: View, Presenter:
     var body: some View {
 
         viewBuilder(props)
-            .onAppear
-        {
-            presenter = Presenter(store: container.resolve() as Store<AppState>)
-            presenter?.onPropsChanged = { props in
-                self.optionalProps = props
-            }
-        }
             .onDisappear
         {
-            optionalProps = nil
-            presenter?.unsubscribe()
-            presenter = nil
+            presenter.props = nil
+            presenter.unsubscribe()
         }
     }
 }

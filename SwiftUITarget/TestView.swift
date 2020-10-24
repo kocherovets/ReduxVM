@@ -54,7 +54,7 @@ struct TestView: View {
     }
     
     var body: some View {
-        BaseView<ZStack, Presenter, Props> { props in
+        BaseView<ZStack, Presenter, Props>(testProps: testProps) { props in
             ZStack {
                 NavigationView {
 
@@ -79,11 +79,7 @@ struct TestView: View {
         }
     }
 
-    class DI: DIPart {
-        static func load(container: DIContainer) {
-            container.register { Presenter(store: $0) }.lifetime(.prototype)
-        }
-    }
+    var testProps: Props? = nil
 }
 
 struct TestView_Previews: PreviewProvider {
@@ -92,18 +88,18 @@ struct TestView_Previews: PreviewProvider {
     }
 }
 
-//struct TestView_Previews2: PreviewProvider {
-//    static var previews: some View
-//    {
-//        TestView(optionalProps:
-//            TestView.Props(navBarText: "Demo",
-//                           counterText: "Counter: 10",
-//                           add1Text: "Add 1",
-//                           add150Text: "Add 150",
-//                           showDetailViewText: "Show Detail View",
-//                           add1Command: Command { },
-//                           add150Command: Command { },
-//                           detailViewCommand: Command { })
-//        )
-//    }
-//}
+struct TestView_Previews2: PreviewProvider {
+    static var previews: some View
+    {
+        TestView(testProps:
+            TestView.Props(navBarText: "Demo",
+                           counterText: "Counter: 10",
+                           add1Text: "Add 1",
+                           add150Text: "Add 150",
+                           showDetailViewText: "Show Detail View",
+                           add1Command: Command { },
+                           add150Command: Command { },
+                           detailViewCommand: Command { })
+        )
+    }
+}
