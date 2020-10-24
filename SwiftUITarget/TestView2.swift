@@ -113,10 +113,7 @@ struct BaseView<Content, Presenter, Props>: View where Content: View, Presenter:
     @StateObject var presenter = Presenter(store: container.resolve() as Store<AppState>)
 
     var props: Props {
-        if let testProps = testProps {
-            return testProps
-        }
-        return presenter.props ?? Props()
+        testProps ?? presenter.props ?? Props()
     }
 
     @State var viewBuilder: (Props) -> Content
