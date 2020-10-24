@@ -28,7 +28,7 @@ struct TestView2: View {
 
     class Presenter: SwiftUIPresenter<AppState, Props> {
 
-        override required init(store: Store<AppState>) {
+        required init(store: Store<AppState>) {
             super.init(store: store)
             qq += 1
             print("qq = \(qq)")
