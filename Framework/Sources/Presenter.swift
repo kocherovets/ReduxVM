@@ -61,9 +61,13 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
 
     open func onInit(state: State, trunk: Trunk) { }
     open func onDeinit(state: State, trunk: Trunk) { }
+    
+    private var firstPass = true
 
     public final func subscribe() {
-
+        
+        firstPass = true
+        
         store.queue.async { [weak self] in
 
             guard let self = self else { return }
@@ -84,17 +88,23 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
 
     public final func stateChanged(box: StateBox<State>) {
 
-        switch reaction(for: box) {
-        case .router(let command):
-            DispatchQueue.main.async {
-                command.perform()
-            }
-        case .command(let command):
-            command.perform()
-        case .props:
+        if firstPass {
+            firstPass = false
             propsReceiver?.set(newProps: props(for: box, trunk: self))
-        case .none:
-            return
+        }
+        else {
+            switch reaction(for: box) {
+            case .router(let command):
+                DispatchQueue.main.async {
+                    command.perform()
+                }
+            case .command(let command):
+                command.perform()
+            case .props:
+                propsReceiver?.set(newProps: props(for: box, trunk: self))
+            case .none:
+                return
+            }
         }
     }
 
