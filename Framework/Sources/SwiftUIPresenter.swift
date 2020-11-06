@@ -6,8 +6,8 @@
 //  Copyright © 2019 Dmitry Kocherovets. All rights reserved.
 //
 
-import SwiftUI
 import RedSwift
+import SwiftUI
 import Combine
 
 public protocol SwiftUIProperties {
@@ -15,6 +15,7 @@ public protocol SwiftUIProperties {
     init()
 }
 
+@available(iOS 13, *)
 open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: StoreSubscriber, PresenterProtocol, Trunk, ObservableObject {
 
     @Published public var props: Props?
