@@ -8,6 +8,11 @@
 
 import Foundation
 
+public class CommandLogger {
+    
+    public static var logger: ((String) -> ())?
+}
+
 open class Command: Codable {
 
     public init(id: String = "",
@@ -31,7 +36,9 @@ open class Command: Codable {
     private let action: () -> ()
 
     open func perform() {
-        print(self.debugQuickLookObject() ?? "")
+        if let debugQuickLookObject = debugQuickLookObject() as? String {
+            CommandLogger.logger?(debugQuickLookObject)
+        }
         action()
     }
 
@@ -93,8 +100,8 @@ public final class CommandWith<T> {
     private let action: (T) -> ()
 
     public func perform(with value: T) {
-        if let debugQuickLookObject = debugQuickLookObject() {
-            print("\(String(describing: debugQuickLookObject))\nparameter: \(value)")
+        if let debugQuickLookObject = debugQuickLookObject() as? String {
+            CommandLogger.logger?("\(debugQuickLookObject)\nparameter: \(value)")
         }
         action(value)
     }

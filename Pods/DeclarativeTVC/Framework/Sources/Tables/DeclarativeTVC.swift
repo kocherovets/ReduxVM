@@ -14,12 +14,12 @@ open class DeclarativeTVC: UITableViewController, Table {
     var model: TableModel? = nil
     var registeredCells = [String]()
 
-    open func set(rows: [CellAnyModel], animations: Animations? = nil) {
+    open func set(rows: [CellAnyModel], animations: Animations? = nil, completion: (() -> Void)? = nil) {
 
-        set(model: TableModel(rows: rows), animations: animations)
+        set(model: TableModel(rows: rows), animations: animations, completion: completion)
     }
 
-    open func set(model: TableModel, animations: Animations? = nil) {
+    open func set(model: TableModel, animations: Animations? = nil, completion: (() -> Void)? = nil) {
 
         let newModel = model
 
@@ -41,14 +41,22 @@ open class DeclarativeTVC: UITableViewController, Table {
 
             self.model = newModel
 
-            tableView.customReload(using: changeset, with: animations) { [weak self] in
+            tableView.customReload(
+                using: changeset,
+                with: animations,
+                setData: { [weak self] in
 
-                self?.model = newModel
-            }
+                    self?.model = newModel
+                },
+                completion: {
+                    completion?()
+                }
+            )
         } else {
 
             self.model = newModel
             tableView.reloadData()
+            completion?()
         }
     }
 
@@ -61,7 +69,7 @@ open class DeclarativeTVC: UITableViewController, Table {
     }
 
     open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         return cell(for: indexPath)
     }
 

@@ -1,5 +1,5 @@
 PODS:
-  - DeclarativeTVC (1.0.14):
+  - DeclarativeTVC (1.0.16):
     - DifferenceKit
   - DifferenceKit (1.1.5):
     - DifferenceKit/Core (= 1.1.5)
@@ -7,9 +7,9 @@ PODS:
   - DifferenceKit/Core (1.1.5)
   - DifferenceKit/UIKitExtension (1.1.5):
     - DifferenceKit/Core
-  - DITranquillity (3.9.3):
-    - SwiftLazy
-  - RedSwift (1.0.21)
+  - DITranquillity (4.1.1):
+    - SwiftLazy (>= 1.1.6)
+  - RedSwift (1.0.27)
   - SwiftLazy (1.1.7)
 
 DEPENDENCIES:
@@ -26,12 +26,12 @@ SPEC REPOS:
     - SwiftLazy
 
 SPEC CHECKSUMS:
-  DeclarativeTVC: 53d3f5f413c9cb13eeeeaaeb9a30a4eda543ff7e
+  DeclarativeTVC: baa80352253bb1994757052ba1fdc9af93966567
   DifferenceKit: 516f12e336ed65a3a0665847b5c3cb5cad4bd4ea
-  DITranquillity: 7aba075b73dbb1f321a1218dd3d9f1bd5ad9427b
-  RedSwift: bc8935bc97d81d10bf4a8d80250c91cd5f38aba4
+  DITranquillity: f03d76911e8b63df0a4d393932de9a9a415938e7
+  RedSwift: 1906e3a536a5171bf3ab0fb6fac27a0a4bef670b
   SwiftLazy: dcb1edc6c2b633ba2e68f28554d9dd6d1c0bfd13
 
-PODFILE CHECKSUM: f801ffe31c9c8e4b54fa010b491ef6df6dc4f9d5
+PODFILE CHECKSUM: cc39bea51f6e983655688d175267fdfd204f4ae8
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

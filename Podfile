@@ -39,3 +39,9 @@ target "FrameworkTests" do
 
     shared_pods
 end
+
+target "SwiftUITarget" do
+    project 'ReduxVM'
+
+    shared_pods
+end

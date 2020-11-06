@@ -49,7 +49,8 @@ extension UITableView {
         using stagedChangeset: StagedChangeset<C>,
         with animations: DeclarativeTVC.Animations,
         interrupt: ((Changeset<C>) -> Bool)? = nil,
-        setData: () -> Void
+        setData: () -> Void,
+        completion: (() -> Void)? = nil
     ) {
         var sectionDeleted = [Int]()
         var sectionInserted = [Int]()
@@ -74,47 +75,51 @@ extension UITableView {
             elementMoved.append(contentsOf: changeset.elementMoved)
         }
 
-        performBatchUpdates({
-            setData()
+        performBatchUpdates(
+            {
+                setData()
 
-            if !sectionDeleted.isEmpty {
-                deleteSections(IndexSet(sectionDeleted),
-                               with: animations.deleteSectionsAnimation)
-            }
+                if !sectionDeleted.isEmpty {
+                    deleteSections(IndexSet(sectionDeleted),
+                                   with: animations.deleteSectionsAnimation)
+                }
 
-            if !sectionInserted.isEmpty {
-                insertSections(IndexSet(sectionInserted),
-                               with: animations.insertSectionsAnimation)
-            }
+                if !sectionInserted.isEmpty {
+                    insertSections(IndexSet(sectionInserted),
+                                   with: animations.insertSectionsAnimation)
+                }
 
-            if !sectionUpdated.isEmpty {
-                reloadSections(IndexSet(sectionUpdated),
-                               with: animations.reloadSectionsAnimation)
-            }
+                if !sectionUpdated.isEmpty {
+                    reloadSections(IndexSet(sectionUpdated),
+                                   with: animations.reloadSectionsAnimation)
+                }
 
-            for (source, target) in sectionMoved {
-                moveSection(source, toSection: target)
-            }
+                for (source, target) in sectionMoved {
+                    moveSection(source, toSection: target)
+                }
 
-            if !elementDeleted.isEmpty {
-                deleteRows(at: elementDeleted.map { IndexPath(row: $0.element, section: $0.section) },
-                           with: animations.deleteRowsAnimation)
-            }
+                if !elementDeleted.isEmpty {
+                    deleteRows(at: elementDeleted.map { IndexPath(row: $0.element, section: $0.section) },
+                               with: animations.deleteRowsAnimation)
+                }
 
-            if !elementInserted.isEmpty {
-                insertRows(at: elementInserted.map { IndexPath(row: $0.element, section: $0.section) },
-                           with: animations.insertRowsAnimation)
-            }
+                if !elementInserted.isEmpty {
+                    insertRows(at: elementInserted.map { IndexPath(row: $0.element, section: $0.section) },
+                               with: animations.insertRowsAnimation)
+                }
 
-            if !elementUpdated.isEmpty {
-                reloadRows(at: elementUpdated.map { IndexPath(row: $0.element, section: $0.section) },
-                           with: animations.reloadRowsAnimation)
-            }
+                if !elementUpdated.isEmpty {
+                    reloadRows(at: elementUpdated.map { IndexPath(row: $0.element, section: $0.section) },
+                               with: animations.reloadRowsAnimation)
+                }
 
-            for (source, target) in elementMoved {
-                moveRow(at: IndexPath(row: source.element, section: source.section),
-                        to: IndexPath(row: target.element, section: target.section))
-            }
-        })
+                for (source, target) in elementMoved {
+                    moveRow(at: IndexPath(row: source.element, section: source.section),
+                            to: IndexPath(row: target.element, section: target.section))
+                }
+            },
+            completion: { finished in
+                completion?()
+            })
     }
 }

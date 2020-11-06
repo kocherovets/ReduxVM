@@ -15,12 +15,18 @@ open class TableDS: NSObject, UITableViewDelegate, UITableViewDataSource, Table 
     var registeredCells = [String]()
     var tableView: UITableView!
 
-    open func set(tableView: UITableView?, rows: [CellAnyModel], animations: DeclarativeTVC.Animations? = nil) {
+    open func set(tableView: UITableView?,
+                  rows: [CellAnyModel],
+                  animations: DeclarativeTVC.Animations? = nil,
+                  completion: (() -> Void)? = nil) {
 
-        set(tableView: tableView, model: TableModel(rows: rows), animations: animations)
+        set(tableView: tableView, model: TableModel(rows: rows), animations: animations, completion: completion)
     }
 
-    open func set(tableView: UITableView?, model: TableModel, animations: DeclarativeTVC.Animations? = nil) {
+    open func set(tableView: UITableView?,
+                  model: TableModel,
+                  animations: DeclarativeTVC.Animations? = nil,
+                  completion: (() -> Void)? = nil) {
 
         if self.tableView != tableView {
             self.tableView = tableView
@@ -48,14 +54,22 @@ open class TableDS: NSObject, UITableViewDelegate, UITableViewDataSource, Table 
 
             self.model = newModel
 
-            tableView?.customReload(using: changeset, with: animations) { [weak self] in
+            tableView?.customReload(
+                using: changeset,
+                with: animations,
+                setData: { [weak self] in
 
-                self?.model = newModel
-            }
+                    self?.model = newModel
+                },
+                completion: {
+                    completion?()
+                }
+            )
         } else {
 
             self.model = newModel
             tableView?.reloadData()
+            completion?()
         }
     }
 

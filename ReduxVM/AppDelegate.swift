@@ -53,9 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let container = DIContainer()
         container.append(framework: AppFramework.self)
 
-        if !container.validate() {
-            fatalError()
+        #if DEBUG
+        if !container.makeGraph().checkIsValid(checkGraphCycles: true) {
+            fatalError("invalid graph")
         }
+        #endif
 
         container.initializeSingletonObjects()
 

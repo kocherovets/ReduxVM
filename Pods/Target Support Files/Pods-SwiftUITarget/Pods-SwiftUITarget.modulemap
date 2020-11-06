@@ -1,0 +1,6 @@
+framework module Pods_SwiftUITarget {
+  umbrella header "Pods-SwiftUITarget-umbrella.h"
+
+  export *
+  module * { export * }
+}

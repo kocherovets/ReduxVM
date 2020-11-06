@@ -9,6 +9,61 @@ DeclarativeTVC
 
 Declarative UIKit collections
 
+- [Цель проекта](#Цель-проекта)
+  * [Пример](#Пример)
+  * [Features](#features)
+  * [Requirements](#requirements)
+  * [Installation](#installation)
+    + [CocoaPods](#cocoapods)
+- [Как пользоваться](#Как-пользоваться)
+  * [Создание view ячеек](#Создание-view-ячеек)
+    + [Stryboard](#stryboard)
+    + [Xib](#xib)
+    + [Программные ячейки](#Программные-ячейки)
+  * [Создание view моделей для ячеек](#Создание-view-моделей-для-ячеек)
+    + [Выбираемые ячейки](#Выбираемые-ячейки)
+    + [Высота ячейки](#Высота-ячейки)
+    + [Требования к полям вьюмодели](#Требования-к-полям-вьюмодели)
+  * [Секции](#Секции)
+  * [Создание таблицы](#Создание-таблицы)
+    + [DeclarativeTVC](#declarativetvc-1)
+    + [TableDS](#tableds)
+  * [Анимации](#Анимации)
+  * [Что нужно помнить](#Что-нужно-помнить)
+- [Источники](#Источники)
+
+  
+# Цель проекта
+DeclarativeTVC создана для упрощения работы с UIKit коллекциями переведя взаимодействие с ними к декларативному виду.
+
+## Пример
+Простейшая таблица может быть реализована таким образом
+```swift
+class TVC: DeclarativeTVC {
+
+    var rows: [CellAnyModel] {
+         didSet {
+            set(rows: rows)
+         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+   
+        rows = [
+            SimpleCellVM(
+                titleText: "1",
+                selectCommand: Command { print(1) }
+            ),
+            SimpleCellVM(
+                titleText: "2",
+                selectCommand: Command { print(2) }
+            )
+        ]
+    }
+}
+```
+
 ## Features
 
 - Declarative UITableViewController support
@@ -41,8 +96,6 @@ pod 'DeclarativeTVC'
 
 Then run `pod install` command. For details of the installation and usage of CocoaPods, visit [its official website](https://cocoapods.org).
 
-# Цель проекта
-DeclarativeTVC создана для упрощения работы с UIKit коллекциями переведя взаимодействие с ними к декларативному виду.
 # Как пользоваться 
 Рассмотрим создание простой таблицы с использованием DeclarativeTVC. 
 ## Создание view ячеек
@@ -154,7 +207,9 @@ struct SimpleCellVM: CellModel, SelectableCellModel {
 }
 ```
 ## Секции
-Заголовки и подвалы реализованы аналогично ячейкам. Строятся они на базе UITableViewCell, а не UIView.
+Заголовки и подвалы реализованы аналогично ячейкам. Строятся они на базе UITableViewCell, а не UIView. 
+
+Регистрировать классы и xib не нужно, библиотека это сделает за вас. Но нужно соблюдать те же правила, что и при создании ячеек.
 ```swift
 class HeaderView: UITableViewCell {
 
@@ -177,7 +232,7 @@ struct HeaderViewVM: TableHeaderModel {
 ```swift
 open class DeclarativeTVC: UITableViewController {
 ```
-Если в варианте UITaleView, то используется TableDS.
+Если в варианте UITableView, то используется TableDS.
 ```swift
 open class TableDS: NSObject, UITableViewDelegate, UITableViewDataSource {
 ```
@@ -192,12 +247,14 @@ open class DeclarativeTVC: UITableViewController {
     open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     open override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    open override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    open override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     open override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    open override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    open override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 }
 ```
-Соответственно в общем случае он берет на себя ответственность за расчет количества секций и ячеек, созданиие заголовков и ячеек, расчет высоты заголовков и ячеек, отработку нажатия на ячейку. 
+Соответственно в общем случае он берет на себя ответственность за расчет количества секций и ячеек, созданиие заголовков, подвалов и ячеек, расчет высоты заголовков, подвалов и ячеек, отработку нажатия на ячейку. 
 
 С помощью метода `set(rows: [CellAnyModel]` можно задать для таблицы массив ранее созданных вьюмоделей, что создаст таблицу без секций.
 
@@ -247,7 +304,7 @@ class TVC: DeclarativeTVC {
 ```
 Вариант с различными типами ячеек
 ```swift
-    private func tableRowThreeTypes() -> [CellAnyModel] {
+    func tableRowThreeTypes() -> [CellAnyModel] {
         [
             SimpleCellVM(titleText: "Storyboard cell"),
             SimpleXibCellVM(titleText: "Xib cell"),
@@ -257,7 +314,7 @@ class TVC: DeclarativeTVC {
 ```
 Вариант с секциямии
 ```swift
-    private func tableWithSections() -> [TableSection] {
+    func tableWithSections() -> [TableSection] {
         [
             TableSection(
                 header: nil,
@@ -302,7 +359,6 @@ class TVC: DeclarativeTVC {
 open class TableDS: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     open func set(tableView: UITableView?, rows: [CellAnyModel], animations: DeclarativeTVC.Animations? = nil) {
-
     open func set(tableView: UITableView?, model: TableModel, animations: DeclarativeTVC.Animations? = nil) {
 ```
 **Нельзя** применять TableDS к tableView из UITableViewController. В этом случае используйте DeclarativeTVC.
@@ -344,4 +400,7 @@ public extension DeclarativeTVC {
 * При использовании анимации ячейки с одинаковыми хешами в старой и новой версии таблицы не обновляются. Это можно использовать, например, для редактирования UITextView и обновлениия остальной таблицы во время редактирования без потери фокуса на текстовом поле, если сохранять одинаковым хэш ячейки редактирования.
 * При расчете высоты ячеек и заголовков посредством auto layout нужно в сториборде соответсвенно настроить параметры расчета высоты.
 * **Нельзя** применять TableDS к tableView из UITableViewController. В этом случае используйте DeclarativeTVC.
-
+* Если анимации не используются, то происходит обновление всех ячеек таблицы вне зависимости от их хэша. Под капотом вызывается tableView.reloadData()
+* Библиотека не требует, чтобы вьюмодели ячеек были структурами, но при разработке это неявно подразумевалось и мною вьюмодели никогда не делались классами. На мой взгляд это приводит к более проблемному коду.
+# Источники
+Создание библиотеки было вдохновлено [выступлением](https://www.youtube.com/watch?v=Ge73dsgXf_M) [Alexander Zimin](https://github.com/azimin) 
