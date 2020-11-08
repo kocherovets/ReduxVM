@@ -18,13 +18,24 @@ public protocol SwiftUIProperties {
 @available(iOS 13, *)
 open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: StoreSubscriber, PresenterProtocol, Trunk, ObservableObject {
 
-    @Published public var props: Props?
+    @Published public var props: Props = Props()
 
     private var store: Store<State>
 
     public var storeTrunk: StoreTrunk { store }
 
     private var firstPass = true
+
+    private var subscribed = false
+    public var freezed = false {
+        didSet {
+            if !freezed {
+                firstPass = true
+                stateChanged(box: StateBox<State>(state: store.state,
+                                                  oldState: store.state,
+                                                  lastAction: store.lastAction)) }
+        }
+    }
 
     public func onInit() {
         onInit(state: store.state, trunk: self)
@@ -37,12 +48,14 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
     public required init(store: Store<State>) {
 
         self.store = store
+        
+        onInit()
 
-        subscribe()
-
-        stateChanged(box: StateBox<State>(state: store.state,
-                                          oldState: store.state,
-                                          lastAction: store.lastAction))
+//        subscribe()
+//
+//        stateChanged(box: StateBox<State>(state: store.state,
+//                                          oldState: store.state,
+//                                          lastAction: store.lastAction))
     }
 
     deinit {
@@ -55,7 +68,12 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
 
     public final func subscribe() {
 
+        if subscribed {
+            return
+        }
+
         firstPass = true
+        subscribed = true
 
         store.queue.async { [weak self] in
 
@@ -67,7 +85,14 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
 
     public final func unsubscribe() {
 
-        props = nil
+        if !subscribed {
+            return
+        }
+        
+        props = Props()
+
+        firstPass = true
+        subscribed = false
 
         store.queue.async { [weak self] in
 
@@ -79,6 +104,10 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
 
     public final func stateChanged(box: StateBox<State>) {
 
+        if freezed {
+            return
+        }
+        
         if firstPass {
             firstPass = false
             let p = props(for: box, trunk: self)
