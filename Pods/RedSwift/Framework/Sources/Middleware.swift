@@ -8,6 +8,18 @@
 
 public typealias DispatchFunction = (Dispatchable) -> Void
 
+public protocol LogMaxItems
+{
+    var logMaxItems: Int { get }
+}
+
+public protocol NoLog: LogMaxItems { }
+
+public extension NoLog
+{
+    var logMaxItems: Int { 0 }
+}
+
 open class Middleware {
 
     public init() { }
@@ -35,7 +47,6 @@ open class StatedMiddleware<State: RootStateType> {
     }
 }
 
-
 public class LoggingMiddleware: Middleware {
 
     var consoleLogger = ConsoleLogger()
@@ -56,16 +67,24 @@ public class LoggingMiddleware: Middleware {
                             file: String,
                             function: String,
                             line: Int) {
+        if
+            let logMaxItems = (action as? LogMaxItems)?.logMaxItems,
+            logMaxItems == 0
+        {
+            return
+        }
 
-        if loggingExcludedActions.first(where: { $0 == type(of: action) }) == nil {
-
+        if loggingExcludedActions.first(where: { $0 == type(of: action) }) == nil
+        {
             let printFile: String
-            if startIndex == nil,
-                let firstPart = firstPart
+            if
+                let firstPart = firstPart,
+                startIndex == nil
             {
                 let components = file.components(separatedBy: firstPart + "/")
-                if let component = components.last
-                    {
+                if
+                    let component = components.last
+                {
                     startIndex = file.index(file.endIndex, offsetBy: -component.count - (firstPart + "/").count)
                 }
             }
@@ -80,7 +99,7 @@ public class LoggingMiddleware: Middleware {
             }
 
             print("---ACTION---", to: &consoleLogger)
-            dump(action, to: &consoleLogger)
+            dump(action, to: &consoleLogger, maxItems: (action as? LogMaxItems)?.logMaxItems ?? 20)
             print("file: \(printFile):\(line)", to: &consoleLogger)
             print("function: \(function)", to: &consoleLogger)
             print(".", to: &consoleLogger)

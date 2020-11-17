@@ -24,7 +24,8 @@ extension ApiInteractor {
 
         func condition(box: StateBox<State>) -> Bool {
 
-            return box.state.counter.delayedIncrement == .requested && box.isNew(keyPath: \.counter.delayedIncrement)
+            return box.state.counter.delayedIncrement == .requested &&
+                (box.lastAction is RequestIncrementAction || box.lastAction is SetRequestedIncrementAction)
         }
 
         func execute(box: StateBox<State>, trunk: Trunk, interactor: ApiInteractor) {

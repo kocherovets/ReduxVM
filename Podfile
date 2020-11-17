@@ -6,7 +6,7 @@ use_frameworks!
 
 def shared_pods
     pod 'DeclarativeTVC'
-    pod 'RedSwift'
+    pod 'RedSwift', :git => 'https://github.com/kocherovets/RedSwift.git', :branch => 'v2'
     pod 'DITranquillity'
 end
 

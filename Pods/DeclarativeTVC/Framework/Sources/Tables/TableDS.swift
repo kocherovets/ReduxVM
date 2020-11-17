@@ -74,41 +74,43 @@ open class TableDS: NSObject, UITableViewDelegate, UITableViewDataSource, Table 
     }
 
     open func numberOfSections(in tableView: UITableView) -> Int {
-        return model?.sections.count ?? 0
+        model?.sections.count ?? 0
     }
 
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model?.sections[section].rows.count ?? 0
+        model?.sections[section].rows.count ?? 0
     }
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        return cell(for: indexPath)
+        cell(for: indexPath)
     }
 
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        header(for: section)
+    }
 
-        return header(for: section)
+    open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        headerTitle(for: section)
     }
 
     open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-
-        return footer(for: section)
+        footer(for: section)
+    }
+    
+    open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        footerTitle(for: section)
     }
 
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
-        return heightForCell(at: indexPath)
+        heightForCell(at: indexPath)
     }
 
     open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
-        return heightForHeader(inSection: section)
+        heightForHeader(inSection: section)
     }
 
     open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-
-        return heightForFooter(inSection: section)
+        heightForFooter(inSection: section)
     }
 
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

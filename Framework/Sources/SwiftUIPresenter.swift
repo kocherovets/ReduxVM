@@ -31,9 +31,8 @@ open class SwiftUIPresenter<State: RootStateType, Props: SwiftUIProperties>: Sto
         didSet {
             if !freezed {
                 firstPass = true
-                stateChanged(box: StateBox<State>(state: store.state,
-                                                  oldState: store.state,
-                                                  lastAction: store.lastAction)) }
+                stateChanged(box: store.box)
+            }
         }
     }
 

@@ -28,9 +28,9 @@ class Resolver {
   }
 
   
-  func resolveSingleton(component: Component) {
-    log(.verbose, msg: "Begin resolve singleton by component: \(component.info)", brace: .begin)
-    defer { log(.verbose, msg: "End resolve singleton by component: \(component.info)", brace: .end) }
+  func resolveCached(component: Component) {
+    log(.verbose, msg: "Begin resolve cached object by component: \(component.info)", brace: .begin)
+    defer { log(.verbose, msg: "End resolve cached object by component: \(component.info)", brace: .end) }
     
     _ = makeObject(by: component, use: nil)
   }
@@ -67,9 +67,9 @@ class Resolver {
   }
 
   private static func findComponents(by parsedType: ParsedType, with name: String?, from framework: DIFramework.Type?, in container: DIContainer) -> Components {
-    func byPriority(_ priority: DIComponentPriority, _ components: Components) -> Components {
-      let filtering = ContiguousArray(components.filter{ $0.priority == priority })
-      return filtering.isEmpty ? components : filtering
+    func byPriority(_ priority: DIComponentPriority, _ components: Components, isEmpty: Bool = true) -> Components {
+      let filtering = ContiguousArray(components.filter { $0.priority == priority })
+      return filtering.isEmpty && isEmpty ? components : filtering
     }
     
     func filter(by framework: DIFramework.Type?, _ components: Components) -> Components {
@@ -141,11 +141,12 @@ class Resolver {
 
     let componentsArray = Components(components)
     if componentsArray.count > 1 {
-      let testComponents = byPriority(.test, componentsArray)
+      // If no found test components, then return 0, and continue without additional logic.
+      let testComponents = byPriority(.test, componentsArray, isEmpty: false)
       if testComponents.count == 1 {
         return testComponents
       } else if testComponents.count > 1 {
-        log(.error, msg: "Found more test components: \(testComponents)")
+        log(.error, msg: "Found more test components: \(testComponents.map { $0.info.description })")
       }
     }
     
@@ -187,7 +188,24 @@ class Resolver {
         func makeDelayMaker(by parsedType: ParsedType, components: Components) -> Any? {
           return delayMaker.init(container, { () -> Any? in
             return self.mutex.sync {
+              // call `.value` into DI initialize.
+              if saveGraph === self.cache.graph {
+                return self.make(by: parsedType, components: components, use: object)
+              }
+              // Call `.value` firstly.
+              if self.stack.isEmpty {
+                self.cache.graph = saveGraph.toStrongCopy()
+                return self.make(by: parsedType, components: components, use: object)
+              }
+              // Call `.value` into DI initialize, and DI graph has lifetimes perContainer, perRun, single...
+              // For this case need call provider on her Cache Graph.
+              // But need restore cache graph after make object.
+              let currentGraphCache = self.cache.graph
               self.cache.graph = saveGraph.toStrongCopy()
+              defer {
+                self.cache.graph.toWeak()
+                self.cache.graph = currentGraphCache
+              }
               return self.make(by: parsedType, components: components, use: object)
             }
           })

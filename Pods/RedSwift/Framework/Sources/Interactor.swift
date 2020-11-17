@@ -55,7 +55,7 @@ public class InteractorLogger {
         if loggingExcludedSideEffects.first(where: { $0 == type(of: sideEffect) }) == nil
         {
             print("---SE---", to: &consoleLogger)
-            dump(sideEffect, to: &consoleLogger)
+            dump(sideEffect, to: &consoleLogger, maxItems: 20)
             print(".", to: &consoleLogger)
             consoleLogger.flush()
         }

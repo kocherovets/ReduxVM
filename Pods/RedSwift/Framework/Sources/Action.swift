@@ -12,7 +12,7 @@ public protocol Dispatchable { }
 
 public protocol AnyAction: Dispatchable {
 
-    func updatedState(currentState: StateType) -> StateType
+    func updateState(box: Any)
 }
 
 public protocol Action: AnyAction {
@@ -24,15 +24,11 @@ public protocol Action: AnyAction {
 
 public extension Action {
 
-    func updatedState(currentState: StateType) -> StateType {
+    func updateState(box: Any) {
 
-        guard var typedState = currentState as? State else {
-            fatalError("[Katana] updateState invoked with the wrong state type")
-        }
+        let typedBox = box as! StateBox<State>
 
-        self.updateState(&typedState)
-
-        return typedState
+        self.updateState(&typedBox.ref.val)
     }
 }
 

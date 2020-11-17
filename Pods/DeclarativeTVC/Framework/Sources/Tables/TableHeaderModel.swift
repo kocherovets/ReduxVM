@@ -64,3 +64,12 @@ public extension TableHeaderModel {
     
     var height: CGFloat? { nil }
 }
+
+public struct TitleWithoutViewTableHeaderModel: TableHeaderModel {
+    
+    public let title: String
+    
+    public init(title: String) {
+        self.title = title
+    }
+}

@@ -8,79 +8,52 @@
 
 import Foundation
 
-/**
- This class is the default implementation of the `Store` protocol. You will use this store in most
- of your applications. You shouldn't need to implement your own store.
- You initialize the store with a reducer and an initial application state. If your app has multiple
- reducers you can combine them by initializng a `MainReducer` with all of your reducers as an
- argument.
- */
-
 public struct AddSubscriberAction: Dispatchable { }
 
-open class Store<AppState: RootStateType>: StoreTrunk {
+open class Store<State: RootStateType>: StoreTrunk {
 
-    typealias SubscriptionType = SubscriptionBox<AppState>
+    typealias SubscriptionType = SubscriptionBox<State>
 
-    private var _state: AppState!
-    public var state: AppState { _state! }
+    public var state: State { box.ref.val }
 
-    private func set(state: AppState, lastAction: Dispatchable) {
-
-        let oldValue = _state ?? state
-        _state = state
-
-        self.lastAction = lastAction
-
-        subscriptions.forEach {
-            if $0.subscriber == nil {
-                subscriptions.remove($0)
-            } else {
-                $0.newValues(oldState: oldValue, newState: state, lastAction: lastAction)
-            }
-        }
-    }
+    private(set) public var box: StateBox<State>
 
     var subscriptions: Set<SubscriptionType> = []
 
     public let queue: DispatchQueue
-    public var lastAction: Dispatchable?
 
     private var middleware: [Middleware] = []
-    private var statedMiddleware: [StatedMiddleware<AppState>] = []
+    private var statedMiddleware: [StatedMiddleware<State>] = []
 
     private var throttleActions = [String: TimeInterval]()
 
     public required init(
-        state: AppState?,
+        state: State,
         queue: DispatchQueue,
         middleware: [Middleware] = [],
-        statedMiddleware: [StatedMiddleware<AppState>] = []
+        statedMiddleware: [StatedMiddleware<State>] = []
     ) {
-
         self.queue = queue
         self.middleware = middleware
         self.statedMiddleware = statedMiddleware
-        self._state = state
+        self.box = StateBox(state)
     }
 
     public func subscribe<SelectedState, S: StoreSubscriber> (_ subscriber: S)
     where S.StoreSubscriberStateType == SelectedState
     {
-        let originalSubscription = Subscription<AppState>()
+        let originalSubscription = Subscription<State>()
 
         let subscriptionBox = SubscriptionBox(originalSubscription: originalSubscription,
                                               subscriber: subscriber)
 
         subscriptions.update(with: subscriptionBox)
 
-        if let state = self._state {
-            originalSubscription.newValues(oldState: nil, newState: state, lastAction: lastAction)
-        }
+        originalSubscription.newValues(box: box)
     }
 
     public func unsubscribe(_ subscriber: AnyStoreSubscriber) {
-
+        
         if let index = subscriptions.firstIndex(where: { return $0.subscriber === subscriber }) {
             subscriptions.remove(at: index)
         }
@@ -117,8 +90,18 @@ open class Store<AppState: RootStateType>: StoreTrunk {
 
             switch action {
             case let action as AnyAction:
-                self.set(state: action.updatedState(currentState: self.state) as! AppState,
-                         lastAction: action)
+                
+                action.updateState(box: self.box)
+                
+                self.box.lastAction = action
+                
+                self.subscriptions.forEach {
+                    if $0.subscriber == nil {
+                        self.subscriptions.remove($0)
+                    } else {
+                        $0.newValues(box: self.box)
+                    }
+                }
             default:
                 break
             }
@@ -139,3 +122,22 @@ extension Thread {
         }
     }
 }
+
+final class Ref<T> {
+  var val : T
+  init(_ v : T) {val = v}
+}
+
+public struct StateBox<T> {
+    
+    var ref : Ref<T>
+    
+    public init(_ x : T) {
+        ref = Ref(x)
+    }
+    
+    public var state: T { ref.val }
+    
+    fileprivate(set) public var lastAction: Dispatchable?
+}
+
