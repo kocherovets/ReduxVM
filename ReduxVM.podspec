@@ -10,7 +10,7 @@ s.license = { :type => "MIT", :file => "LICENSE" }
 s.homepage = 'https://github.com/kocherovets/ReduxVM'
 s.author = { 'Dmitry Kocherovets' => 'kocherovets@gmail.com' }
 
-s.version = "2.0.3"
+s.version = "2.0.4"
 s.source = { :git => 'https://github.com/kocherovets/ReduxVM.git', :tag => s.version.to_s  }
 s.source_files = "Sources/**/*.{swift}"
 
@@ -19,6 +19,6 @@ s.swift_version = "5.0"
 s.framework = "UIKit"
 
 s.dependency 'DeclarativeTVC'
-s.dependency 'RedSwift', , '~> 2.0'
+s.dependency 'RedSwift', '~> 2.0'
 
 end
