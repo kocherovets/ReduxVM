@@ -227,6 +227,19 @@ struct HeaderViewVM: TableHeaderModel {
     }
 }
 ```
+
+Для текстовых заголовков и подвалов есть специальные модели
+```swift
+public struct TitleWithoutViewTableHeaderModel: TableHeaderModel {
+    
+    public let title: String
+}
+
+public struct TitleWithoutViewTableFooterModel: TableFooterModel {
+    
+    public let title: String
+}
+```
 ## Создание таблицы
 Если таблица создается в варианте UITableViewController, то с этой библиотекой нужно использовать DeclarativeTVC.
 ```swift
@@ -247,7 +260,9 @@ open class DeclarativeTVC: UITableViewController {
     open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     open override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    open override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     open override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    open override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
     open override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     open override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     open override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
