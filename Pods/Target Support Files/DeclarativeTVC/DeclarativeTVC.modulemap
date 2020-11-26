@@ -1,6 +1,0 @@
-framework module DeclarativeTVC {
-  umbrella header "DeclarativeTVC-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,10 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DITranquillity" "${PODS_CONFIGURATION_BUILD_DIR}/DeclarativeTVC" "${PODS_CONFIGURATION_BUILD_DIR}/DifferenceKit" "${PODS_CONFIGURATION_BUILD_DIR}/RedSwift" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftLazy"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DITranquillity" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftLazy"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DITranquillity/DITranquillity.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/DeclarativeTVC/DeclarativeTVC.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/DifferenceKit/DifferenceKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/RedSwift/RedSwift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftLazy/SwiftLazy.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DITranquillity/DITranquillity.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftLazy/SwiftLazy.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/DITranquillity/DITranquillity.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/DeclarativeTVC/DeclarativeTVC.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/DifferenceKit/DifferenceKit.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/RedSwift/RedSwift.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/SwiftLazy/SwiftLazy.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/DITranquillity" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/DeclarativeTVC" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/DifferenceKit" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/RedSwift" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/SwiftLazy"
-OTHER_LDFLAGS = $(inherited) -framework "DITranquillity" -framework "DeclarativeTVC" -framework "DifferenceKit" -framework "Foundation" -framework "RedSwift" -framework "SwiftLazy" -framework "UIKit"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/DITranquillity/DITranquillity.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/SwiftLazy/SwiftLazy.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/DITranquillity" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/SwiftLazy"
+OTHER_LDFLAGS = $(inherited) -framework "DITranquillity" -framework "SwiftLazy"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

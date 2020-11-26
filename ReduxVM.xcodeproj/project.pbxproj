@@ -3,141 +3,177 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		"ReduxVM::ReduxVMPackageTests::ProductTarget" /* ReduxVMPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_180 /* Build configuration list for PBXAggregateTarget "ReduxVMPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_183 /* PBXTargetDependency */,
+			);
+			name = ReduxVMPackageTests;
+			productName = ReduxVMPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		072E9991756BEB5B3DC6573D /* Pods_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47AA3960F63B6CDEE35B6A36 /* Pods_Framework.framework */; };
-		A69D91C6541EBDDB79BF76FE /* Pods_ReduxVMUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187905C0DA1CFC1031963EDD /* Pods_ReduxVMUITests.framework */; };
-		C350ABD823AFAE86007A9F6F /* MenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350ABD723AFAE86007A9F6F /* MenuTVC.swift */; };
-		C350ABDA23AFB2BC007A9F6F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350ABD923AFB2BC007A9F6F /* Router.swift */; };
-		C350ABDC23AFB4CC007A9F6F /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350ABDB23AFB4CC007A9F6F /* BaseVC.swift */; };
-		C350ABDE23AFB5AF007A9F6F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350ABDD23AFB5AF007A9F6F /* UIColor+.swift */; };
-		C350ABE023AFB6B4007A9F6F /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350ABDF23AFB6B4007A9F6F /* ChildVC.swift */; };
-		C350ABE223AFB98D007A9F6F /* BaseWithProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350ABE123AFB98D007A9F6F /* BaseWithProps.swift */; };
-		C355BD1E2535865000E7044F /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C355BD1D2535865000E7044F /* TestView2.swift */; };
-		C3709F56239C598F00CC8DD8 /* Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3709F4D239C598F00CC8DD8 /* Framework.framework */; };
-		C3709F5D239C598F00CC8DD8 /* FrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3709F5C239C598F00CC8DD8 /* FrameworkTests.swift */; };
-		C3709F5F239C598F00CC8DD8 /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = C3709F4F239C598F00CC8DD8 /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C3709F62239C598F00CC8DD8 /* Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3709F4D239C598F00CC8DD8 /* Framework.framework */; };
-		C3709F63239C598F00CC8DD8 /* Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3709F4D239C598F00CC8DD8 /* Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C3709F6B239C599E00CC8DD8 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAA623788766003259FF /* Presenter.swift */; };
-		C3709F6C239C599E00CC8DD8 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAAA23788A08003259FF /* VC.swift */; };
-		C3709F6D239C599E00CC8DD8 /* TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAAE23788A31003259FF /* TVC.swift */; };
-		C3A970AA25291B91003296E5 /* SwiftUITargetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A970A925291B91003296E5 /* SwiftUITargetApp.swift */; };
-		C3A970AE25291B92003296E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3A970AD25291B92003296E5 /* Assets.xcassets */; };
-		C3A970B125291B92003296E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3A970B025291B92003296E5 /* Preview Assets.xcassets */; };
-		C3A970BC25291B92003296E5 /* SwiftUITargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A970BB25291B92003296E5 /* SwiftUITargetTests.swift */; };
-		C3A970C725291B92003296E5 /* SwiftUITargetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A970C625291B92003296E5 /* SwiftUITargetUITests.swift */; };
-		C3A970DB25291BA8003296E5 /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A970D925291BA8003296E5 /* CounterState.swift */; };
-		C3A970DC25291BA8003296E5 /* TestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A970DA25291BA8003296E5 /* TestStore.swift */; };
-		C3A970F725291E42003296E5 /* SwiftUIPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A970F625291E42003296E5 /* SwiftUIPresenter.swift */; };
-		C3CB35A623CF677100CA3F15 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB35A523CF677100CA3F15 /* ApiService.swift */; };
-		C3CB35B123D264F800CA3F15 /* ReduxVMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CB35B023D264F800CA3F15 /* ReduxVMSettings.swift */; };
-		C3DFBA6F23787B2F003259FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBA6E23787B2F003259FF /* AppDelegate.swift */; };
-		C3DFBA7123787B2F003259FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBA7023787B2F003259FF /* SceneDelegate.swift */; };
-		C3DFBA7323787B2F003259FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBA7223787B2F003259FF /* ViewController.swift */; };
-		C3DFBA7623787B2F003259FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DFBA7423787B2F003259FF /* Main.storyboard */; };
-		C3DFBA7923787B30003259FF /* ReduxVM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBA7723787B2F003259FF /* ReduxVM.xcdatamodeld */; };
-		C3DFBA7B23787B31003259FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3DFBA7A23787B31003259FF /* Assets.xcassets */; };
-		C3DFBA7E23787B31003259FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DFBA7C23787B31003259FF /* LaunchScreen.storyboard */; };
-		C3DFBA8923787B32003259FF /* ReduxVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBA8823787B32003259FF /* ReduxVMTests.swift */; };
-		C3DFBA9423787B32003259FF /* ReduxVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBA9323787B32003259FF /* ReduxVMUITests.swift */; };
-		C3DFBAB323788AF6003259FF /* TestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAB223788AF6003259FF /* TestStore.swift */; };
-		C3DFBAB423788AF6003259FF /* TestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAB223788AF6003259FF /* TestStore.swift */; };
-		C3DFBAB523788AF6003259FF /* TestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAB223788AF6003259FF /* TestStore.swift */; };
-		C3DFBAB723788B1B003259FF /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAB623788B1B003259FF /* CounterState.swift */; };
-		C3DFBAB823788B1B003259FF /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAB623788B1B003259FF /* CounterState.swift */; };
-		C3DFBAB923788B1B003259FF /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DFBAB623788B1B003259FF /* CounterState.swift */; };
-		C3E8932F2454B9520039EAEB /* CVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8932E2454B9520039EAEB /* CVC.swift */; };
-		C3F52D0C252A8D9C00B1B6AB /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F52D0B252A8D9C00B1B6AB /* TestView.swift */; };
-		C3F52D26252A8FFD00B1B6AB /* Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3709F4D239C598F00CC8DD8 /* Framework.framework */; };
-		C3F52D27252A8FFD00B1B6AB /* Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3709F4D239C598F00CC8DD8 /* Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C3F52D55252A98E200B1B6AB /* ApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F52D54252A98E200B1B6AB /* ApiInteractor.swift */; };
-		CFE2ABD0D4CDE3E945FE7CEC /* Pods_ReduxVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0EF1AF0AFFC678D823FC63 /* Pods_ReduxVM.framework */; };
-		EAC411DE72AC0B347F6346D6 /* Pods_FrameworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F269F7382AE80F0F21EE7D /* Pods_FrameworkTests.framework */; };
-		F44CC3A6921080041D41806F /* Pods_SwiftUITarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF9B4342C566D770144867D /* Pods_SwiftUITarget.framework */; };
-		FE12620969324AACE7866EF0 /* Pods_ReduxVMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893F2219539B74B8A2DE59BE /* Pods_ReduxVMTests.framework */; };
+		42270F9D1A0490DD51F0C9D6 /* Pods_SwiftUITarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D22406DE58054979D58035 /* Pods_SwiftUITarget.framework */; };
+		C32606E425701A23000405B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606E325701A23000405B6 /* AppDelegate.swift */; };
+		C32606E625701A23000405B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606E525701A23000405B6 /* SceneDelegate.swift */; };
+		C32606E825701A23000405B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32606E725701A23000405B6 /* ViewController.swift */; };
+		C32606EB25701A23000405B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32606E925701A23000405B6 /* Main.storyboard */; };
+		C32606ED25701A24000405B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32606EC25701A24000405B6 /* Assets.xcassets */; };
+		C32606F025701A24000405B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32606EE25701A24000405B6 /* LaunchScreen.storyboard */; };
+		C326070725701A40000405B6 /* SwiftUITargetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326070625701A40000405B6 /* SwiftUITargetApp.swift */; };
+		C326070925701A40000405B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326070825701A40000405B6 /* ContentView.swift */; };
+		C326070B25701A40000405B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C326070A25701A40000405B6 /* Assets.xcassets */; };
+		C326070E25701A40000405B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C326070D25701A40000405B6 /* Preview Assets.xcassets */; };
+		C326075B25701ACC000405B6 /* ReduxVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; };
+		C326075C25701ACC000405B6 /* ReduxVM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E882496DA5A250BC39194586 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3621D2D904C2962625B937DF /* Pods_Example.framework */; };
+		OBJ_100 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */; };
+		OBJ_108 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Package.swift */; };
+		OBJ_113 /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* Algorithm.swift */; };
+		OBJ_114 /* AnyDifferentiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* AnyDifferentiable.swift */; };
+		OBJ_115 /* ArraySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* ArraySection.swift */; };
+		OBJ_116 /* Changeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* Changeset.swift */; };
+		OBJ_117 /* ContentEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* ContentEquatable.swift */; };
+		OBJ_118 /* ContentIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* ContentIdentifiable.swift */; };
+		OBJ_119 /* Differentiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* Differentiable.swift */; };
+		OBJ_120 /* DifferentiableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* DifferentiableSection.swift */; };
+		OBJ_121 /* ElementPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* ElementPath.swift */; };
+		OBJ_122 /* AppKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* AppKitExtension.swift */; };
+		OBJ_123 /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* UIKitExtension.swift */; };
+		OBJ_124 /* StagedChangeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* StagedChangeset.swift */; };
+		OBJ_131 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* Package.swift */; };
+		OBJ_137 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Action.swift */; };
+		OBJ_138 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Interactor.swift */; };
+		OBJ_139 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* Middleware.swift */; };
+		OBJ_140 /* SideEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* SideEffects.swift */; };
+		OBJ_141 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* State.swift */; };
+		OBJ_142 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Store.swift */; };
+		OBJ_143 /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* StoreSubscriber.swift */; };
+		OBJ_144 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Subscription.swift */; };
+		OBJ_145 /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* Assertions.swift */; };
+		OBJ_146 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Coding.swift */; };
+		OBJ_147 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* TypeHelper.swift */; };
+		OBJ_154 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Package.swift */; };
+		OBJ_160 /* CVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* CVC.swift */; };
+		OBJ_161 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Presenter.swift */; };
+		OBJ_162 /* ReduxVMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* ReduxVMSettings.swift */; };
+		OBJ_163 /* SwiftUIPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* SwiftUIPresenter.swift */; };
+		OBJ_164 /* TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* TVC.swift */; };
+		OBJ_165 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* VC.swift */; };
+		OBJ_167 /* RedSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "RedSwift::RedSwift::Product" /* RedSwift.framework */; };
+		OBJ_168 /* DeclarativeTVC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DeclarativeTVC::DeclarativeTVC::Product" /* DeclarativeTVC.framework */; };
+		OBJ_169 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */; };
+		OBJ_178 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_189 /* ReduxVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* ReduxVMTests.swift */; };
+		OBJ_190 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* XCTestManifests.swift */; };
+		OBJ_192 /* ReduxVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; };
+		OBJ_193 /* RedSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "RedSwift::RedSwift::Product" /* RedSwift.framework */; };
+		OBJ_194 /* DeclarativeTVC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DeclarativeTVC::DeclarativeTVC::Product" /* DeclarativeTVC.framework */; };
+		OBJ_195 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */; };
+		OBJ_86 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* CellModel.swift */; };
+		OBJ_87 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* Command.swift */; };
+		OBJ_88 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* SelectableCell.swift */; };
+		OBJ_89 /* CollectionDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* CollectionDS.swift */; };
+		OBJ_90 /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* CollectionModel.swift */; };
+		OBJ_91 /* DeclarativeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* DeclarativeCVC.swift */; };
+		OBJ_92 /* DeclarativeTVC+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* DeclarativeTVC+Animations.swift */; };
+		OBJ_93 /* DeclarativeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* DeclarativeTVC.swift */; };
+		OBJ_94 /* TableDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* TableDS.swift */; };
+		OBJ_95 /* TableFooterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* TableFooterModel.swift */; };
+		OBJ_96 /* TableHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* TableHeaderModel.swift */; };
+		OBJ_97 /* TableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* TableModel.swift */; };
+		OBJ_98 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* UITableView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C3709F57239C598F00CC8DD8 /* PBXContainerItemProxy */ = {
+		C32606C0257019CD000405B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3DFBA6323787B2F003259FF /* Project object */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C3709F4C239C598F00CC8DD8;
-			remoteInfo = Framework;
+			remoteGlobalIDString = "RedSwift::RedSwift";
+			remoteInfo = RedSwift;
 		};
-		C3709F59239C598F00CC8DD8 /* PBXContainerItemProxy */ = {
+		C32606C1257019CD000405B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3DFBA6323787B2F003259FF /* Project object */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C3DFBA6A23787B2F003259FF;
+			remoteGlobalIDString = "DeclarativeTVC::DeclarativeTVC";
+			remoteInfo = DeclarativeTVC;
+		};
+		C32606C2257019CD000405B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "DifferenceKit::DifferenceKit";
+			remoteInfo = DifferenceKit;
+		};
+		C32606C3257019CD000405B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "DifferenceKit::DifferenceKit";
+			remoteInfo = DifferenceKit;
+		};
+		C32606C4257019CE000405B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "ReduxVM::ReduxVM";
 			remoteInfo = ReduxVM;
 		};
-		C3709F60239C598F00CC8DD8 /* PBXContainerItemProxy */ = {
+		C32606C5257019CE000405B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3DFBA6323787B2F003259FF /* Project object */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C3709F4C239C598F00CC8DD8;
-			remoteInfo = Framework;
+			remoteGlobalIDString = "RedSwift::RedSwift";
+			remoteInfo = RedSwift;
 		};
-		C3A970B825291B92003296E5 /* PBXContainerItemProxy */ = {
+		C32606C6257019CE000405B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3DFBA6323787B2F003259FF /* Project object */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C3A970A625291B91003296E5;
-			remoteInfo = SwiftUITarget;
+			remoteGlobalIDString = "DeclarativeTVC::DeclarativeTVC";
+			remoteInfo = DeclarativeTVC;
 		};
-		C3A970C325291B92003296E5 /* PBXContainerItemProxy */ = {
+		C32606C7257019CE000405B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3DFBA6323787B2F003259FF /* Project object */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C3A970A625291B91003296E5;
-			remoteInfo = SwiftUITarget;
+			remoteGlobalIDString = "DifferenceKit::DifferenceKit";
+			remoteInfo = DifferenceKit;
 		};
-		C3DFBA8523787B32003259FF /* PBXContainerItemProxy */ = {
+		C32606D0257019CF000405B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C3DFBA6323787B2F003259FF /* Project object */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C3DFBA6A23787B2F003259FF;
+			remoteGlobalIDString = "ReduxVM::ReduxVMTests";
+			remoteInfo = ReduxVMTests;
+		};
+		C326075D25701ACD000405B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "ReduxVM::ReduxVM";
 			remoteInfo = ReduxVM;
-		};
-		C3DFBA9023787B32003259FF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3DFBA6323787B2F003259FF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C3DFBA6A23787B2F003259FF;
-			remoteInfo = ReduxVM;
-		};
-		C3F52D28252A8FFD00B1B6AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3DFBA6323787B2F003259FF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C3709F4C239C598F00CC8DD8;
-			remoteInfo = Framework;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C3709F64239C598F00CC8DD8 /* Embed Frameworks */ = {
+		C326075F25701ACD000405B6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C3709F63239C598F00CC8DD8 /* Framework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3F52D2A252A8FFD00B1B6AB /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C3F52D27252A8FFD00B1B6AB /* Framework.framework in Embed Frameworks */,
+				C326075C25701ACC000405B6 /* ReduxVM.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,653 +181,721 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05A618D533A20026E3ACE335 /* Pods-FrameworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrameworkTests.release.xcconfig"; path = "Target Support Files/Pods-FrameworkTests/Pods-FrameworkTests.release.xcconfig"; sourceTree = "<group>"; };
-		187905C0DA1CFC1031963EDD /* Pods_ReduxVMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxVMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		236F4DA4B558BFFB6327D322 /* Pods-SwiftUITarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUITarget.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget.debug.xcconfig"; sourceTree = "<group>"; };
-		29B9742E9F3B28A7237D4B1E /* Pods-ReduxVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxVM.debug.xcconfig"; path = "Target Support Files/Pods-ReduxVM/Pods-ReduxVM.debug.xcconfig"; sourceTree = "<group>"; };
-		33F269F7382AE80F0F21EE7D /* Pods_FrameworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrameworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		340D29F13ACA0ED9D31A9F57 /* Pods-Framework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Framework.release.xcconfig"; path = "Target Support Files/Pods-Framework/Pods-Framework.release.xcconfig"; sourceTree = "<group>"; };
-		47AA3960F63B6CDEE35B6A36 /* Pods_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		49F9C01A101BDF39251BDCF3 /* Pods-ReduxVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxVMUITests.release.xcconfig"; path = "Target Support Files/Pods-ReduxVMUITests/Pods-ReduxVMUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4DF26B24CEB37EA86020DA0C /* Pods-ReduxVMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxVMTests.release.xcconfig"; path = "Target Support Files/Pods-ReduxVMTests/Pods-ReduxVMTests.release.xcconfig"; sourceTree = "<group>"; };
-		5AF9B4342C566D770144867D /* Pods_SwiftUITarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUITarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7377340862E30CEFABED5E4C /* Pods-ReduxVMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxVMTests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxVMTests/Pods-ReduxVMTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7EEC29E4FE2AC1DD71EB263D /* Pods-ReduxVMUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxVMUITests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxVMUITests/Pods-ReduxVMUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		893F2219539B74B8A2DE59BE /* Pods_ReduxVMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxVMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8EC0B360678455871FA997CF /* Pods-Framework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Framework.debug.xcconfig"; path = "Target Support Files/Pods-Framework/Pods-Framework.debug.xcconfig"; sourceTree = "<group>"; };
-		96558DCF6CAF22E42E0ED349 /* Pods-SwiftUITarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUITarget.release.xcconfig"; path = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget.release.xcconfig"; sourceTree = "<group>"; };
-		97D76AEB3D51AB384818841D /* Pods-ReduxVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxVM.release.xcconfig"; path = "Target Support Files/Pods-ReduxVM/Pods-ReduxVM.release.xcconfig"; sourceTree = "<group>"; };
-		C350ABD723AFAE86007A9F6F /* MenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTVC.swift; sourceTree = "<group>"; };
-		C350ABD923AFB2BC007A9F6F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		C350ABDB23AFB4CC007A9F6F /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
-		C350ABDD23AFB5AF007A9F6F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		C350ABDF23AFB6B4007A9F6F /* ChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
-		C350ABE123AFB98D007A9F6F /* BaseWithProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWithProps.swift; sourceTree = "<group>"; };
-		C355BD1D2535865000E7044F /* TestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
-		C3709F4D239C598F00CC8DD8 /* Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3709F4F239C598F00CC8DD8 /* Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
-		C3709F50239C598F00CC8DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3709F55239C598F00CC8DD8 /* FrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3709F5C239C598F00CC8DD8 /* FrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkTests.swift; sourceTree = "<group>"; };
-		C3709F5E239C598F00CC8DD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3A970A725291B91003296E5 /* SwiftUITarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3A970A925291B91003296E5 /* SwiftUITargetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITargetApp.swift; sourceTree = "<group>"; };
-		C3A970AD25291B92003296E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C3A970B025291B92003296E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C3A970B225291B92003296E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3A970B725291B92003296E5 /* SwiftUITargetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUITargetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3A970BB25291B92003296E5 /* SwiftUITargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITargetTests.swift; sourceTree = "<group>"; };
-		C3A970BD25291B92003296E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3A970C225291B92003296E5 /* SwiftUITargetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUITargetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3A970C625291B92003296E5 /* SwiftUITargetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITargetUITests.swift; sourceTree = "<group>"; };
-		C3A970C825291B92003296E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3A970D925291BA8003296E5 /* CounterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
-		C3A970DA25291BA8003296E5 /* TestStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStore.swift; sourceTree = "<group>"; };
-		C3A970F625291E42003296E5 /* SwiftUIPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPresenter.swift; sourceTree = "<group>"; };
-		C3CB35A523CF677100CA3F15 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		C3CB35B023D264F800CA3F15 /* ReduxVMSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxVMSettings.swift; sourceTree = "<group>"; };
-		C3DFBA6B23787B2F003259FF /* ReduxVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReduxVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3DFBA6E23787B2F003259FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C3DFBA7023787B2F003259FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C3DFBA7223787B2F003259FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C3DFBA7523787B2F003259FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C3DFBA7823787B2F003259FF /* ReduxVM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReduxVM.xcdatamodel; sourceTree = "<group>"; };
-		C3DFBA7A23787B31003259FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C3DFBA7D23787B31003259FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C3DFBA7F23787B31003259FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3DFBA8423787B32003259FF /* ReduxVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReduxVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3DFBA8823787B32003259FF /* ReduxVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxVMTests.swift; sourceTree = "<group>"; };
-		C3DFBA8A23787B32003259FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3DFBA8F23787B32003259FF /* ReduxVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReduxVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3DFBA9323787B32003259FF /* ReduxVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxVMUITests.swift; sourceTree = "<group>"; };
-		C3DFBA9523787B32003259FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3DFBAA623788766003259FF /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		C3DFBAAA23788A08003259FF /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
-		C3DFBAAE23788A31003259FF /* TVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVC.swift; sourceTree = "<group>"; };
-		C3DFBAB223788AF6003259FF /* TestStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStore.swift; sourceTree = "<group>"; };
-		C3DFBAB623788B1B003259FF /* CounterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
-		C3E8932E2454B9520039EAEB /* CVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVC.swift; sourceTree = "<group>"; };
-		C3F52D0B252A8D9C00B1B6AB /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		C3F52D54252A98E200B1B6AB /* ApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInteractor.swift; sourceTree = "<group>"; };
-		DA0EF1AF0AFFC678D823FC63 /* Pods_ReduxVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4A01031470ED3C6B9B74195 /* Pods-FrameworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrameworkTests.debug.xcconfig"; path = "Target Support Files/Pods-FrameworkTests/Pods-FrameworkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3621D2D904C2962625B937DF /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A074B9FE8FB19A39C8E5772 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		6BACA3F23D92025FD7FE6D89 /* Pods-SwiftUITarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUITarget.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget.debug.xcconfig"; sourceTree = "<group>"; };
+		920A44A6A6D3F2F6B2F2B4A4 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C32606E125701A23000405B6 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C32606E325701A23000405B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C32606E525701A23000405B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C32606E725701A23000405B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C32606EA25701A23000405B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C32606EC25701A24000405B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C32606EF25701A24000405B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C32606F125701A24000405B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C326070425701A40000405B6 /* SwiftUITarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C326070625701A40000405B6 /* SwiftUITargetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITargetApp.swift; sourceTree = "<group>"; };
+		C326070825701A40000405B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C326070A25701A40000405B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C326070D25701A40000405B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C326070F25701A40000405B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		"DeclarativeTVC::DeclarativeTVC::Product" /* DeclarativeTVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeclarativeTVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DifferenceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E771D6953AFC7E3055436937 /* Pods-SwiftUITarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUITarget.release.xcconfig"; path = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget.release.xcconfig"; sourceTree = "<group>"; };
+		E9D22406DE58054979D58035 /* Pods_SwiftUITarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUITarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_10 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		OBJ_11 /* ReduxVMSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxVMSettings.swift; sourceTree = "<group>"; };
+		OBJ_12 /* SwiftUIPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPresenter.swift; sourceTree = "<group>"; };
+		OBJ_13 /* TVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVC.swift; sourceTree = "<group>"; };
+		OBJ_14 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
+		OBJ_17 /* ReduxVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxVMTests.swift; sourceTree = "<group>"; };
+		OBJ_18 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_22 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		OBJ_23 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		OBJ_24 /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
+		OBJ_25 /* SideEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffects.swift; sourceTree = "<group>"; };
+		OBJ_26 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		OBJ_27 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		OBJ_28 /* StoreSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSubscriber.swift; sourceTree = "<group>"; };
+		OBJ_29 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		OBJ_31 /* Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assertions.swift; sourceTree = "<group>"; };
+		OBJ_32 /* Coding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
+		OBJ_33 /* TypeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeHelper.swift; sourceTree = "<group>"; };
+		OBJ_34 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/dmitrykocherovets/Dev/iOS/ReduxVM/.build/checkouts/RedSwift/Package.swift; sourceTree = "<group>"; };
+		OBJ_38 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		OBJ_39 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		OBJ_40 /* SelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
+		OBJ_42 /* CollectionDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDS.swift; sourceTree = "<group>"; };
+		OBJ_43 /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
+		OBJ_44 /* DeclarativeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclarativeCVC.swift; sourceTree = "<group>"; };
+		OBJ_46 /* DeclarativeTVC+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeclarativeTVC+Animations.swift"; sourceTree = "<group>"; };
+		OBJ_47 /* DeclarativeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclarativeTVC.swift; sourceTree = "<group>"; };
+		OBJ_48 /* TableDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDS.swift; sourceTree = "<group>"; };
+		OBJ_49 /* TableFooterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterModel.swift; sourceTree = "<group>"; };
+		OBJ_50 /* TableHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderModel.swift; sourceTree = "<group>"; };
+		OBJ_51 /* TableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableModel.swift; sourceTree = "<group>"; };
+		OBJ_52 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		OBJ_53 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/dmitrykocherovets/Dev/iOS/ReduxVM/.build/checkouts/DeclarativeTVC/Package.swift; sourceTree = "<group>"; };
+		OBJ_55 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/dmitrykocherovets/Dev/iOS/ReduxVM/.build/checkouts/DifferenceKit/Package.swift; sourceTree = "<group>"; };
+		OBJ_56 /* Algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
+		OBJ_57 /* AnyDifferentiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDifferentiable.swift; sourceTree = "<group>"; };
+		OBJ_58 /* ArraySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArraySection.swift; sourceTree = "<group>"; };
+		OBJ_59 /* Changeset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Changeset.swift; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_60 /* ContentEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEquatable.swift; sourceTree = "<group>"; };
+		OBJ_61 /* ContentIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentIdentifiable.swift; sourceTree = "<group>"; };
+		OBJ_62 /* Differentiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Differentiable.swift; sourceTree = "<group>"; };
+		OBJ_63 /* DifferentiableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentiableSection.swift; sourceTree = "<group>"; };
+		OBJ_64 /* ElementPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementPath.swift; sourceTree = "<group>"; };
+		OBJ_66 /* AppKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitExtension.swift; sourceTree = "<group>"; };
+		OBJ_67 /* UIKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
+		OBJ_68 /* StagedChangeset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedChangeset.swift; sourceTree = "<group>"; };
+		OBJ_76 /* SwiftUITarget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftUITarget; sourceTree = SOURCE_ROOT; };
+		OBJ_77 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		OBJ_78 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_79 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		OBJ_80 /* ReduxVM.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReduxVM.podspec; sourceTree = "<group>"; };
+		OBJ_9 /* CVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVC.swift; sourceTree = "<group>"; };
+		"RedSwift::RedSwift::Product" /* RedSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RedSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"ReduxVM::ReduxVM::Product" /* ReduxVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ReduxVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"ReduxVM::ReduxVMTests::Product" /* ReduxVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ReduxVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C3709F4A239C598F00CC8DD8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				072E9991756BEB5B3DC6573D /* Pods_Framework.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3709F52239C598F00CC8DD8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C3709F56239C598F00CC8DD8 /* Framework.framework in Frameworks */,
-				EAC411DE72AC0B347F6346D6 /* Pods_FrameworkTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3A970A425291B91003296E5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F44CC3A6921080041D41806F /* Pods_SwiftUITarget.framework in Frameworks */,
-				C3F52D26252A8FFD00B1B6AB /* Framework.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3A970B425291B92003296E5 /* Frameworks */ = {
+		196E327AD4F033CD9DEECD09 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3A970BF25291B92003296E5 /* Frameworks */ = {
+		1AD643E2A76E8D1A617A2794 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3DFBA6823787B2F003259FF /* Frameworks */ = {
+		3639AF9BFCB020257C15EADE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFE2ABD0D4CDE3E945FE7CEC /* Pods_ReduxVM.framework in Frameworks */,
-				C3709F62239C598F00CC8DD8 /* Framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3DFBA8123787B32003259FF /* Frameworks */ = {
+		B20F61D306BD6BD6CAAAFE7E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE12620969324AACE7866EF0 /* Pods_ReduxVMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3DFBA8C23787B32003259FF /* Frameworks */ = {
+		C32606DE25701A23000405B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A69D91C6541EBDDB79BF76FE /* Pods_ReduxVMUITests.framework in Frameworks */,
+				C326075B25701ACC000405B6 /* ReduxVM.framework in Frameworks */,
+				E882496DA5A250BC39194586 /* Pods_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C326070125701A40000405B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42270F9D1A0490DD51F0C9D6 /* Pods_SwiftUITarget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_125 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_148 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_166 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_167 /* RedSwift.framework in Frameworks */,
+				OBJ_168 /* DeclarativeTVC.framework in Frameworks */,
+				OBJ_169 /* DifferenceKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_191 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_192 /* ReduxVM.framework in Frameworks */,
+				OBJ_193 /* RedSwift.framework in Frameworks */,
+				OBJ_194 /* DeclarativeTVC.framework in Frameworks */,
+				OBJ_195 /* DifferenceKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_100 /* DifferenceKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		264F2DA577D67781E7F97977 /* Frameworks */ = {
+		5A0A0A1049B70D1E89B2C027 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DA0EF1AF0AFFC678D823FC63 /* Pods_ReduxVM.framework */,
-				893F2219539B74B8A2DE59BE /* Pods_ReduxVMTests.framework */,
-				187905C0DA1CFC1031963EDD /* Pods_ReduxVMUITests.framework */,
-				47AA3960F63B6CDEE35B6A36 /* Pods_Framework.framework */,
-				33F269F7382AE80F0F21EE7D /* Pods_FrameworkTests.framework */,
-				5AF9B4342C566D770144867D /* Pods_SwiftUITarget.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3B8D2ABF65EF00A38CCD6403 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				29B9742E9F3B28A7237D4B1E /* Pods-ReduxVM.debug.xcconfig */,
-				97D76AEB3D51AB384818841D /* Pods-ReduxVM.release.xcconfig */,
-				7377340862E30CEFABED5E4C /* Pods-ReduxVMTests.debug.xcconfig */,
-				4DF26B24CEB37EA86020DA0C /* Pods-ReduxVMTests.release.xcconfig */,
-				7EEC29E4FE2AC1DD71EB263D /* Pods-ReduxVMUITests.debug.xcconfig */,
-				49F9C01A101BDF39251BDCF3 /* Pods-ReduxVMUITests.release.xcconfig */,
-				8EC0B360678455871FA997CF /* Pods-Framework.debug.xcconfig */,
-				340D29F13ACA0ED9D31A9F57 /* Pods-Framework.release.xcconfig */,
-				F4A01031470ED3C6B9B74195 /* Pods-FrameworkTests.debug.xcconfig */,
-				05A618D533A20026E3ACE335 /* Pods-FrameworkTests.release.xcconfig */,
-				236F4DA4B558BFFB6327D322 /* Pods-SwiftUITarget.debug.xcconfig */,
-				96558DCF6CAF22E42E0ED349 /* Pods-SwiftUITarget.release.xcconfig */,
+				920A44A6A6D3F2F6B2F2B4A4 /* Pods-Example.debug.xcconfig */,
+				4A074B9FE8FB19A39C8E5772 /* Pods-Example.release.xcconfig */,
+				6BACA3F23D92025FD7FE6D89 /* Pods-SwiftUITarget.debug.xcconfig */,
+				E771D6953AFC7E3055436937 /* Pods-SwiftUITarget.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		C3709F4E239C598F00CC8DD8 /* Framework */ = {
+		C32606E225701A23000405B6 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				C3DFBAA1237881EC003259FF /* Sources */,
-				C3709F4F239C598F00CC8DD8 /* Framework.h */,
-				C3709F50239C598F00CC8DD8 /* Info.plist */,
+				C32606E325701A23000405B6 /* AppDelegate.swift */,
+				C32606E525701A23000405B6 /* SceneDelegate.swift */,
+				C32606E725701A23000405B6 /* ViewController.swift */,
+				C32606E925701A23000405B6 /* Main.storyboard */,
+				C32606EC25701A24000405B6 /* Assets.xcassets */,
+				C32606EE25701A24000405B6 /* LaunchScreen.storyboard */,
+				C32606F125701A24000405B6 /* Info.plist */,
 			);
-			path = Framework;
+			path = Example;
 			sourceTree = "<group>";
 		};
-		C3709F5B239C598F00CC8DD8 /* FrameworkTests */ = {
+		C326070525701A40000405B6 /* SwiftUITarget */ = {
 			isa = PBXGroup;
 			children = (
-				C3709F5C239C598F00CC8DD8 /* FrameworkTests.swift */,
-				C3709F5E239C598F00CC8DD8 /* Info.plist */,
-			);
-			path = FrameworkTests;
-			sourceTree = "<group>";
-		};
-		C3A970A825291B91003296E5 /* SwiftUITarget */ = {
-			isa = PBXGroup;
-			children = (
-				C3A970DA25291BA8003296E5 /* TestStore.swift */,
-				C3A970D925291BA8003296E5 /* CounterState.swift */,
-				C3F52D54252A98E200B1B6AB /* ApiInteractor.swift */,
-				C3A970A925291B91003296E5 /* SwiftUITargetApp.swift */,
-				C3F52D0B252A8D9C00B1B6AB /* TestView.swift */,
-				C355BD1D2535865000E7044F /* TestView2.swift */,
-				C3A970AD25291B92003296E5 /* Assets.xcassets */,
-				C3A970B225291B92003296E5 /* Info.plist */,
-				C3A970AF25291B92003296E5 /* Preview Content */,
+				C326070625701A40000405B6 /* SwiftUITargetApp.swift */,
+				C326070825701A40000405B6 /* ContentView.swift */,
+				C326070A25701A40000405B6 /* Assets.xcassets */,
+				C326070F25701A40000405B6 /* Info.plist */,
+				C326070C25701A40000405B6 /* Preview Content */,
 			);
 			path = SwiftUITarget;
 			sourceTree = "<group>";
 		};
-		C3A970AF25291B92003296E5 /* Preview Content */ = {
+		C326070C25701A40000405B6 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				C3A970B025291B92003296E5 /* Preview Assets.xcassets */,
+				C326070D25701A40000405B6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C3A970BA25291B92003296E5 /* SwiftUITargetTests */ = {
+		CB325C1643F99A49C59F4694 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C3A970BB25291B92003296E5 /* SwiftUITargetTests.swift */,
-				C3A970BD25291B92003296E5 /* Info.plist */,
+				3621D2D904C2962625B937DF /* Pods_Example.framework */,
+				E9D22406DE58054979D58035 /* Pods_SwiftUITarget.framework */,
 			);
-			path = SwiftUITargetTests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C3A970C525291B92003296E5 /* SwiftUITargetUITests */ = {
+		OBJ_15 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C3A970C625291B92003296E5 /* SwiftUITargetUITests.swift */,
-				C3A970C825291B92003296E5 /* Info.plist */,
+				OBJ_16 /* ReduxVMTests */,
 			);
-			path = SwiftUITargetUITests;
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_16 /* ReduxVMTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_17 /* ReduxVMTests.swift */,
+				OBJ_18 /* XCTestManifests.swift */,
+			);
+			name = ReduxVMTests;
+			path = Tests/ReduxVMTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_19 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_20 /* RedSwift 1.0.31 */,
+				OBJ_35 /* DeclarativeTVC 1.0.22 */,
+				OBJ_54 /* DifferenceKit 1.1.5 */,
+			);
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		C3DFBA6223787B2F003259FF = {
+		OBJ_20 /* RedSwift 1.0.31 */ = {
 			isa = PBXGroup;
 			children = (
-				C3DFBA6D23787B2F003259FF /* ReduxVM */,
-				C3DFBA8723787B32003259FF /* ReduxVMTests */,
-				C3DFBA9223787B32003259FF /* ReduxVMUITests */,
-				C3709F4E239C598F00CC8DD8 /* Framework */,
-				C3709F5B239C598F00CC8DD8 /* FrameworkTests */,
-				C3A970A825291B91003296E5 /* SwiftUITarget */,
-				C3A970BA25291B92003296E5 /* SwiftUITargetTests */,
-				C3A970C525291B92003296E5 /* SwiftUITargetUITests */,
-				C3DFBA6C23787B2F003259FF /* Products */,
-				3B8D2ABF65EF00A38CCD6403 /* Pods */,
-				264F2DA577D67781E7F97977 /* Frameworks */,
+				OBJ_21 /* RedSwift */,
+				OBJ_34 /* Package.swift */,
+			);
+			name = "RedSwift 1.0.31";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_21 /* RedSwift */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_22 /* Action.swift */,
+				OBJ_23 /* Interactor.swift */,
+				OBJ_24 /* Middleware.swift */,
+				OBJ_25 /* SideEffects.swift */,
+				OBJ_26 /* State.swift */,
+				OBJ_27 /* Store.swift */,
+				OBJ_28 /* StoreSubscriber.swift */,
+				OBJ_29 /* Subscription.swift */,
+				OBJ_30 /* Utils */,
+			);
+			name = RedSwift;
+			path = .build/checkouts/RedSwift/Sources/RedSwift;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_30 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_31 /* Assertions.swift */,
+				OBJ_32 /* Coding.swift */,
+				OBJ_33 /* TypeHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		OBJ_35 /* DeclarativeTVC 1.0.22 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_36 /* DeclarativeTVC */,
+				OBJ_53 /* Package.swift */,
+			);
+			name = "DeclarativeTVC 1.0.22";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_36 /* DeclarativeTVC */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_37 /* Cells */,
+				OBJ_41 /* Collections */,
+				OBJ_45 /* Tables */,
+			);
+			name = DeclarativeTVC;
+			path = .build/checkouts/DeclarativeTVC/Sources/DeclarativeTVC;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_37 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_38 /* CellModel.swift */,
+				OBJ_39 /* Command.swift */,
+				OBJ_40 /* SelectableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		OBJ_41 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_42 /* CollectionDS.swift */,
+				OBJ_43 /* CollectionModel.swift */,
+				OBJ_44 /* DeclarativeCVC.swift */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+		OBJ_45 /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_46 /* DeclarativeTVC+Animations.swift */,
+				OBJ_47 /* DeclarativeTVC.swift */,
+				OBJ_48 /* TableDS.swift */,
+				OBJ_49 /* TableFooterModel.swift */,
+				OBJ_50 /* TableHeaderModel.swift */,
+				OBJ_51 /* TableModel.swift */,
+				OBJ_52 /* UITableView+.swift */,
+			);
+			path = Tables;
+			sourceTree = "<group>";
+		};
+		OBJ_5 = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_15 /* Tests */,
+				OBJ_19 /* Dependencies */,
+				C32606E225701A23000405B6 /* Example */,
+				C326070525701A40000405B6 /* SwiftUITarget */,
+				OBJ_69 /* Products */,
+				OBJ_76 /* SwiftUITarget */,
+				OBJ_77 /* LICENSE */,
+				OBJ_78 /* README.md */,
+				OBJ_79 /* Podfile */,
+				OBJ_80 /* ReduxVM.podspec */,
+				5A0A0A1049B70D1E89B2C027 /* Pods */,
+				CB325C1643F99A49C59F4694 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		C3DFBA6C23787B2F003259FF /* Products */ = {
+		OBJ_54 /* DifferenceKit 1.1.5 */ = {
 			isa = PBXGroup;
 			children = (
-				C3DFBA6B23787B2F003259FF /* ReduxVM.app */,
-				C3DFBA8423787B32003259FF /* ReduxVMTests.xctest */,
-				C3DFBA8F23787B32003259FF /* ReduxVMUITests.xctest */,
-				C3709F4D239C598F00CC8DD8 /* Framework.framework */,
-				C3709F55239C598F00CC8DD8 /* FrameworkTests.xctest */,
-				C3A970A725291B91003296E5 /* SwiftUITarget.app */,
-				C3A970B725291B92003296E5 /* SwiftUITargetTests.xctest */,
-				C3A970C225291B92003296E5 /* SwiftUITargetUITests.xctest */,
+				OBJ_55 /* Package.swift */,
+				OBJ_56 /* Algorithm.swift */,
+				OBJ_57 /* AnyDifferentiable.swift */,
+				OBJ_58 /* ArraySection.swift */,
+				OBJ_59 /* Changeset.swift */,
+				OBJ_60 /* ContentEquatable.swift */,
+				OBJ_61 /* ContentIdentifiable.swift */,
+				OBJ_62 /* Differentiable.swift */,
+				OBJ_63 /* DifferentiableSection.swift */,
+				OBJ_64 /* ElementPath.swift */,
+				OBJ_65 /* Extensions */,
+				OBJ_68 /* StagedChangeset.swift */,
+			);
+			name = "DifferenceKit 1.1.5";
+			path = .build/checkouts/DifferenceKit/Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_65 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_66 /* AppKitExtension.swift */,
+				OBJ_67 /* UIKitExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		OBJ_69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"DeclarativeTVC::DeclarativeTVC::Product" /* DeclarativeTVC.framework */,
+				"ReduxVM::ReduxVM::Product" /* ReduxVM.framework */,
+				"DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */,
+				"ReduxVM::ReduxVMTests::Product" /* ReduxVMTests.xctest */,
+				"RedSwift::RedSwift::Product" /* RedSwift.framework */,
+				C32606E125701A23000405B6 /* Example.app */,
+				C326070425701A40000405B6 /* SwiftUITarget.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C3DFBA6D23787B2F003259FF /* ReduxVM */ = {
+		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C3DFBAB223788AF6003259FF /* TestStore.swift */,
-				C3CB35A523CF677100CA3F15 /* ApiService.swift */,
-				C3DFBAB623788B1B003259FF /* CounterState.swift */,
-				C350ABD923AFB2BC007A9F6F /* Router.swift */,
-				C350ABD723AFAE86007A9F6F /* MenuTVC.swift */,
-				C3DFBA7223787B2F003259FF /* ViewController.swift */,
-				C350ABDB23AFB4CC007A9F6F /* BaseVC.swift */,
-				C350ABE123AFB98D007A9F6F /* BaseWithProps.swift */,
-				C350ABDF23AFB6B4007A9F6F /* ChildVC.swift */,
-				C350ABDD23AFB5AF007A9F6F /* UIColor+.swift */,
-				C3DFBA6E23787B2F003259FF /* AppDelegate.swift */,
-				C3DFBA7023787B2F003259FF /* SceneDelegate.swift */,
-				C3DFBA7423787B2F003259FF /* Main.storyboard */,
-				C3DFBA7A23787B31003259FF /* Assets.xcassets */,
-				C3DFBA7C23787B31003259FF /* LaunchScreen.storyboard */,
-				C3DFBA7F23787B31003259FF /* Info.plist */,
-				C3DFBA7723787B2F003259FF /* ReduxVM.xcdatamodeld */,
+				OBJ_8 /* ReduxVM */,
 			);
-			path = ReduxVM;
-			sourceTree = "<group>";
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
 		};
-		C3DFBA8723787B32003259FF /* ReduxVMTests */ = {
+		OBJ_8 /* ReduxVM */ = {
 			isa = PBXGroup;
 			children = (
-				C3DFBA8823787B32003259FF /* ReduxVMTests.swift */,
-				C3DFBA8A23787B32003259FF /* Info.plist */,
+				OBJ_9 /* CVC.swift */,
+				OBJ_10 /* Presenter.swift */,
+				OBJ_11 /* ReduxVMSettings.swift */,
+				OBJ_12 /* SwiftUIPresenter.swift */,
+				OBJ_13 /* TVC.swift */,
+				OBJ_14 /* VC.swift */,
 			);
-			path = ReduxVMTests;
-			sourceTree = "<group>";
-		};
-		C3DFBA9223787B32003259FF /* ReduxVMUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C3DFBA9323787B32003259FF /* ReduxVMUITests.swift */,
-				C3DFBA9523787B32003259FF /* Info.plist */,
-			);
-			path = ReduxVMUITests;
-			sourceTree = "<group>";
-		};
-		C3DFBAA1237881EC003259FF /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				C3DFBAA623788766003259FF /* Presenter.swift */,
-				C3DFBAAA23788A08003259FF /* VC.swift */,
-				C3DFBAAE23788A31003259FF /* TVC.swift */,
-				C3E8932E2454B9520039EAEB /* CVC.swift */,
-				C3CB35B023D264F800CA3F15 /* ReduxVMSettings.swift */,
-				C3A970F625291E42003296E5 /* SwiftUIPresenter.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
+			name = ReduxVM;
+			path = Sources/ReduxVM;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		C3709F48239C598F00CC8DD8 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C3709F5F239C598F00CC8DD8 /* Framework.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		C3709F4C239C598F00CC8DD8 /* Framework */ = {
+		C32606E025701A23000405B6 /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3709F69239C598F00CC8DD8 /* Build configuration list for PBXNativeTarget "Framework" */;
+			buildConfigurationList = C32606F425701A24000405B6 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				477734B1D16311C38E39D5F4 /* [CP] Check Pods Manifest.lock */,
-				C3709F48239C598F00CC8DD8 /* Headers */,
-				C3709F49239C598F00CC8DD8 /* Sources */,
-				C3709F4A239C598F00CC8DD8 /* Frameworks */,
-				C3709F4B239C598F00CC8DD8 /* Resources */,
+				519084E5707005727568FF3D /* [CP] Check Pods Manifest.lock */,
+				C32606DD25701A23000405B6 /* Sources */,
+				C32606DE25701A23000405B6 /* Frameworks */,
+				C32606DF25701A23000405B6 /* Resources */,
+				153BAECC60D943F3C3E0C34F /* [CP] Embed Pods Frameworks */,
+				C326075F25701ACD000405B6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C326075E25701ACD000405B6 /* PBXTargetDependency */,
 			);
-			name = Framework;
-			productName = Framework;
-			productReference = C3709F4D239C598F00CC8DD8 /* Framework.framework */;
-			productType = "com.apple.product-type.framework";
+			name = Example;
+			productName = Example;
+			productReference = C32606E125701A23000405B6 /* Example.app */;
+			productType = "com.apple.product-type.application";
 		};
-		C3709F54239C598F00CC8DD8 /* FrameworkTests */ = {
+		C326070325701A40000405B6 /* SwiftUITarget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3709F6A239C598F00CC8DD8 /* Build configuration list for PBXNativeTarget "FrameworkTests" */;
+			buildConfigurationList = C326071025701A40000405B6 /* Build configuration list for PBXNativeTarget "SwiftUITarget" */;
 			buildPhases = (
-				03278716372A0927AE6AFF77 /* [CP] Check Pods Manifest.lock */,
-				C3709F51239C598F00CC8DD8 /* Sources */,
-				C3709F52239C598F00CC8DD8 /* Frameworks */,
-				C3709F53239C598F00CC8DD8 /* Resources */,
-				C618A3A07B2902F09EC504B0 /* [CP] Embed Pods Frameworks */,
+				3E608C8B13B854934FDF8FCC /* [CP] Check Pods Manifest.lock */,
+				C326070025701A40000405B6 /* Sources */,
+				C326070125701A40000405B6 /* Frameworks */,
+				C326070225701A40000405B6 /* Resources */,
+				7D7980B6437022E6D6999BE9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C3709F58239C598F00CC8DD8 /* PBXTargetDependency */,
-				C3709F5A239C598F00CC8DD8 /* PBXTargetDependency */,
-			);
-			name = FrameworkTests;
-			productName = FrameworkTests;
-			productReference = C3709F55239C598F00CC8DD8 /* FrameworkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C3A970A625291B91003296E5 /* SwiftUITarget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C3A970CF25291B92003296E5 /* Build configuration list for PBXNativeTarget "SwiftUITarget" */;
-			buildPhases = (
-				0DF05D15DC84C3EF93049013 /* [CP] Check Pods Manifest.lock */,
-				C3A970A325291B91003296E5 /* Sources */,
-				C3A970A425291B91003296E5 /* Frameworks */,
-				C3A970A525291B91003296E5 /* Resources */,
-				DEFAA3524A05F60658898CD9 /* [CP] Embed Pods Frameworks */,
-				C3F52D2A252A8FFD00B1B6AB /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C3F52D29252A8FFD00B1B6AB /* PBXTargetDependency */,
 			);
 			name = SwiftUITarget;
 			productName = SwiftUITarget;
-			productReference = C3A970A725291B91003296E5 /* SwiftUITarget.app */;
+			productReference = C326070425701A40000405B6 /* SwiftUITarget.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C3A970B625291B92003296E5 /* SwiftUITargetTests */ = {
+		"DeclarativeTVC::DeclarativeTVC" /* DeclarativeTVC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3A970D025291B92003296E5 /* Build configuration list for PBXNativeTarget "SwiftUITargetTests" */;
+			buildConfigurationList = OBJ_82 /* Build configuration list for PBXNativeTarget "DeclarativeTVC" */;
 			buildPhases = (
-				C3A970B325291B92003296E5 /* Sources */,
-				C3A970B425291B92003296E5 /* Frameworks */,
-				C3A970B525291B92003296E5 /* Resources */,
+				OBJ_85 /* Sources */,
+				OBJ_99 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C3A970B925291B92003296E5 /* PBXTargetDependency */,
+				OBJ_101 /* PBXTargetDependency */,
 			);
-			name = SwiftUITargetTests;
-			productName = SwiftUITargetTests;
-			productReference = C3A970B725291B92003296E5 /* SwiftUITargetTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = DeclarativeTVC;
+			productName = DeclarativeTVC;
+			productReference = "DeclarativeTVC::DeclarativeTVC::Product" /* DeclarativeTVC.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		C3A970C125291B92003296E5 /* SwiftUITargetUITests */ = {
+		"DeclarativeTVC::SwiftPMPackageDescription" /* DeclarativeTVCPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3A970D125291B92003296E5 /* Build configuration list for PBXNativeTarget "SwiftUITargetUITests" */;
+			buildConfigurationList = OBJ_104 /* Build configuration list for PBXNativeTarget "DeclarativeTVCPackageDescription" */;
 			buildPhases = (
-				C3A970BE25291B92003296E5 /* Sources */,
-				C3A970BF25291B92003296E5 /* Frameworks */,
-				C3A970C025291B92003296E5 /* Resources */,
+				OBJ_107 /* Sources */,
+				196E327AD4F033CD9DEECD09 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C3A970C425291B92003296E5 /* PBXTargetDependency */,
 			);
-			name = SwiftUITargetUITests;
-			productName = SwiftUITargetUITests;
-			productReference = C3A970C225291B92003296E5 /* SwiftUITargetUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = DeclarativeTVCPackageDescription;
+			productName = DeclarativeTVCPackageDescription;
+			productType = "com.apple.product-type.framework";
 		};
-		C3DFBA6A23787B2F003259FF /* ReduxVM */ = {
+		"DifferenceKit::DifferenceKit" /* DifferenceKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3DFBA9823787B32003259FF /* Build configuration list for PBXNativeTarget "ReduxVM" */;
+			buildConfigurationList = OBJ_109 /* Build configuration list for PBXNativeTarget "DifferenceKit" */;
 			buildPhases = (
-				86D522D3238FE81D64314DC0 /* [CP] Check Pods Manifest.lock */,
-				C3DFBA6723787B2F003259FF /* Sources */,
-				C3DFBA6823787B2F003259FF /* Frameworks */,
-				C3DFBA6923787B2F003259FF /* Resources */,
-				298CC56338B13225939BEB08 /* [CP] Embed Pods Frameworks */,
-				C3709F64239C598F00CC8DD8 /* Embed Frameworks */,
+				OBJ_112 /* Sources */,
+				OBJ_125 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C3709F61239C598F00CC8DD8 /* PBXTargetDependency */,
+			);
+			name = DifferenceKit;
+			productName = DifferenceKit;
+			productReference = "DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"DifferenceKit::SwiftPMPackageDescription" /* DifferenceKitPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_127 /* Build configuration list for PBXNativeTarget "DifferenceKitPackageDescription" */;
+			buildPhases = (
+				OBJ_130 /* Sources */,
+				B20F61D306BD6BD6CAAAFE7E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DifferenceKitPackageDescription;
+			productName = DifferenceKitPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"RedSwift::RedSwift" /* RedSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_133 /* Build configuration list for PBXNativeTarget "RedSwift" */;
+			buildPhases = (
+				OBJ_136 /* Sources */,
+				OBJ_148 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RedSwift;
+			productName = RedSwift;
+			productReference = "RedSwift::RedSwift::Product" /* RedSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"RedSwift::SwiftPMPackageDescription" /* RedSwiftPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_150 /* Build configuration list for PBXNativeTarget "RedSwiftPackageDescription" */;
+			buildPhases = (
+				OBJ_153 /* Sources */,
+				3639AF9BFCB020257C15EADE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RedSwiftPackageDescription;
+			productName = RedSwiftPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"ReduxVM::ReduxVM" /* ReduxVM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_156 /* Build configuration list for PBXNativeTarget "ReduxVM" */;
+			buildPhases = (
+				OBJ_159 /* Sources */,
+				OBJ_166 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_170 /* PBXTargetDependency */,
+				OBJ_171 /* PBXTargetDependency */,
+				OBJ_172 /* PBXTargetDependency */,
 			);
 			name = ReduxVM;
 			productName = ReduxVM;
-			productReference = C3DFBA6B23787B2F003259FF /* ReduxVM.app */;
-			productType = "com.apple.product-type.application";
+			productReference = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		C3DFBA8323787B32003259FF /* ReduxVMTests */ = {
+		"ReduxVM::ReduxVMTests" /* ReduxVMTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3DFBA9B23787B32003259FF /* Build configuration list for PBXNativeTarget "ReduxVMTests" */;
+			buildConfigurationList = OBJ_185 /* Build configuration list for PBXNativeTarget "ReduxVMTests" */;
 			buildPhases = (
-				4D3B394297731A16EAA2218A /* [CP] Check Pods Manifest.lock */,
-				C3DFBA8023787B32003259FF /* Sources */,
-				C3DFBA8123787B32003259FF /* Frameworks */,
-				C3DFBA8223787B32003259FF /* Resources */,
-				74C30EFFE13977EAE4851572 /* [CP] Embed Pods Frameworks */,
+				OBJ_188 /* Sources */,
+				OBJ_191 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C3DFBA8623787B32003259FF /* PBXTargetDependency */,
+				OBJ_196 /* PBXTargetDependency */,
+				OBJ_197 /* PBXTargetDependency */,
+				OBJ_198 /* PBXTargetDependency */,
+				OBJ_199 /* PBXTargetDependency */,
 			);
 			name = ReduxVMTests;
 			productName = ReduxVMTests;
-			productReference = C3DFBA8423787B32003259FF /* ReduxVMTests.xctest */;
+			productReference = "ReduxVM::ReduxVMTests::Product" /* ReduxVMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C3DFBA8E23787B32003259FF /* ReduxVMUITests */ = {
+		"ReduxVM::SwiftPMPackageDescription" /* ReduxVMPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3DFBA9E23787B32003259FF /* Build configuration list for PBXNativeTarget "ReduxVMUITests" */;
+			buildConfigurationList = OBJ_174 /* Build configuration list for PBXNativeTarget "ReduxVMPackageDescription" */;
 			buildPhases = (
-				2DFF508DA4AD6A82B4846AE4 /* [CP] Check Pods Manifest.lock */,
-				C3DFBA8B23787B32003259FF /* Sources */,
-				C3DFBA8C23787B32003259FF /* Frameworks */,
-				C3DFBA8D23787B32003259FF /* Resources */,
-				8405F3DAFFD0C9DB25052E2C /* [CP] Embed Pods Frameworks */,
+				OBJ_177 /* Sources */,
+				1AD643E2A76E8D1A617A2794 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C3DFBA9123787B32003259FF /* PBXTargetDependency */,
 			);
-			name = ReduxVMUITests;
-			productName = ReduxVMUITests;
-			productReference = C3DFBA8F23787B32003259FF /* ReduxVMUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = ReduxVMPackageDescription;
+			productName = ReduxVMPackageDescription;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C3DFBA6323787B2F003259FF /* Project object */ = {
+		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
-				ORGANIZATIONNAME = "Dmitry Kocherovets";
+				LastSwiftMigration = 9999;
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
-					C3709F4C239C598F00CC8DD8 = {
-						CreatedOnToolsVersion = 11.2.1;
+					C32606E025701A23000405B6 = {
+						CreatedOnToolsVersion = 12.2;
+						DevelopmentTeam = 42K94E5YQD;
+						ProvisioningStyle = Automatic;
 					};
-					C3709F54239C598F00CC8DD8 = {
-						CreatedOnToolsVersion = 11.2.1;
-						TestTargetID = C3DFBA6A23787B2F003259FF;
-					};
-					C3A970A625291B91003296E5 = {
-						CreatedOnToolsVersion = 12.0.1;
-					};
-					C3A970B625291B92003296E5 = {
-						CreatedOnToolsVersion = 12.0.1;
-						TestTargetID = C3A970A625291B91003296E5;
-					};
-					C3A970C125291B92003296E5 = {
-						CreatedOnToolsVersion = 12.0.1;
-						TestTargetID = C3A970A625291B91003296E5;
-					};
-					C3DFBA6A23787B2F003259FF = {
-						CreatedOnToolsVersion = 11.1;
-					};
-					C3DFBA8323787B32003259FF = {
-						CreatedOnToolsVersion = 11.1;
-						TestTargetID = C3DFBA6A23787B2F003259FF;
-					};
-					C3DFBA8E23787B32003259FF = {
-						CreatedOnToolsVersion = 11.1;
-						TestTargetID = C3DFBA6A23787B2F003259FF;
+					C326070325701A40000405B6 = {
+						CreatedOnToolsVersion = 12.2;
+						DevelopmentTeam = 42K94E5YQD;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = C3DFBA6623787B2F003259FF /* Build configuration list for PBXProject "ReduxVM" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "ReduxVM" */;
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = C3DFBA6223787B2F003259FF;
-			productRefGroup = C3DFBA6C23787B2F003259FF /* Products */;
+			mainGroup = OBJ_5;
+			productRefGroup = OBJ_69 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C3DFBA6A23787B2F003259FF /* ReduxVM */,
-				C3DFBA8323787B32003259FF /* ReduxVMTests */,
-				C3DFBA8E23787B32003259FF /* ReduxVMUITests */,
-				C3709F4C239C598F00CC8DD8 /* Framework */,
-				C3709F54239C598F00CC8DD8 /* FrameworkTests */,
-				C3A970A625291B91003296E5 /* SwiftUITarget */,
-				C3A970B625291B92003296E5 /* SwiftUITargetTests */,
-				C3A970C125291B92003296E5 /* SwiftUITargetUITests */,
+				"DeclarativeTVC::DeclarativeTVC" /* DeclarativeTVC */,
+				"DeclarativeTVC::SwiftPMPackageDescription" /* DeclarativeTVCPackageDescription */,
+				"DifferenceKit::DifferenceKit" /* DifferenceKit */,
+				"DifferenceKit::SwiftPMPackageDescription" /* DifferenceKitPackageDescription */,
+				"RedSwift::RedSwift" /* RedSwift */,
+				"RedSwift::SwiftPMPackageDescription" /* RedSwiftPackageDescription */,
+				"ReduxVM::ReduxVM" /* ReduxVM */,
+				"ReduxVM::SwiftPMPackageDescription" /* ReduxVMPackageDescription */,
+				"ReduxVM::ReduxVMPackageTests::ProductTarget" /* ReduxVMPackageTests */,
+				"ReduxVM::ReduxVMTests" /* ReduxVMTests */,
+				C32606E025701A23000405B6 /* Example */,
+				C326070325701A40000405B6 /* SwiftUITarget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C3709F4B239C598F00CC8DD8 /* Resources */ = {
+		C32606DF25701A23000405B6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C32606F025701A24000405B6 /* LaunchScreen.storyboard in Resources */,
+				C32606ED25701A24000405B6 /* Assets.xcassets in Resources */,
+				C32606EB25701A23000405B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3709F53239C598F00CC8DD8 /* Resources */ = {
+		C326070225701A40000405B6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3A970A525291B91003296E5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C3A970B125291B92003296E5 /* Preview Assets.xcassets in Resources */,
-				C3A970AE25291B92003296E5 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3A970B525291B92003296E5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3A970C025291B92003296E5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3DFBA6923787B2F003259FF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C3DFBA7E23787B31003259FF /* LaunchScreen.storyboard in Resources */,
-				C3DFBA7B23787B31003259FF /* Assets.xcassets in Resources */,
-				C3DFBA7623787B2F003259FF /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3DFBA8223787B32003259FF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3DFBA8D23787B32003259FF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				C326070E25701A40000405B6 /* Preview Assets.xcassets in Resources */,
+				C326070B25701A40000405B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03278716372A0927AE6AFF77 /* [CP] Check Pods Manifest.lock */ = {
+		153BAECC60D943F3C3E0C34F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DITranquillity/DITranquillity.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftLazy/SwiftLazy.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FrameworkTests-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DITranquillity.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLazy.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0DF05D15DC84C3EF93049013 /* [CP] Check Pods Manifest.lock */ = {
+		3E608C8B13B854934FDF8FCC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -813,24 +917,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		298CC56338B13225939BEB08 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReduxVM/Pods-ReduxVM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReduxVM/Pods-ReduxVM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReduxVM/Pods-ReduxVM-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2DFF508DA4AD6A82B4846AE4 /* [CP] Check Pods Manifest.lock */ = {
+		519084E5707005727568FF3D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -845,141 +932,27 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReduxVMUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		477734B1D16311C38E39D5F4 /* [CP] Check Pods Manifest.lock */ = {
+		7D7980B6437022E6D6999BE9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DITranquillity/DITranquillity.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftLazy/SwiftLazy.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Framework-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4D3B394297731A16EAA2218A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReduxVMTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		74C30EFFE13977EAE4851572 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReduxVMTests/Pods-ReduxVMTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReduxVMTests/Pods-ReduxVMTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReduxVMTests/Pods-ReduxVMTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8405F3DAFFD0C9DB25052E2C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReduxVMUITests/Pods-ReduxVMUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReduxVMUITests/Pods-ReduxVMUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReduxVMUITests/Pods-ReduxVMUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		86D522D3238FE81D64314DC0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReduxVM-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C618A3A07B2902F09EC504B0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FrameworkTests/Pods-FrameworkTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FrameworkTests/Pods-FrameworkTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FrameworkTests/Pods-FrameworkTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DEFAA3524A05F60658898CD9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DITranquillity.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLazy.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -989,154 +962,204 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C3709F49239C598F00CC8DD8 /* Sources */ = {
+		C32606DD25701A23000405B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3709F6C239C599E00CC8DD8 /* VC.swift in Sources */,
-				C3709F6D239C599E00CC8DD8 /* TVC.swift in Sources */,
-				C3E8932F2454B9520039EAEB /* CVC.swift in Sources */,
-				C3709F6B239C599E00CC8DD8 /* Presenter.swift in Sources */,
-				C3A970F725291E42003296E5 /* SwiftUIPresenter.swift in Sources */,
-				C3CB35B123D264F800CA3F15 /* ReduxVMSettings.swift in Sources */,
+				C32606E825701A23000405B6 /* ViewController.swift in Sources */,
+				C32606E425701A23000405B6 /* AppDelegate.swift in Sources */,
+				C32606E625701A23000405B6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3709F51239C598F00CC8DD8 /* Sources */ = {
+		C326070025701A40000405B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3709F5D239C598F00CC8DD8 /* FrameworkTests.swift in Sources */,
+				C326070925701A40000405B6 /* ContentView.swift in Sources */,
+				C326070725701A40000405B6 /* SwiftUITargetApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3A970A325291B91003296E5 /* Sources */ = {
+		OBJ_107 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				C3A970DB25291BA8003296E5 /* CounterState.swift in Sources */,
-				C3F52D55252A98E200B1B6AB /* ApiInteractor.swift in Sources */,
-				C3A970AA25291B91003296E5 /* SwiftUITargetApp.swift in Sources */,
-				C3F52D0C252A8D9C00B1B6AB /* TestView.swift in Sources */,
-				C3A970DC25291BA8003296E5 /* TestStore.swift in Sources */,
-				C355BD1E2535865000E7044F /* TestView2.swift in Sources */,
+				OBJ_108 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3A970B325291B92003296E5 /* Sources */ = {
+		OBJ_112 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				C3A970BC25291B92003296E5 /* SwiftUITargetTests.swift in Sources */,
+				OBJ_113 /* Algorithm.swift in Sources */,
+				OBJ_114 /* AnyDifferentiable.swift in Sources */,
+				OBJ_115 /* ArraySection.swift in Sources */,
+				OBJ_116 /* Changeset.swift in Sources */,
+				OBJ_117 /* ContentEquatable.swift in Sources */,
+				OBJ_118 /* ContentIdentifiable.swift in Sources */,
+				OBJ_119 /* Differentiable.swift in Sources */,
+				OBJ_120 /* DifferentiableSection.swift in Sources */,
+				OBJ_121 /* ElementPath.swift in Sources */,
+				OBJ_122 /* AppKitExtension.swift in Sources */,
+				OBJ_123 /* UIKitExtension.swift in Sources */,
+				OBJ_124 /* StagedChangeset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3A970BE25291B92003296E5 /* Sources */ = {
+		OBJ_130 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				C3A970C725291B92003296E5 /* SwiftUITargetUITests.swift in Sources */,
+				OBJ_131 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3DFBA6723787B2F003259FF /* Sources */ = {
+		OBJ_136 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				C350ABDA23AFB2BC007A9F6F /* Router.swift in Sources */,
-				C350ABE023AFB6B4007A9F6F /* ChildVC.swift in Sources */,
-				C3DFBA7323787B2F003259FF /* ViewController.swift in Sources */,
-				C3DFBAB323788AF6003259FF /* TestStore.swift in Sources */,
-				C3DFBA6F23787B2F003259FF /* AppDelegate.swift in Sources */,
-				C350ABDC23AFB4CC007A9F6F /* BaseVC.swift in Sources */,
-				C3DFBAB723788B1B003259FF /* CounterState.swift in Sources */,
-				C3CB35A623CF677100CA3F15 /* ApiService.swift in Sources */,
-				C3DFBA7123787B2F003259FF /* SceneDelegate.swift in Sources */,
-				C350ABD823AFAE86007A9F6F /* MenuTVC.swift in Sources */,
-				C350ABE223AFB98D007A9F6F /* BaseWithProps.swift in Sources */,
-				C3DFBA7923787B30003259FF /* ReduxVM.xcdatamodeld in Sources */,
-				C350ABDE23AFB5AF007A9F6F /* UIColor+.swift in Sources */,
+				OBJ_137 /* Action.swift in Sources */,
+				OBJ_138 /* Interactor.swift in Sources */,
+				OBJ_139 /* Middleware.swift in Sources */,
+				OBJ_140 /* SideEffects.swift in Sources */,
+				OBJ_141 /* State.swift in Sources */,
+				OBJ_142 /* Store.swift in Sources */,
+				OBJ_143 /* StoreSubscriber.swift in Sources */,
+				OBJ_144 /* Subscription.swift in Sources */,
+				OBJ_145 /* Assertions.swift in Sources */,
+				OBJ_146 /* Coding.swift in Sources */,
+				OBJ_147 /* TypeHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3DFBA8023787B32003259FF /* Sources */ = {
+		OBJ_153 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				C3DFBAB423788AF6003259FF /* TestStore.swift in Sources */,
-				C3DFBA8923787B32003259FF /* ReduxVMTests.swift in Sources */,
-				C3DFBAB823788B1B003259FF /* CounterState.swift in Sources */,
+				OBJ_154 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3DFBA8B23787B32003259FF /* Sources */ = {
+		OBJ_159 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				C3DFBAB523788AF6003259FF /* TestStore.swift in Sources */,
-				C3DFBA9423787B32003259FF /* ReduxVMUITests.swift in Sources */,
-				C3DFBAB923788B1B003259FF /* CounterState.swift in Sources */,
+				OBJ_160 /* CVC.swift in Sources */,
+				OBJ_161 /* Presenter.swift in Sources */,
+				OBJ_162 /* ReduxVMSettings.swift in Sources */,
+				OBJ_163 /* SwiftUIPresenter.swift in Sources */,
+				OBJ_164 /* TVC.swift in Sources */,
+				OBJ_165 /* VC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_177 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_178 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_188 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_189 /* ReduxVMTests.swift in Sources */,
+				OBJ_190 /* XCTestManifests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_86 /* CellModel.swift in Sources */,
+				OBJ_87 /* Command.swift in Sources */,
+				OBJ_88 /* SelectableCell.swift in Sources */,
+				OBJ_89 /* CollectionDS.swift in Sources */,
+				OBJ_90 /* CollectionModel.swift in Sources */,
+				OBJ_91 /* DeclarativeCVC.swift in Sources */,
+				OBJ_92 /* DeclarativeTVC+Animations.swift in Sources */,
+				OBJ_93 /* DeclarativeTVC.swift in Sources */,
+				OBJ_94 /* TableDS.swift in Sources */,
+				OBJ_95 /* TableFooterModel.swift in Sources */,
+				OBJ_96 /* TableHeaderModel.swift in Sources */,
+				OBJ_97 /* TableModel.swift in Sources */,
+				OBJ_98 /* UITableView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C3709F58239C598F00CC8DD8 /* PBXTargetDependency */ = {
+		C326075E25701ACD000405B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C3709F4C239C598F00CC8DD8 /* Framework */;
-			targetProxy = C3709F57239C598F00CC8DD8 /* PBXContainerItemProxy */;
+			target = "ReduxVM::ReduxVM" /* ReduxVM */;
+			targetProxy = C326075D25701ACD000405B6 /* PBXContainerItemProxy */;
 		};
-		C3709F5A239C598F00CC8DD8 /* PBXTargetDependency */ = {
+		OBJ_101 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C3DFBA6A23787B2F003259FF /* ReduxVM */;
-			targetProxy = C3709F59239C598F00CC8DD8 /* PBXContainerItemProxy */;
+			target = "DifferenceKit::DifferenceKit" /* DifferenceKit */;
+			targetProxy = C32606C2257019CD000405B6 /* PBXContainerItemProxy */;
 		};
-		C3709F61239C598F00CC8DD8 /* PBXTargetDependency */ = {
+		OBJ_170 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C3709F4C239C598F00CC8DD8 /* Framework */;
-			targetProxy = C3709F60239C598F00CC8DD8 /* PBXContainerItemProxy */;
+			target = "RedSwift::RedSwift" /* RedSwift */;
+			targetProxy = C32606C0257019CD000405B6 /* PBXContainerItemProxy */;
 		};
-		C3A970B925291B92003296E5 /* PBXTargetDependency */ = {
+		OBJ_171 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C3A970A625291B91003296E5 /* SwiftUITarget */;
-			targetProxy = C3A970B825291B92003296E5 /* PBXContainerItemProxy */;
+			target = "DeclarativeTVC::DeclarativeTVC" /* DeclarativeTVC */;
+			targetProxy = C32606C1257019CD000405B6 /* PBXContainerItemProxy */;
 		};
-		C3A970C425291B92003296E5 /* PBXTargetDependency */ = {
+		OBJ_172 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C3A970A625291B91003296E5 /* SwiftUITarget */;
-			targetProxy = C3A970C325291B92003296E5 /* PBXContainerItemProxy */;
+			target = "DifferenceKit::DifferenceKit" /* DifferenceKit */;
+			targetProxy = C32606C3257019CD000405B6 /* PBXContainerItemProxy */;
 		};
-		C3DFBA8623787B32003259FF /* PBXTargetDependency */ = {
+		OBJ_183 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C3DFBA6A23787B2F003259FF /* ReduxVM */;
-			targetProxy = C3DFBA8523787B32003259FF /* PBXContainerItemProxy */;
+			target = "ReduxVM::ReduxVMTests" /* ReduxVMTests */;
+			targetProxy = C32606D0257019CF000405B6 /* PBXContainerItemProxy */;
 		};
-		C3DFBA9123787B32003259FF /* PBXTargetDependency */ = {
+		OBJ_196 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C3DFBA6A23787B2F003259FF /* ReduxVM */;
-			targetProxy = C3DFBA9023787B32003259FF /* PBXContainerItemProxy */;
+			target = "ReduxVM::ReduxVM" /* ReduxVM */;
+			targetProxy = C32606C4257019CE000405B6 /* PBXContainerItemProxy */;
 		};
-		C3F52D29252A8FFD00B1B6AB /* PBXTargetDependency */ = {
+		OBJ_197 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C3709F4C239C598F00CC8DD8 /* Framework */;
-			targetProxy = C3F52D28252A8FFD00B1B6AB /* PBXContainerItemProxy */;
+			target = "RedSwift::RedSwift" /* RedSwift */;
+			targetProxy = C32606C5257019CE000405B6 /* PBXContainerItemProxy */;
+		};
+		OBJ_198 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "DeclarativeTVC::DeclarativeTVC" /* DeclarativeTVC */;
+			targetProxy = C32606C6257019CE000405B6 /* PBXContainerItemProxy */;
+		};
+		OBJ_199 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "DifferenceKit::DifferenceKit" /* DifferenceKit */;
+			targetProxy = C32606C7257019CE000405B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C3DFBA7423787B2F003259FF /* Main.storyboard */ = {
+		C32606E925701A23000405B6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C3DFBA7523787B2F003259FF /* Base */,
+				C32606EA25701A23000405B6 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		C3DFBA7C23787B31003259FF /* LaunchScreen.storyboard */ = {
+		C32606EE25701A24000405B6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C3DFBA7D23787B31003259FF /* Base */,
+				C32606EF25701A24000405B6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1144,256 +1167,18 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C3709F65239C598F00CC8DD8 /* Debug */ = {
+		C32606F225701A24000405B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EC0B360678455871FA997CF /* Pods-Framework.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Framework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.Framework;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C3709F66239C598F00CC8DD8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 340D29F13ACA0ED9D31A9F57 /* Pods-Framework.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Framework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.Framework;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C3709F67239C598F00CC8DD8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4A01031470ED3C6B9B74195 /* Pods-FrameworkTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = FrameworkTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.FrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReduxVM.app/ReduxVM";
-			};
-			name = Debug;
-		};
-		C3709F68239C598F00CC8DD8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05A618D533A20026E3ACE335 /* Pods-FrameworkTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = FrameworkTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.FrameworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReduxVM.app/ReduxVM";
-			};
-			name = Release;
-		};
-		C3A970C925291B92003296E5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 236F4DA4B558BFFB6327D322 /* Pods-SwiftUITarget.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUITarget/Preview Content\"";
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftUITarget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.SwiftUITarget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		C3A970CA25291B92003296E5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96558DCF6CAF22E42E0ED349 /* Pods-SwiftUITarget.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUITarget/Preview Content\"";
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftUITarget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.SwiftUITarget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		C3A970CB25291B92003296E5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = SwiftUITargetTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.SwiftUITargetTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUITarget.app/SwiftUITarget";
-			};
-			name = Debug;
-		};
-		C3A970CC25291B92003296E5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = SwiftUITargetTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.SwiftUITargetTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUITarget.app/SwiftUITarget";
-			};
-			name = Release;
-		};
-		C3A970CD25291B92003296E5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = SwiftUITargetUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.SwiftUITargetUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SwiftUITarget;
-			};
-			name = Debug;
-		};
-		C3A970CE25291B92003296E5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = SwiftUITargetUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.SwiftUITargetUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SwiftUITarget;
-			};
-			name = Release;
-		};
-		C3DFBA9623787B32003259FF /* Debug */ = {
-			isa = XCBuildConfiguration;
+			baseConfigurationReference = 920A44A6A6D3F2F6B2F2B4A4 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1417,14 +1202,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42K94E5YQD;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1435,26 +1219,32 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		C3DFBA9723787B32003259FF /* Release */ = {
+		C32606F325701A24000405B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A074B9FE8FB19A39C8E5772 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1478,8 +1268,9 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 42K94E5YQD;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1490,244 +1281,735 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		C3DFBA9923787B32003259FF /* Debug */ = {
+		C326071125701A40000405B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29B9742E9F3B28A7237D4B1E /* Pods-ReduxVM.debug.xcconfig */;
+			baseConfigurationReference = 6BACA3F23D92025FD7FE6D89 /* Pods-SwiftUITarget.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUITarget/Preview Content\"";
 				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = ReduxVM/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
 					"$(inherited)",
-					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.ReduxVM;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = SwiftUITarget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.SwiftUITarget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		C3DFBA9A23787B32003259FF /* Release */ = {
+		C326071225701A40000405B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97D76AEB3D51AB384818841D /* Pods-ReduxVM.release.xcconfig */;
+			baseConfigurationReference = E771D6953AFC7E3055436937 /* Pods-SwiftUITarget.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUITarget/Preview Content\"";
 				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = ReduxVM/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.ReduxVM;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = SwiftUITarget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.SwiftUITarget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		C3DFBA9C23787B32003259FF /* Debug */ = {
+		OBJ_105 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7377340862E30CEFABED5E4C /* Pods-ReduxVMTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = ReduxVMTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.ReduxVMTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -package-description-version 5.3.0";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReduxVM.app/ReduxVM";
 			};
 			name = Debug;
 		};
-		C3DFBA9D23787B32003259FF /* Release */ = {
+		OBJ_106 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DF26B24CEB37EA86020DA0C /* Pods-ReduxVMTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = ReduxVMTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.ReduxVMTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -package-description-version 5.3.0";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReduxVM.app/ReduxVM";
 			};
 			name = Release;
 		};
-		C3DFBA9F23787B32003259FF /* Debug */ = {
+		OBJ_110 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7EEC29E4FE2AC1DD71EB263D /* Pods-ReduxVMUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = ReduxVMUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.ReduxVMUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/DifferenceKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = DifferenceKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ReduxVM;
+				TARGET_NAME = DifferenceKit;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		C3DFBAA023787B32003259FF /* Release */ = {
+		OBJ_111 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49F9C01A101BDF39251BDCF3 /* Pods-ReduxVMUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 42K94E5YQD;
-				INFOPLIST_FILE = ReduxVMUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kocherovets.ReduxVMUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/DifferenceKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = DifferenceKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ReduxVM;
+				TARGET_NAME = DifferenceKit;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -package-description-version 5.0.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_129 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -package-description-version 5.0.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/RedSwift_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = RedSwift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = RedSwift;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_135 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/RedSwift_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = RedSwift;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = RedSwift;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_151 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -package-description-version 5.3.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -package-description-version 5.3.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_157 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/ReduxVM_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ReduxVM;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = ReduxVM;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/ReduxVM_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ReduxVM;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = ReduxVM;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_175 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -package-description-version 5.3.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -package-description-version 5.3.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_181 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_182 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_186 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/ReduxVMTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = ReduxVMTests;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_187 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/ReduxVMTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = ReduxVMTests;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/DeclarativeTVC_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = DeclarativeTVC;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = DeclarativeTVC;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = ReduxVM.xcodeproj/DeclarativeTVC_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = DeclarativeTVC;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = DeclarativeTVC;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C3709F69239C598F00CC8DD8 /* Build configuration list for PBXNativeTarget "Framework" */ = {
+		C32606F425701A24000405B6 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3709F65239C598F00CC8DD8 /* Debug */,
-				C3709F66239C598F00CC8DD8 /* Release */,
+				C32606F225701A24000405B6 /* Debug */,
+				C32606F325701A24000405B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3709F6A239C598F00CC8DD8 /* Build configuration list for PBXNativeTarget "FrameworkTests" */ = {
+		C326071025701A40000405B6 /* Build configuration list for PBXNativeTarget "SwiftUITarget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3709F67239C598F00CC8DD8 /* Debug */,
-				C3709F68239C598F00CC8DD8 /* Release */,
+				C326071125701A40000405B6 /* Debug */,
+				C326071225701A40000405B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3A970CF25291B92003296E5 /* Build configuration list for PBXNativeTarget "SwiftUITarget" */ = {
+		OBJ_104 /* Build configuration list for PBXNativeTarget "DeclarativeTVCPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3A970C925291B92003296E5 /* Debug */,
-				C3A970CA25291B92003296E5 /* Release */,
+				OBJ_105 /* Debug */,
+				OBJ_106 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3A970D025291B92003296E5 /* Build configuration list for PBXNativeTarget "SwiftUITargetTests" */ = {
+		OBJ_109 /* Build configuration list for PBXNativeTarget "DifferenceKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3A970CB25291B92003296E5 /* Debug */,
-				C3A970CC25291B92003296E5 /* Release */,
+				OBJ_110 /* Debug */,
+				OBJ_111 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3A970D125291B92003296E5 /* Build configuration list for PBXNativeTarget "SwiftUITargetUITests" */ = {
+		OBJ_127 /* Build configuration list for PBXNativeTarget "DifferenceKitPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3A970CD25291B92003296E5 /* Debug */,
-				C3A970CE25291B92003296E5 /* Release */,
+				OBJ_128 /* Debug */,
+				OBJ_129 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3DFBA6623787B2F003259FF /* Build configuration list for PBXProject "ReduxVM" */ = {
+		OBJ_133 /* Build configuration list for PBXNativeTarget "RedSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3DFBA9623787B32003259FF /* Debug */,
-				C3DFBA9723787B32003259FF /* Release */,
+				OBJ_134 /* Debug */,
+				OBJ_135 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3DFBA9823787B32003259FF /* Build configuration list for PBXNativeTarget "ReduxVM" */ = {
+		OBJ_150 /* Build configuration list for PBXNativeTarget "RedSwiftPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3DFBA9923787B32003259FF /* Debug */,
-				C3DFBA9A23787B32003259FF /* Release */,
+				OBJ_151 /* Debug */,
+				OBJ_152 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3DFBA9B23787B32003259FF /* Build configuration list for PBXNativeTarget "ReduxVMTests" */ = {
+		OBJ_156 /* Build configuration list for PBXNativeTarget "ReduxVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3DFBA9C23787B32003259FF /* Debug */,
-				C3DFBA9D23787B32003259FF /* Release */,
+				OBJ_157 /* Debug */,
+				OBJ_158 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C3DFBA9E23787B32003259FF /* Build configuration list for PBXNativeTarget "ReduxVMUITests" */ = {
+		OBJ_174 /* Build configuration list for PBXNativeTarget "ReduxVMPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3DFBA9F23787B32003259FF /* Debug */,
-				C3DFBAA023787B32003259FF /* Release */,
+				OBJ_175 /* Debug */,
+				OBJ_176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_180 /* Build configuration list for PBXAggregateTarget "ReduxVMPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_181 /* Debug */,
+				OBJ_182 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_185 /* Build configuration list for PBXNativeTarget "ReduxVMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_186 /* Debug */,
+				OBJ_187 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "ReduxVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_82 /* Build configuration list for PBXNativeTarget "DeclarativeTVC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_83 /* Debug */,
+				OBJ_84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		C3DFBA7723787B2F003259FF /* ReduxVM.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C3DFBA7823787B2F003259FF /* ReduxVM.xcdatamodel */,
-			);
-			currentVersion = C3DFBA7823787B2F003259FF /* ReduxVM.xcdatamodel */;
-			path = ReduxVM.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
-	rootObject = C3DFBA6323787B2F003259FF /* Project object */;
+	rootObject = OBJ_1 /* Project object */;
 }

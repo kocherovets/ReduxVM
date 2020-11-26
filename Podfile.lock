@@ -1,46 +1,20 @@
 PODS:
-  - DeclarativeTVC (1.0.22):
-    - DifferenceKit
-  - DifferenceKit (1.1.5):
-    - DifferenceKit/Core (= 1.1.5)
-    - DifferenceKit/UIKitExtension (= 1.1.5)
-  - DifferenceKit/Core (1.1.5)
-  - DifferenceKit/UIKitExtension (1.1.5):
-    - DifferenceKit/Core
   - DITranquillity (4.1.5):
     - SwiftLazy (>= 1.1.6)
-  - RedSwift (1.0.29)
   - SwiftLazy (1.1.7)
 
 DEPENDENCIES:
-  - DeclarativeTVC
   - DITranquillity
-  - RedSwift (from `https://github.com/kocherovets/RedSwift.git`, branch `v2`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - DeclarativeTVC
-    - DifferenceKit
     - DITranquillity
     - SwiftLazy
 
-EXTERNAL SOURCES:
-  RedSwift:
-    :branch: v2
-    :git: https://github.com/kocherovets/RedSwift.git
-
-CHECKOUT OPTIONS:
-  RedSwift:
-    :commit: 0c6fc0f7e0ff62fc3d6fd25d5fb943f1ba980188
-    :git: https://github.com/kocherovets/RedSwift.git
-
 SPEC CHECKSUMS:
-  DeclarativeTVC: 4319606dbd28238905bac7b862614975b4085dc5
-  DifferenceKit: 516f12e336ed65a3a0665847b5c3cb5cad4bd4ea
   DITranquillity: 4ed798fa0fdbabe1b5d12829f0949e030b4d0e35
-  RedSwift: 2568779b0ab8ab94ad6e9ff2becc95c8881bdb7e
   SwiftLazy: dcb1edc6c2b633ba2e68f28554d9dd6d1c0bfd13
 
-PODFILE CHECKSUM: fcf61a89a8da384df9bfc1d0d3f35b7926ea74ec
+PODFILE CHECKSUM: 3be60a85db9f977ed64c03dc3888ed40358720c6
 
 COCOAPODS: 1.9.1

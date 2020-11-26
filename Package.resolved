@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DeclarativeTVC",
+        "repositoryURL": "https://github.com/kocherovets/DeclarativeTVC",
+        "state": {
+          "branch": null,
+          "revision": "06d017e5b0ccae9488ea7d8fda171418f3875fec",
+          "version": "1.0.22"
+        }
+      },
+      {
+        "package": "DifferenceKit",
+        "repositoryURL": "https://github.com/ra1028/DifferenceKit.git",
+        "state": {
+          "branch": null,
+          "revision": "14c66681e12a38b81045f44c6c29724a0d4b0e72",
+          "version": "1.1.5"
+        }
+      },
+      {
+        "package": "RedSwift",
+        "repositoryURL": "https://github.com/kocherovets/RedSwift",
+        "state": {
+          "branch": null,
+          "revision": "4139e8930b059b377440d4212509cf61a0339a22",
+          "version": "1.0.31"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
