@@ -134,7 +134,7 @@
 		076FB9B4A3A309C8407047CD25C9C37E /* Pods-SwiftUITarget-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftUITarget-frameworks.sh"; sourceTree = "<group>"; };
 		080C6FF0E29791057498576599AE5097 /* SwiftLazy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftLazy-umbrella.h"; sourceTree = "<group>"; };
 		0B03D950F9DFCFDE878675242C169ACA /* Pods-SwiftUITarget-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftUITarget-Info.plist"; sourceTree = "<group>"; };
-		107052419D395B615005FBB6A88AAC7B /* SwiftLazy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLazy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		107052419D395B615005FBB6A88AAC7B /* SwiftLazy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftLazy.framework; path = SwiftLazy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11458810C9C1EE548E598014736217CC /* ParsedType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParsedType.swift; path = Sources/Core/Internal/ParsedType.swift; sourceTree = "<group>"; };
 		124CCA747DB7F6CE97C03D23F3A5BCCC /* Pods-SwiftUITarget-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftUITarget-acknowledgements.plist"; sourceTree = "<group>"; };
 		135D395BAA5A4C8FC86E763104230B1E /* DIComponentBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DIComponentBuilder.swift; path = Sources/Core/API/DIComponentBuilder.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		1AA7E93C9EA960C5CE6E20BFEAEA73AB /* DIContainer+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DIContainer+Extensions.swift"; path = "Sources/Core/API/DIContainer+Extensions.swift"; sourceTree = "<group>"; };
 		1DDF58436BD3C09A3B1F03B37A7239E6 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		1ED208DFD175A50FAAC94AE4240BC48C /* DIStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DIStorage.swift; path = Sources/Core/API/DIStorage.swift; sourceTree = "<group>"; };
-		1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		201DB21C25CB4439F537FBF4B2E9AFBB /* SwiftLazy-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftLazy-Info.plist"; sourceTree = "<group>"; };
 		278D5F2635592C1C1370FDE98DD88906 /* Pods-SwiftUITarget.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftUITarget.modulemap"; sourceTree = "<group>"; };
 		27EE14C3EEA075BE5A93BBFB980C039C /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Swizzling.m"; path = "Sources/UI/InjectIntoSubviews/iOS-tvOS/UIViewController+Swizzling.m"; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 		453BA49AAC6CFB3C57718A7118653086 /* DITranquillity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DITranquillity.release.xcconfig; sourceTree = "<group>"; };
 		4573E4DCEDE44DF83E02C9F5983218E7 /* DITranquillity-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DITranquillity-Info.plist"; sourceTree = "<group>"; };
 		46700815B8C860B07F8D2F47840802EA /* ExtensionsContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionsContainer.swift; path = Sources/Core/Internal/ExtensionsContainer.swift; sourceTree = "<group>"; };
-		4795CFA6D3D3F2B27D2882961EE8736E /* Pods_SwiftUITarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUITarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4795CFA6D3D3F2B27D2882961EE8736E /* Pods_SwiftUITarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftUITarget.framework; path = "Pods-SwiftUITarget.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D5DDD3E0EEAAFBA28F7DA5E91F782CC /* DITranquillity-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DITranquillity-prefix.pch"; sourceTree = "<group>"; };
 		4D722872F48D1E63BF930DA3ECB54D19 /* FastLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FastLock.swift; path = Sources/Core/Internal/FastLock.swift; sourceTree = "<group>"; };
 		53E096310265F4C657DE2207739AFE45 /* DIPart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DIPart.swift; path = Sources/Core/API/Hierarchy/DIPart.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		972DA6D3334ED70046392B4B1916B68D /* DIVertex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DIVertex.swift; path = Sources/GraphAPI/DIVertex.swift; sourceTree = "<group>"; };
 		97FF6A239FE50444982410104BC2077B /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Sources/Core/Internal/Log.swift; sourceTree = "<group>"; };
 		98767141A7C0F5B2393B56FF336A35D6 /* DILifetime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DILifetime.swift; path = Sources/Core/API/DILifetime.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A0359E1E4A50B76E914B3DE43D11D9BB /* Pods-SwiftUITarget-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftUITarget-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A10357A8E444C7E57B0B37BE610AA576 /* UICollectionView+Swizzling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UICollectionView+Swizzling.m"; path = "Sources/UI/InjectIntoSubviews/iOS-tvOS/UICollectionView+Swizzling.m"; sourceTree = "<group>"; };
 		A80FCD86B0E0E28161A8ADDAC6644EC6 /* DISettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DISettings.swift; path = Sources/Core/API/DISettings.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		BFAD551FED0C2CC8D634C268B52F3DB8 /* DITranquillity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DITranquillity.h; path = Sources/DITranquillity.h; sourceTree = "<group>"; };
 		BFDC534D7ABF4DA70558B5004B19DD24 /* UITableView+Swizzling.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+Swizzling.m"; path = "Sources/UI/InjectIntoSubviews/iOS-tvOS/UITableView+Swizzling.m"; sourceTree = "<group>"; };
 		C0D3F1B7275DA870EC444C7A1222778B /* DIComponentPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DIComponentPriority.swift; path = Sources/Core/API/DIComponentPriority.swift; sourceTree = "<group>"; };
-		C65062AD530271648BE476C20AA34425 /* DITranquillity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DITranquillity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C65062AD530271648BE476C20AA34425 /* DITranquillity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DITranquillity.framework; path = DITranquillity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E4CAA029C525846AD2ED3B542A08BD /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
 		D6F8C4E6C4B840173DEA37A76923BA44 /* NSObject+Swizzling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+Swizzling.h"; path = "Sources/UI/Swizzling/NSObject+Swizzling.h"; sourceTree = "<group>"; };
 		D7CCFE73649C3D28EE3CCD2DDBA592F6 /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -300,6 +300,7 @@
 				7425A2F9D990CAF7389513EEDE4EF9BE /* SwiftLazy.h */,
 				A4271670D3614E8B038BA5B65AF0C6DB /* Support Files */,
 			);
+			name = SwiftLazy;
 			path = SwiftLazy;
 			sourceTree = "<group>";
 		};
@@ -399,6 +400,7 @@
 				E47A4C618796B316866999E6D846747D /* ViewController+Children.swift */,
 				5247D5081B1D1C9906AB2F3A0EA7E8D9 /* Support Files */,
 			);
+			name = DITranquillity;
 			path = DITranquillity;
 			sourceTree = "<group>";
 		};
@@ -602,7 +604,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -790,6 +792,7 @@
 			baseConfigurationReference = 1DDF58436BD3C09A3B1F03B37A7239E6 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -802,7 +805,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Example/Pods-Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
@@ -823,6 +826,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 453BA49AAC6CFB3C57718A7118653086 /* DITranquillity.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -835,7 +839,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DITranquillity/DITranquillity-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DITranquillity/DITranquillity-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/DITranquillity/DITranquillity.modulemap";
 				PRODUCT_MODULE_NAME = DITranquillity;
@@ -856,6 +860,7 @@
 			baseConfigurationReference = 71DB766A1AF022D9000009E2E0B0B185 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -868,7 +873,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Example/Pods-Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
@@ -912,7 +917,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -935,12 +939,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -951,6 +956,7 @@
 			baseConfigurationReference = 6C48072A4789925758031B3C1EA338CA /* Pods-SwiftUITarget.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -963,7 +969,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget.modulemap";
@@ -985,6 +991,7 @@
 			baseConfigurationReference = 5ACCEC7A19243004968F9502692897BF /* Pods-SwiftUITarget.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -997,7 +1004,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget.modulemap";
@@ -1019,6 +1026,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5628320A4FE324B65514ACC98DE36956 /* DITranquillity.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1031,7 +1039,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DITranquillity/DITranquillity-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DITranquillity/DITranquillity-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/DITranquillity/DITranquillity.modulemap";
 				PRODUCT_MODULE_NAME = DITranquillity;
@@ -1050,6 +1058,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 652D379F8472904179E04DA92834F034 /* SwiftLazy.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1062,7 +1071,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftLazy/SwiftLazy-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftLazy/SwiftLazy-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftLazy/SwiftLazy.modulemap";
 				PRODUCT_MODULE_NAME = SwiftLazy;
@@ -1082,6 +1091,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB4686ED19EDC24F28B8E50EB791D14B /* SwiftLazy.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1094,7 +1104,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftLazy/SwiftLazy-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftLazy/SwiftLazy-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftLazy/SwiftLazy.modulemap";
 				PRODUCT_MODULE_NAME = SwiftLazy;
@@ -1135,7 +1145,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1161,7 +1170,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
