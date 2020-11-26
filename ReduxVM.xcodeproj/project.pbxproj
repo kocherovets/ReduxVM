@@ -591,16 +591,16 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
+				OBJ_77 /* LICENSE */,
+				OBJ_78 /* README.md */,
+				OBJ_79 /* Podfile */,
+				OBJ_80 /* ReduxVM.podspec */,
 				OBJ_7 /* Sources */,
 				OBJ_15 /* Tests */,
 				OBJ_19 /* Dependencies */,
 				C32606E225701A23000405B6 /* Example */,
 				C326070525701A40000405B6 /* SwiftUITarget */,
 				OBJ_69 /* Products */,
-				OBJ_77 /* LICENSE */,
-				OBJ_78 /* README.md */,
-				OBJ_79 /* Podfile */,
-				OBJ_80 /* ReduxVM.podspec */,
 				5A0A0A1049B70D1E89B2C027 /* Pods */,
 				CB325C1643F99A49C59F4694 /* Frameworks */,
 			);
