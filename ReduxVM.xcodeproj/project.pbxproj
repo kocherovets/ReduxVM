@@ -29,7 +29,6 @@
 		C32606ED25701A24000405B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32606EC25701A24000405B6 /* Assets.xcassets */; };
 		C32606F025701A24000405B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32606EE25701A24000405B6 /* LaunchScreen.storyboard */; };
 		C326070725701A40000405B6 /* SwiftUITargetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326070625701A40000405B6 /* SwiftUITargetApp.swift */; };
-		C326070925701A40000405B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326070825701A40000405B6 /* ContentView.swift */; };
 		C326070B25701A40000405B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C326070A25701A40000405B6 /* Assets.xcassets */; };
 		C326070E25701A40000405B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C326070D25701A40000405B6 /* Preview Assets.xcassets */; };
 		C326075B25701ACC000405B6 /* ReduxVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; };
@@ -44,6 +43,13 @@
 		C326079E25701B89000405B6 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326079225701B89000405B6 /* UIColor+.swift */; };
 		C326079F25701B89000405B6 /* BaseWithProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326079325701B89000405B6 /* BaseWithProps.swift */; };
 		C32607A025701B89000405B6 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326079425701B89000405B6 /* BaseVC.swift */; };
+		C32607BD25701CCA000405B6 /* ApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32607B825701CCA000405B6 /* ApiInteractor.swift */; };
+		C32607BE25701CCA000405B6 /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32607B925701CCA000405B6 /* TestView2.swift */; };
+		C32607BF25701CCA000405B6 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32607BA25701CCA000405B6 /* TestView.swift */; };
+		C32607C025701CCA000405B6 /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32607BB25701CCA000405B6 /* CounterState.swift */; };
+		C32607C125701CCA000405B6 /* TestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32607BC25701CCA000405B6 /* TestStore.swift */; };
+		C32607DC25701CFA000405B6 /* ReduxVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; };
+		C32607DD25701CFA000405B6 /* ReduxVM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E882496DA5A250BC39194586 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3621D2D904C2962625B937DF /* Pods_Example.framework */; };
 		OBJ_100 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */; };
 		OBJ_108 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Package.swift */; };
@@ -174,6 +180,13 @@
 			remoteGlobalIDString = "ReduxVM::ReduxVM";
 			remoteInfo = ReduxVM;
 		};
+		C32607DE25701CFA000405B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "ReduxVM::ReduxVM";
+			remoteInfo = ReduxVM;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -184,6 +197,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C326075C25701ACC000405B6 /* ReduxVM.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C32607E025701CFA000405B6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C32607DD25701CFA000405B6 /* ReduxVM.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,7 +229,6 @@
 		C32606F125701A24000405B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C326070425701A40000405B6 /* SwiftUITarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C326070625701A40000405B6 /* SwiftUITargetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITargetApp.swift; sourceTree = "<group>"; };
-		C326070825701A40000405B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C326070A25701A40000405B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C326070D25701A40000405B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C326070F25701A40000405B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,6 +242,11 @@
 		C326079225701B89000405B6 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		C326079325701B89000405B6 /* BaseWithProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWithProps.swift; sourceTree = "<group>"; };
 		C326079425701B89000405B6 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		C32607B825701CCA000405B6 /* ApiInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiInteractor.swift; sourceTree = "<group>"; };
+		C32607B925701CCA000405B6 /* TestView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
+		C32607BA25701CCA000405B6 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		C32607BB25701CCA000405B6 /* CounterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
+		C32607BC25701CCA000405B6 /* TestStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStore.swift; sourceTree = "<group>"; };
 		"DeclarativeTVC::DeclarativeTVC::Product" /* DeclarativeTVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeclarativeTVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DifferenceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E771D6953AFC7E3055436937 /* Pods-SwiftUITarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUITarget.release.xcconfig"; path = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget.release.xcconfig"; sourceTree = "<group>"; };
@@ -270,7 +298,6 @@
 		OBJ_66 /* AppKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitExtension.swift; sourceTree = "<group>"; };
 		OBJ_67 /* UIKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
 		OBJ_68 /* StagedChangeset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedChangeset.swift; sourceTree = "<group>"; };
-		OBJ_76 /* SwiftUITarget */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftUITarget; sourceTree = SOURCE_ROOT; };
 		OBJ_77 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		OBJ_78 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_79 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -323,6 +350,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C32607DC25701CFA000405B6 /* ReduxVM.framework in Frameworks */,
 				42270F9D1A0490DD51F0C9D6 /* Pods_SwiftUITarget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,7 +440,11 @@
 			isa = PBXGroup;
 			children = (
 				C326070625701A40000405B6 /* SwiftUITargetApp.swift */,
-				C326070825701A40000405B6 /* ContentView.swift */,
+				C32607B825701CCA000405B6 /* ApiInteractor.swift */,
+				C32607BB25701CCA000405B6 /* CounterState.swift */,
+				C32607BC25701CCA000405B6 /* TestStore.swift */,
+				C32607BA25701CCA000405B6 /* TestView.swift */,
+				C32607B925701CCA000405B6 /* TestView2.swift */,
 				C326070A25701A40000405B6 /* Assets.xcassets */,
 				C326070F25701A40000405B6 /* Info.plist */,
 				C326070C25701A40000405B6 /* Preview Content */,
@@ -565,7 +597,6 @@
 				C32606E225701A23000405B6 /* Example */,
 				C326070525701A40000405B6 /* SwiftUITarget */,
 				OBJ_69 /* Products */,
-				OBJ_76 /* SwiftUITarget */,
 				OBJ_77 /* LICENSE */,
 				OBJ_78 /* README.md */,
 				OBJ_79 /* Podfile */,
@@ -673,10 +704,12 @@
 				C326070125701A40000405B6 /* Frameworks */,
 				C326070225701A40000405B6 /* Resources */,
 				7D7980B6437022E6D6999BE9 /* [CP] Embed Pods Frameworks */,
+				C32607E025701CFA000405B6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C32607DF25701CFA000405B6 /* PBXTargetDependency */,
 			);
 			name = SwiftUITarget;
 			productName = SwiftUITarget;
@@ -1016,8 +1049,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C326070925701A40000405B6 /* ContentView.swift in Sources */,
+				C32607BF25701CCA000405B6 /* TestView.swift in Sources */,
+				C32607C125701CCA000405B6 /* TestStore.swift in Sources */,
+				C32607C025701CCA000405B6 /* CounterState.swift in Sources */,
 				C326070725701A40000405B6 /* SwiftUITargetApp.swift in Sources */,
+				C32607BD25701CCA000405B6 /* ApiInteractor.swift in Sources */,
+				C32607BE25701CCA000405B6 /* TestView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1139,6 +1176,11 @@
 			isa = PBXTargetDependency;
 			target = "ReduxVM::ReduxVM" /* ReduxVM */;
 			targetProxy = C326075D25701ACD000405B6 /* PBXContainerItemProxy */;
+		};
+		C32607DF25701CFA000405B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "ReduxVM::ReduxVM" /* ReduxVM */;
+			targetProxy = C32607DE25701CFA000405B6 /* PBXContainerItemProxy */;
 		};
 		OBJ_101 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

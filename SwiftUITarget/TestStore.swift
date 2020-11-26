@@ -7,6 +7,7 @@
 //
 
 import RedSwift
+import Foundation
 
 func delay(_ delay: Double, closure: @escaping () -> ()) {
     let when = DispatchTime.now() + delay

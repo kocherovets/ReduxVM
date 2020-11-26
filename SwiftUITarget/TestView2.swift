@@ -8,7 +8,7 @@
 
 import SwiftUI
 import DITranquillity
-import Framework
+import ReduxVM
 import RedSwift
 import Combine
 import DeclarativeTVC
