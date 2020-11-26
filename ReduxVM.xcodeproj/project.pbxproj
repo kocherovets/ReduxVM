@@ -34,6 +34,16 @@
 		C326070E25701A40000405B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C326070D25701A40000405B6 /* Preview Assets.xcassets */; };
 		C326075B25701ACC000405B6 /* ReduxVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; };
 		C326075C25701ACC000405B6 /* ReduxVM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C326079725701B89000405B6 /* CounterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326078B25701B89000405B6 /* CounterState.swift */; };
+		C326079825701B89000405B6 /* ChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326078C25701B89000405B6 /* ChildVC.swift */; };
+		C326079925701B89000405B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326078D25701B89000405B6 /* SceneDelegate.swift */; };
+		C326079A25701B89000405B6 /* TestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326078E25701B89000405B6 /* TestStore.swift */; };
+		C326079B25701B89000405B6 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326078F25701B89000405B6 /* ApiService.swift */; };
+		C326079C25701B89000405B6 /* MenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326079025701B89000405B6 /* MenuTVC.swift */; };
+		C326079D25701B89000405B6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326079125701B89000405B6 /* Router.swift */; };
+		C326079E25701B89000405B6 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326079225701B89000405B6 /* UIColor+.swift */; };
+		C326079F25701B89000405B6 /* BaseWithProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326079325701B89000405B6 /* BaseWithProps.swift */; };
+		C32607A025701B89000405B6 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326079425701B89000405B6 /* BaseVC.swift */; };
 		E882496DA5A250BC39194586 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3621D2D904C2962625B937DF /* Pods_Example.framework */; };
 		OBJ_100 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */; };
 		OBJ_108 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Package.swift */; };
@@ -199,6 +209,16 @@
 		C326070A25701A40000405B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C326070D25701A40000405B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C326070F25701A40000405B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C326078B25701B89000405B6 /* CounterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
+		C326078C25701B89000405B6 /* ChildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildVC.swift; sourceTree = "<group>"; };
+		C326078D25701B89000405B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C326078E25701B89000405B6 /* TestStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStore.swift; sourceTree = "<group>"; };
+		C326078F25701B89000405B6 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		C326079025701B89000405B6 /* MenuTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTVC.swift; sourceTree = "<group>"; };
+		C326079125701B89000405B6 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		C326079225701B89000405B6 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		C326079325701B89000405B6 /* BaseWithProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWithProps.swift; sourceTree = "<group>"; };
+		C326079425701B89000405B6 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		"DeclarativeTVC::DeclarativeTVC::Product" /* DeclarativeTVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeclarativeTVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DifferenceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E771D6953AFC7E3055436937 /* Pods-SwiftUITarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUITarget.release.xcconfig"; path = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget.release.xcconfig"; sourceTree = "<group>"; };
@@ -368,8 +388,18 @@
 			isa = PBXGroup;
 			children = (
 				C32606E325701A23000405B6 /* AppDelegate.swift */,
+				C326079025701B89000405B6 /* MenuTVC.swift */,
+				C326079125701B89000405B6 /* Router.swift */,
 				C32606E525701A23000405B6 /* SceneDelegate.swift */,
 				C32606E725701A23000405B6 /* ViewController.swift */,
+				C326078F25701B89000405B6 /* ApiService.swift */,
+				C326079425701B89000405B6 /* BaseVC.swift */,
+				C326079325701B89000405B6 /* BaseWithProps.swift */,
+				C326078C25701B89000405B6 /* ChildVC.swift */,
+				C326078B25701B89000405B6 /* CounterState.swift */,
+				C326078D25701B89000405B6 /* SceneDelegate.swift */,
+				C326078E25701B89000405B6 /* TestStore.swift */,
+				C326079225701B89000405B6 /* UIColor+.swift */,
 				C32606E925701A23000405B6 /* Main.storyboard */,
 				C32606EC25701A24000405B6 /* Assets.xcassets */,
 				C32606EE25701A24000405B6 /* LaunchScreen.storyboard */,
@@ -966,9 +996,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C326079825701B89000405B6 /* ChildVC.swift in Sources */,
+				C326079A25701B89000405B6 /* TestStore.swift in Sources */,
+				C326079D25701B89000405B6 /* Router.swift in Sources */,
 				C32606E825701A23000405B6 /* ViewController.swift in Sources */,
+				C326079E25701B89000405B6 /* UIColor+.swift in Sources */,
+				C326079C25701B89000405B6 /* MenuTVC.swift in Sources */,
 				C32606E425701A23000405B6 /* AppDelegate.swift in Sources */,
+				C326079725701B89000405B6 /* CounterState.swift in Sources */,
+				C32607A025701B89000405B6 /* BaseVC.swift in Sources */,
 				C32606E625701A23000405B6 /* SceneDelegate.swift in Sources */,
+				C326079F25701B89000405B6 /* BaseWithProps.swift in Sources */,
+				C326079B25701B89000405B6 /* ApiService.swift in Sources */,
+				C326079925701B89000405B6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
