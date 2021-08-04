@@ -6,33 +6,28 @@
 //  Copyright © 2019 Dmitry Kocherovets. All rights reserved.
 //
 
-import UIKit
 import DeclarativeTVC
-import RedSwift
+import UIKit
 
 public protocol Properties {
-
 }
 
 public enum ReactionToState {
-    case router(Command)
-    case command(Command)
     case props
     case none
 }
 
-public protocol PresenterProtocol {
-
+public protocol PresenterProtocol: AnyObject {
     func onInit()
     func onDeinit()
-    func subscribe()
-    func unsubscribe()
+//    func subscribe()
+//    func unsubscribe()
 }
 
-open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsReceiver>: StoreSubscriber, PresenterProtocol, Trunk {
-
+open class PresenterBase<State: StateType, Props: Properties, PR: PropsReceiver>: StateSubscriber, PresenterProtocol, Trunk {
     public weak var propsReceiver: PR! {
         didSet {
+            propsReceiver.presenter = self
             stateChanged(box: store.box)
         }
     }
@@ -59,23 +54,21 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
 
     open func onInit(state: State, trunk: Trunk) { }
     open func onDeinit(state: State, trunk: Trunk) { }
-    
+
     private var firstPass = true
 
     public final func subscribe() {
-        
         firstPass = true
-        
+
         store.queue.async { [weak self] in
 
             guard let self = self else { return }
 
-            self.store.subscribe(self)
+            self.store.stateSubscribe(self)
         }
     }
 
     public final func unsubscribe() {
-
         store.queue.async { [weak self] in
 
             guard let self = self else { return }
@@ -85,19 +78,11 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
     }
 
     public final func stateChanged(box: StateBox<State>) {
-
         if firstPass {
             firstPass = false
             propsReceiver?.set(newProps: props(for: box, trunk: self))
-        }
-        else {
+        } else {
             switch reaction(for: box) {
-            case .router(let command):
-                DispatchQueue.main.async {
-                    command.perform()
-                }
-            case .command(let command):
-                command.perform()
             case .props:
                 propsReceiver?.set(newProps: props(for: box, trunk: self))
             case .none:
@@ -107,12 +92,10 @@ open class PresenterBase<State: RootStateType, Props: Properties, PR: PropsRecei
     }
 
     open func reaction(for box: StateBox<State>) -> ReactionToState {
-
         return .props
     }
 
     open func props(for box: StateBox<State>, trunk: Trunk) -> Props? {
-
         return nil
     }
 }

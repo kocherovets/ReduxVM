@@ -8,7 +8,6 @@
 
 import UIKit
 import DeclarativeTVC
-import RedSwift
 
 public struct CollectionProps: CollectionProperties, Equatable {
 
@@ -62,7 +61,7 @@ open class CVC: DeclarativeCVC {
         if ReduxVMSettings.logSubscribeMessages {
             print("subscribe presenter \(type(of: self))")
         }
-        presenter?.subscribe()
+//        presenter?.subscribe()
     }
 
     override open func viewWillDisappear(_ animated: Bool) {
@@ -71,7 +70,7 @@ open class CVC: DeclarativeCVC {
         if ReduxVMSettings.logSubscribeMessages {
             print("unsubscribe presenter \(type(of: self))")
         }
-        presenter?.unsubscribe()
+//        presenter?.unsubscribe()
     }
 
     open func render() {

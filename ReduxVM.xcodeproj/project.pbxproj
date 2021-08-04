@@ -50,6 +50,7 @@
 		C32607C125701CCA000405B6 /* TestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32607BC25701CCA000405B6 /* TestStore.swift */; };
 		C32607DC25701CFA000405B6 /* ReduxVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; };
 		C32607DD25701CFA000405B6 /* ReduxVM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "ReduxVM::ReduxVM::Product" /* ReduxVM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C3DF38A5259FFF5A00182A07 /* GraphPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF38A4259FFF5A00182A07 /* GraphPresenter.swift */; };
 		E882496DA5A250BC39194586 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3621D2D904C2962625B937DF /* Pods_Example.framework */; };
 		OBJ_100 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */; };
 		OBJ_108 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Package.swift */; };
@@ -247,6 +248,7 @@
 		C32607BA25701CCA000405B6 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		C32607BB25701CCA000405B6 /* CounterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterState.swift; sourceTree = "<group>"; };
 		C32607BC25701CCA000405B6 /* TestStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStore.swift; sourceTree = "<group>"; };
+		C3DF38A4259FFF5A00182A07 /* GraphPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphPresenter.swift; sourceTree = "<group>"; };
 		"DeclarativeTVC::DeclarativeTVC::Product" /* DeclarativeTVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeclarativeTVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DifferenceKit::DifferenceKit::Product" /* DifferenceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DifferenceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E771D6953AFC7E3055436937 /* Pods-SwiftUITarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUITarget.release.xcconfig"; path = "Target Support Files/Pods-SwiftUITarget/Pods-SwiftUITarget.release.xcconfig"; sourceTree = "<group>"; };
@@ -662,6 +664,7 @@
 			children = (
 				OBJ_9 /* CVC.swift */,
 				OBJ_10 /* Presenter.swift */,
+				C3DF38A4259FFF5A00182A07 /* GraphPresenter.swift */,
 				OBJ_11 /* ReduxVMSettings.swift */,
 				OBJ_12 /* SwiftUIPresenter.swift */,
 				OBJ_13 /* TVC.swift */,
@@ -1128,6 +1131,7 @@
 				OBJ_162 /* ReduxVMSettings.swift in Sources */,
 				OBJ_163 /* SwiftUIPresenter.swift in Sources */,
 				OBJ_164 /* TVC.swift in Sources */,
+				C3DF38A5259FFF5A00182A07 /* GraphPresenter.swift in Sources */,
 				OBJ_165 /* VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

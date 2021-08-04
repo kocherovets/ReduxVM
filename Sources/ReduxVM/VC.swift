@@ -7,37 +7,34 @@
 //
 
 import Foundation
-import RedSwift
 import UIKit
 
-public protocol PropsReceiver: class {
-
-    associatedtype Props: Properties, Equatable
+public protocol PropsReceiver: UIViewController {
+    associatedtype PropsType: Properties, Equatable
 
     var skipEqualProps: Bool { get }
 
     var generalProps: Properties? { get }
-    var props: Props? { get }
+    var props: PropsType? { get }
 
     func set(newProps: Properties?)
 
     func applyProps(newProps: Properties?)
     func render()
+
+    var presenter: PresenterProtocol? { get set }
 }
 
-public protocol TablePropsReceiver: PropsReceiver where Props: TableProperties {
-
+public protocol TablePropsReceiver: PropsReceiver where PropsType: TableProperties {
 }
 
 extension PropsReceiver {
-
-    public var props: Props? { generalProps as? Props }
+    public var props: PropsType? { generalProps as? PropsType }
 
     public var skipEqualProps: Bool { false }
 
     public func set(newProps: Properties?) {
-
-        if let newProps = newProps as? Props {
+        if let newProps = newProps as? PropsType {
             if skipEqualProps, let currentProps = props, currentProps == newProps {
                 if ReduxVMSettings.logSkipRenderMessages {
                     print("skip render \(type(of: self))")
@@ -64,32 +61,31 @@ extension PropsReceiver {
 }
 
 open class VC: UIViewController {
-
     public var presenter: PresenterProtocol?
 
     private var _props: Properties?
     public final var generalProps: Properties? {
         return _props
     }
+
     private var renderOnViewWillAppear = true
     private var uiIsReady = false
     private var workItem: DispatchWorkItem?
 
     public func applyProps(newProps: Properties?) {
-
-        self.renderOnViewWillAppear = true
+        renderOnViewWillAppear = true
 
         if let props = newProps {
-            self._props = props
+            _props = props
         } else {
-            self._props = nil
+            _props = nil
         }
 
-        if self.uiIsReady {
+        if uiIsReady {
             if ReduxVMSettings.logRenderMessages {
                 print("render \(type(of: self))")
             }
-            self.render()
+            render()
         }
     }
 
@@ -98,34 +94,34 @@ open class VC: UIViewController {
 
         uiIsReady = true
 
-        presenter?.onInit()
+//        presenter?.onInit()
+
+        render()
     }
 
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if ReduxVMSettings.logSubscribeMessages {
-            print("subscribe presenter \(type(of: self))")
-        }
-        presenter?.subscribe()
+//        if ReduxVMSettings.logSubscribeMessages {
+//            print("subscribe presenter \(type(of: self))")
+//        }
+//        presenter?.subscribe()
 
-        if renderOnViewWillAppear {
-            render()
-        }
-        renderOnViewWillAppear = false
+//        if renderOnViewWillAppear {
+//            render()
+//        }
+//        renderOnViewWillAppear = false
     }
 
     override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if ReduxVMSettings.logSubscribeMessages {
-            print("unsubscribe presenter \(type(of: self))")
-        }
-        presenter?.unsubscribe()
+//        if ReduxVMSettings.logSubscribeMessages {
+//            print("unsubscribe presenter \(type(of: self))")
+//        }
+//        presenter?.unsubscribe()
     }
 
     open func render() {
-
     }
 }
-
